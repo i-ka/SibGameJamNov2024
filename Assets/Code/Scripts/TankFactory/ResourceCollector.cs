@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace SibGameJam.TankFactory
 {
+    /// <summary>
+    /// Implements logic allowing player to collect resources
+    /// </summary>
     public class ResourceCollector : MonoBehaviour
     {
         public event Action<Resource, ResourceCollector> OnResourceCollectionStarted;
