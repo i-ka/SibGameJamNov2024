@@ -52,7 +52,7 @@ namespace SibGameJam.Health
 
         #region Methods
 
-        private void AddHealth(int value)
+        public void AddHealth(int value)
         {
             if (isDead) return;
 
@@ -65,7 +65,7 @@ namespace SibGameJam.Health
 
         }
 
-        private void ReduceHealth(int value)
+        public void ReduceHealth(int value)
         {
             if (isDead) return;
 
