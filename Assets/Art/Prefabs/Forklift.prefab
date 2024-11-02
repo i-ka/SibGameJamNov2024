@@ -588,7 +588,7 @@ GameObject:
   - component: {fileID: 2926739218305261741}
   - component: {fileID: 2430504276918046816}
   m_Layer: 0
-  m_Name: PlayerForkliftTest
+  m_Name: Forklift
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1953,7 +1953,7 @@ GameObject:
   - component: {fileID: 5170391992306809250}
   - component: {fileID: 1591702914899173092}
   m_Layer: 0
-  m_Name: ForkliftBody
+  m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
