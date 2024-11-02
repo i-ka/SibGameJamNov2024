@@ -4,20 +4,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace SibGameJam.Health
+namespace Code.Scripts.HealthSystem
 {
-    public class HealthController : MonoBehaviour
-    {
-        #region Components
+	public class HealthController : MonoBehaviour
+	{
+#region Properties
 
         [SerializeField] private PlayerHUD playerHUD;
 
         #endregion
 
-        #region Variables
-        // serializable
-        [Header("Health paramaters")]
-        [SerializeField] private int maxHealth;
+#endregion
 
         // private
         private int currentHealth;
@@ -25,26 +22,28 @@ namespace SibGameJam.Health
         private int lastDamageValue;
         private int lastRepairValue;
 
-        #endregion
+		public void Init()
+		{
+			_currentHealth = _maxHealth;
+		}
 
-        #region Events
+#endregion
 
         [SerializeField] private UnityEvent<int, int, int> OnObjectRepaired;
         [SerializeField] private UnityEvent<int, int, int> OnObjectDamaged;
         [SerializeField] private UnityEvent OnObjectDestroyed;
 
-        #endregion
+#endregion
 
-        #region Properties
+#region Events
 
-        private float GetLastDamage()
-        {
-            return lastDamageValue;
-        }
+		[SerializeField] private UnityEvent<int> _onObjectRepaired;
+		[SerializeField] private UnityEvent<int> _onObjectDamaged;
+		[SerializeField] private UnityEvent _onObjectDestroyed;
 
-        #endregion
+#endregion
 
-        #region Init
+#region Methods
 
         public void Init()
         {
@@ -53,16 +52,23 @@ namespace SibGameJam.Health
             OnObjectRepaired.Invoke(0, currentHealth, maxHealth);
         }
 
-        #endregion
+			// TODO
+			// calculate value btw last and current value for correct values
 
-        #region Methods
+			_lastRepairValue = value;
+			_currentHealth = Mathf.Clamp(_currentHealth + _lastRepairValue, 0, _maxHealth);
+			_onObjectRepaired.Invoke(_lastRepairValue);
+		}
 
-        public void AddHealth(int value)
-        {
-            if (isDead) return;
+		public void ReduceHealth(int value)
+		{
+			if (_isDead)
+			{
+				return;
+			}
 
-            // TODO
-            // calculate value btw last and current value for correct values
+			// TODO
+			// calculate value btw last and current value for correct values
 
             lastRepairValue = value;
             currentHealth = Mathf.Clamp(currentHealth + lastRepairValue, 0, maxHealth);
