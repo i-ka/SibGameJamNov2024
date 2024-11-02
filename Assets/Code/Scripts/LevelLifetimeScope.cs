@@ -1,5 +1,6 @@
 using SibGameJam.GameServices;
 using SibGameJam.ScriptableObjects;
+using SibGameJam.Ui;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -10,6 +11,10 @@ namespace SibGameJam
     {
         [SerializeField]
         private PlayerLevelingConfiguration _levelingConfiguration;
+        
+        [SerializeField]
+        private LevelingUi _levelingUi;
+
         [SerializeField]
         private FactoryUpgradeSettings _factoryUpgradeSettings;
 
