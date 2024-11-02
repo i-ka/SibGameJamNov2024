@@ -18,7 +18,7 @@ namespace SibGameJam
         public ResearchManager(PlayerLevelingConfiguration levelingConfiguration)
         {
             _playerLevelingConfiguration = levelingConfiguration;
-            CurrentLevel = 1;
+            UpdateCurrentLevelState();
         }
 
         public void AddResearchPoints(int researchPoints)
