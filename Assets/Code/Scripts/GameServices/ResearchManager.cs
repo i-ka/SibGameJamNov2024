@@ -13,6 +13,7 @@ namespace SibGameJam
         private readonly PlayerLevelingConfiguration _playerLevelingConfiguration;
         private int _currentPoints;
         private event Action<int> OnLevelUp;
+        private event Action<int, int> OnPointsAdded;
 
         public ResearchManager(PlayerLevelingConfiguration levelingConfiguration)
         {
@@ -23,8 +24,8 @@ namespace SibGameJam
         {
             _currentPoints += researchPoints;
             UpdateCurrentLevelState();
+            OnPointsAdded?.Invoke(PointsInCurrentLevel, NextLevelLevelPoints);
         }
-
 
         private void UpdateCurrentLevelState()
         {
