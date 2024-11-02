@@ -1,5 +1,5 @@
-using SibGameJam.Pool;
-using SibGameJam.TankAI;
+using Code.Scripts.AI.Data;
+using Code.Scripts.Pool;
 using UnityEngine;
 
 public class TankPoolAI : MonoBehaviour
@@ -16,7 +16,7 @@ public class TankPoolAI : MonoBehaviour
     private void Awake()
     {
         shellPool = new PoolMono<TankShell>(shellPrefab, poolCount, transform);
-        shellPool.autoExpand = autoExpand;
+        shellPool.AutoExpand = autoExpand;
     }
 
     public void CreateShell(Transform spawnPoint)

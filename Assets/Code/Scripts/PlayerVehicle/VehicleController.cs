@@ -1,5 +1,5 @@
+using Code.Scripts.HealthSystem;
 using UnityEngine;
-using SibGameJam.Health;
 
 
 #if UNITY_EDITOR
