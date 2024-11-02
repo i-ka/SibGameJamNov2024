@@ -1,4 +1,6 @@
 using UnityEngine;
+using SibGameJam.Health;
+
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -12,10 +14,9 @@ namespace FS.Gameplay.PlayerVehicle
 
         [Header("Custom Components")]
         [SerializeField] private MovementController movementController;
-        [SerializeField] private ForkliftController forkliftController;
         [SerializeField] private CameraController cameraController;
         [SerializeField] private InputController inputController;
-        [SerializeField] private SoundController soundController;
+        [SerializeField] private HealthController healthController;
 
         #endregion
 
@@ -34,13 +35,13 @@ namespace FS.Gameplay.PlayerVehicle
 
         private void Awake()
         {
+            AddComponents();
+
             if (CheckComponents())
             {
                 movementController.Init();
-                forkliftController.Init();
                 cameraController.Init();
                 inputController.Init();
-                soundController.Init();
 
                 Debug.Log($"{gameObject.name} initialized successfully!");
                 Debug.Log($"{gameObject.name} ready to go!");
@@ -55,7 +56,13 @@ namespace FS.Gameplay.PlayerVehicle
             }
 
             enableInput = true;
+        }
 
+        private void AddComponents()
+        {
+            movementController ??= GetComponentInChildren<MovementController>();
+            cameraController ??= GetComponentInChildren<CameraController>();
+            inputController ??= GetComponentInChildren<InputController>();
 
         }
 
@@ -66,11 +73,6 @@ namespace FS.Gameplay.PlayerVehicle
                 Debug.LogError($"No {movementController} in {gameObject.name}");
                 return false;
             }
-            if (!forkliftController)
-            {
-                Debug.LogError($"No {forkliftController} in {gameObject.name}");
-                return false;
-            }
             if (!cameraController)
             {
                 Debug.LogError($"No {cameraController} in {gameObject.name}");
@@ -79,11 +81,6 @@ namespace FS.Gameplay.PlayerVehicle
             if (!inputController)
             {
                 Debug.LogError($"No {inputController} in {gameObject.name}");
-                return false;
-            }
-            if (!soundController)
-            {
-                Debug.LogError($"No {soundController} in {gameObject.name}");
                 return false;
             }
 
@@ -143,12 +140,7 @@ namespace FS.Gameplay.PlayerVehicle
 
         private void OnValidate()
         {
-            // custom
-            movementController ??= GetComponentInChildren<MovementController>();
-            forkliftController ??= GetComponentInChildren<ForkliftController>();
-            cameraController ??= GetComponentInChildren<CameraController>();
-            inputController ??= GetComponentInChildren<InputController>();
-            soundController ??= GetComponentInChildren<SoundController>();
+            AddComponents();
         }
 
         #endregion
