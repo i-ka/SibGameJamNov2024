@@ -21,6 +21,4 @@ public class TestTankMove : MonoBehaviour, ITank
         }
 
     }
-
-
 }
