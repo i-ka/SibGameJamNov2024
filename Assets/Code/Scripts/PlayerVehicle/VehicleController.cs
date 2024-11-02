@@ -1,5 +1,7 @@
 using UnityEngine;
 using SibGameJam.Health;
+using SibGameJam.HUD;
+
 
 
 #if UNITY_EDITOR
@@ -17,7 +19,7 @@ namespace FS.Gameplay.PlayerVehicle
         [SerializeField] private CameraController cameraController;
         [SerializeField] private InputController inputController;
         [SerializeField] private HealthController healthController;
-
+        [SerializeField] private PlayerHUD playerHUD;
         #endregion
 
         #region Variables
@@ -42,6 +44,8 @@ namespace FS.Gameplay.PlayerVehicle
                 movementController.Init();
                 cameraController.Init();
                 inputController.Init();
+                healthController.Init();
+                playerHUD.Init();
 
                 Debug.Log($"{gameObject.name} initialized successfully!");
                 Debug.Log($"{gameObject.name} ready to go!");
@@ -63,7 +67,8 @@ namespace FS.Gameplay.PlayerVehicle
             movementController ??= GetComponentInChildren<MovementController>();
             cameraController ??= GetComponentInChildren<CameraController>();
             inputController ??= GetComponentInChildren<InputController>();
-
+            healthController ??= GetComponent<HealthController>();
+            playerHUD ??= GetComponentInChildren<PlayerHUD>();
         }
 
         private bool CheckComponents()
@@ -83,6 +88,16 @@ namespace FS.Gameplay.PlayerVehicle
                 Debug.LogError($"No {inputController} in {gameObject.name}");
                 return false;
             }
+            if (!healthController)
+            {
+                Debug.LogError($"No {healthController} in {gameObject.name}");
+                return false;
+            }
+            if (!playerHUD)
+            {
+                Debug.LogError($"No {playerHUD} in {gameObject.name}");
+                return false;
+            }
 
             return true;
         }
@@ -93,16 +108,26 @@ namespace FS.Gameplay.PlayerVehicle
 
         private void Update()
         {
+            UIUpdate();
+
             if (!enableInput) return;
 
             MovementUpdate();
             CameraUpdate();
+
+        }
+
+        private void UIUpdate()
+        {
+            playerHUD.SetTankSpeed(movementController.GetSpeedInKmpH);
+            playerHUD.SetTankPosition(movementController.GetPosition.position);
         }
 
         private void MovementUpdate()
         {
             movementController.UpdateController();
             movementController.SetInput(inputController.GetDriveAxis());
+
         }
 
         private void CameraUpdate()

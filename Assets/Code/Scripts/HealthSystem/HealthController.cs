@@ -1,3 +1,4 @@
+using SibGameJam.HUD;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,8 @@ namespace SibGameJam.Health
     {
         #region Components
 
+        [SerializeField] private PlayerHUD playerHUD;
+
         #endregion
 
         #region Variables
@@ -17,7 +20,7 @@ namespace SibGameJam.Health
         [SerializeField] private int maxHealth;
 
         // private
-        private float currentHealth;
+        private int currentHealth;
         private bool isDead = false;
         private int lastDamageValue;
         private int lastRepairValue;
@@ -26,8 +29,8 @@ namespace SibGameJam.Health
 
         #region Events
 
-        [SerializeField] private UnityEvent<int> OnObjectRepaired;
-        [SerializeField] private UnityEvent<int> OnObjectDamaged;
+        [SerializeField] private UnityEvent<int, int, int> OnObjectRepaired;
+        [SerializeField] private UnityEvent<int, int, int> OnObjectDamaged;
         [SerializeField] private UnityEvent OnObjectDestroyed;
 
         #endregion
@@ -46,6 +49,8 @@ namespace SibGameJam.Health
         public void Init()
         {
             currentHealth = maxHealth;
+            Debug.Log("Hello");
+            OnObjectRepaired.Invoke(0, currentHealth, maxHealth);
         }
 
         #endregion
@@ -61,7 +66,7 @@ namespace SibGameJam.Health
 
             lastRepairValue = value;
             currentHealth = Mathf.Clamp(currentHealth + lastRepairValue, 0, maxHealth);
-            OnObjectRepaired.Invoke(lastRepairValue);
+            OnObjectRepaired.Invoke(lastRepairValue, currentHealth, maxHealth);
 
         }
 
@@ -74,7 +79,7 @@ namespace SibGameJam.Health
 
             lastDamageValue = value;
             currentHealth = Mathf.Clamp(currentHealth - lastDamageValue, 0, maxHealth);
-            OnObjectDamaged.Invoke(lastDamageValue);
+            OnObjectDamaged.Invoke(lastDamageValue, currentHealth, maxHealth);
 
             if (currentHealth <= 0)
             {

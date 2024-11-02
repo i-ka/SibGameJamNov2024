@@ -23325,14 +23325,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5061434366373016684, guid: e3d85d15c247c3c44a0896490176bb19, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.024
-      objectReference: {fileID: 0}
-    - target: {fileID: 6879253745551360969, guid: e3d85d15c247c3c44a0896490176bb19, type: 3}
-      propertyPath: brakingForce
-      value: 3500
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
