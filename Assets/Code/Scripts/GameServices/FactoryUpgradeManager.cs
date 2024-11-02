@@ -30,6 +30,7 @@ namespace SibGameJam.GameServices
             }
 
             _currentPoints += count;
+            UpdateCurrentLevelState();
         }
 
         private void UpdateCurrentLevelState()
