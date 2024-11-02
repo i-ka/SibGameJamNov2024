@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 873079724155602906, guid: ef3d349bdde655a4a92b61d706d6661e, type: 3}
       propertyPath: m_Name
-      value: Template_Smoke Variant
+      value: PV_Template_Smoke
       objectReference: {fileID: 0}
     - target: {fileID: 2848545085120842069, guid: ef3d349bdde655a4a92b61d706d6661e, type: 3}
       propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[0].m_Value
-      value: 10
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4478042928146330549, guid: ef3d349bdde655a4a92b61d706d6661e, type: 3}
       propertyPath: m_LocalPosition.x
