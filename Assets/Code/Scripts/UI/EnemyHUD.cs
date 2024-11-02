@@ -18,18 +18,20 @@ namespace SibGameJam.HUD
         [SerializeField] private float effectDuration;
         [SerializeField] private GameObject damageIndicatorPrefab;
 
-        public void UpdateHealthCanvas(Camera cam, Vector3 tankPosition)
+        private void LateUpdate()
         {
-            healthPanel.transform.position = cam.WorldToScreenPoint(tankPosition + new Vector3(0, 5, 0));
+            healthPanel.transform.position = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0, 5, 0));
         }
 
-        public void SetHealth(float currentHealth, float maxHealth)
+        
+
+        public void SetHealth(int lastDamage, int currentHealth, int maxHealth)
         {
             textHealthValue.text = $"{currentHealth}";
             fillHealthValue.fillAmount = currentHealth / maxHealth;
         }
 
-        public IEnumerator ShowTankDamage(float lastDamage, Vector3 tankPosition, Camera cam)
+        public IEnumerator ShowTankDamage(int lastDamage, Vector3 tankPosition, Camera cam)
         {
             float elapsed = effectDuration;
 

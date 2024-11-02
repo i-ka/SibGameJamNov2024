@@ -1,7 +1,0 @@
-{
-  "name": "Code.Scripts.AI.Brain",
-  "references": [
-    "GUID:9f0800b7d3a74067a36b7fae00c5e7b9",
-    "Code.Scripts.AI.Data"
-  ]
-}
