@@ -9,16 +9,15 @@ namespace SibGameJam
         public int CurrentLevel { get; private set; }
         public int NextLevelLevelPoints { get; private set; }
         public int PointsInCurrentLevel { get; private set; }
-        public event Action<int> OnLevelUp;
-        public event Action<int, int> OnPointsAdded;
 
         private readonly PlayerLevelingConfiguration _playerLevelingConfiguration;
         private int _currentPoints;
+        public event Action<int> OnLevelUp;
+        public event Action<int, int> OnPointsAdded;
 
         public ResearchManager(PlayerLevelingConfiguration levelingConfiguration)
         {
             _playerLevelingConfiguration = levelingConfiguration;
-            UpdateCurrentLevelState();
         }
 
         public void AddResearchPoints(int researchPoints)
