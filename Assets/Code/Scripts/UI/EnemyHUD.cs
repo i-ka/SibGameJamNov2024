@@ -23,8 +23,6 @@ namespace SibGameJam.HUD
             healthPanel.transform.position = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0, 4.1f, 0));
         }
 
-        
-
         public void SetHealth(int lastDamage, int currentHealth, int maxHealth)
         {
             textHealthValue.text = $"{currentHealth}";
