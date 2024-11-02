@@ -8,8 +8,11 @@ namespace SibGameJam.Ui
 {
     public class LevelingUi : MonoBehaviour
     {
-        [field:SerializeField]
+        [field: SerializeField]
         public TextMeshProUGUI LevelText { get; private set; }
+        
+        [field:SerializeField]
+        public Slider CurrentLevelProgres { get; private set; }
     }
 }
 
