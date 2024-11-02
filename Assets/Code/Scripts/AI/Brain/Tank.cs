@@ -1,13 +1,15 @@
+using System;
 using Code.Scripts.AI.Brain.States;
 using Code.Scripts.AI.Controllers;
 using Code.Scripts.AI.Data;
+using SibGameJam;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
 
 namespace Code.Scripts.AI.Brain
 {
-	public class Tank : MonoBehaviour
+	public class Tank : MonoBehaviour, ITank
 	{
 		[SerializeField] private Team _team;
 		[SerializeField] private MovementController _movementController;
@@ -21,16 +23,16 @@ namespace Code.Scripts.AI.Brain
 		private Tank _enemyTank;
 
 		private StateFactory _stateFactory;
-		
-		private Team Team => _team;
+
+        public event Action<ITank> OnDestroyed;
+
+        public Team Team => _team;
 
 		public StateMachine StateMachine => _stateMachine;
 		public StateFactory StateFactory => _stateFactory;
 		public Vector3 EnemyTankPosition => _enemyTank.transform.position;
 
-		
-
-		private void Awake()
+        private void Awake()
 		{
 			_stateFactory = new(this);
 			_stateMachine ??= new();
