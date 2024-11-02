@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using SibGameJam;
 using UnityEngine;
+using VContainer;
+using VContainer.Unity;
 
 public class TankFactory : MonoBehaviour
 {
     [SerializeField]
-    private List<GameObject> _producedTankPrefabs = new List<GameObject>();
+    private List<TestTankMove> _producedTankPrefabs = new List<TestTankMove>();
     [SerializeField]
     private List<Transform> _spawnPoints = new List<Transform>();
     [SerializeField]
@@ -14,6 +17,16 @@ public class TankFactory : MonoBehaviour
     private int _currentProducedTankIndex = 0;
     private int _currentSpawnPointIndex = 0;
     private float _currentProductionProgress = 0;
+
+    private IObjectResolver _objectResolver;
+    private TankManager _tankManager;
+
+    [Inject]
+    public void Construct(IObjectResolver objectResolver, TankManager tankManager)
+    {
+        _objectResolver = objectResolver;
+        _tankManager = tankManager;
+    }
 
     void Update()
     {
@@ -25,13 +38,14 @@ public class TankFactory : MonoBehaviour
         }
     }
 
-    private void SpawnTank() 
+    private void SpawnTank()
     {
         Debug.Log($"Spawn tank prefab {_currentProducedTankIndex} on spawnpoint index {_currentSpawnPointIndex}");
         var prefabToInstantiate = _producedTankPrefabs[_currentProducedTankIndex];
         var spawnPoint = _spawnPoints[_currentSpawnPointIndex];
 
-        GameObject.Instantiate(prefabToInstantiate, spawnPoint.position, Quaternion.identity);
+        var spawnedTank = _objectResolver.Instantiate<TestTankMove>(prefabToInstantiate, spawnPoint.position, Quaternion.identity);
+        _tankManager.RegisterTank(spawnedTank);
 
         _currentProducedTankIndex = (_currentProducedTankIndex + 1) % _producedTankPrefabs.Count;
         _currentSpawnPointIndex = (_currentSpawnPointIndex + 1) % _spawnPoints.Count;
