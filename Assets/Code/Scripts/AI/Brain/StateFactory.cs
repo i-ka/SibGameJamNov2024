@@ -10,7 +10,9 @@ namespace Code.Scripts.AI.Brain
 
 		public StateFactory(Tank tank)
 		{
-			_statePool.Add(StateType.Move, new MoveState(tank));
+			_statePool.Add(StateType.Movement, new MovementState(tank));
+			_statePool.Add(StateType.Aiming, new AimingState(tank));
+			_statePool.Add(StateType.Shooting, new ShootingState(tank));
 		}
 
 		public State GetState(StateType stateType)

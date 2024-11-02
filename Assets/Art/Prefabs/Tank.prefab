@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 438776193991538127}
   - component: {fileID: 4322594014965034979}
   - component: {fileID: 8276073617381849986}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 4957946244445920400}
   - component: {fileID: 7767026879133729122}
   - component: {fileID: 4474398048212730078}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,14 +133,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3089826389192552078}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.5552074, z: 0, w: 0.831712}
   m_LocalPosition: {x: 0, y: 0.6, z: 0}
   m_LocalScale: {x: 1, y: 0.15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8655116338212285939}
   m_Father: {fileID: 9205292398845326828}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -67.45, z: 0}
 --- !u!33 &7767026879133729122
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -203,11 +203,12 @@ GameObject:
   - component: {fileID: 6031497497751574738}
   - component: {fileID: 1781391118057188134}
   - component: {fileID: 3909640888510174425}
-  - component: {fileID: 3674427475062827942}
+  - component: {fileID: 3050536826036201513}
   - component: {fileID: 3195990300458295920}
   - component: {fileID: 528862962159500888}
   - component: {fileID: 5320545571966918046}
-  m_Layer: 0
+  - component: {fileID: 341379122949273109}
+  m_Layer: 7
   m_Name: Tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +303,7 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &3674427475062827942
+--- !u!114 &3050536826036201513
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -327,9 +328,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b1d4ea7f5a34845ba7ca7eb9de4a297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _team: 1
-  _movementController: {fileID: 3674427475062827942}
-  _shotDistance: 3
+  _team: 0
+  _movementController: {fileID: 3050536826036201513}
+  _turretController: {fileID: 341379122949273109}
+  _shotDistance: 7
 --- !u!65 &528862962159500888
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -349,8 +351,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.74, y: 1, z: 4}
-  m_Center: {x: 0, y: 0, z: 2.5}
+  m_Size: {x: 6.74, y: 1, z: 7.8}
+  m_Center: {x: 0, y: 0, z: 4.73}
 --- !u!54 &5320545571966918046
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -361,7 +363,7 @@ Rigidbody:
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -374,7 +376,21 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &341379122949273109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4883550658581340160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93dac562296a45099934b15dcafafc9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _turret: {fileID: 4957946244445920400}
+  _rotationSpeed: 1

@@ -18,7 +18,7 @@ namespace SibGameJam
         {
             builder.RegisterInstance(_levelingConfiguration);
             builder.Register<ResearchManager>(Lifetime.Singleton);
-            builder.Register<TankManager>(Lifetime.Singleton);
+            //builder.Register<TankManager>(Lifetime.Singleton);
 
             builder.RegisterInstance(_levelingUi);
             builder.RegisterEntryPoint<LevelingUiController>();

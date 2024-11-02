@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Code.Scripts.AI.Brain
 {
 	public class StateMachine

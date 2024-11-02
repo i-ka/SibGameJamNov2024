@@ -1,5 +1,6 @@
+using Code.Scripts.AI.Brain.States;
+using Code.Scripts.AI.Controllers;
 using Code.Scripts.AI.Data;
-using Code.Scripts.AI.Movement;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
@@ -10,6 +11,7 @@ namespace Code.Scripts.AI.Brain
 	{
 		[SerializeField] private Team _team;
 		[SerializeField] private MovementController _movementController;
+		[SerializeField] private TurretController _turretController;
 
 		[SerializeField] private float _shotDistance;
 
@@ -19,16 +21,21 @@ namespace Code.Scripts.AI.Brain
 		private Tank _enemyTank;
 
 		private StateFactory _stateFactory;
+		
+		private Team Team => _team;
 
+		public StateMachine StateMachine => _stateMachine;
+		public StateFactory StateFactory => _stateFactory;
 		public Vector3 EnemyTankPosition => _enemyTank.transform.position;
 
-		private Team Team => _team;
+		
 
 		private void Awake()
 		{
 			_stateFactory = new(this);
 			_stateMachine ??= new();
-			_stateMachine.SetState(_stateFactory.GetState(StateType.Move));
+			_stateMachine.SetState(_stateFactory.GetState(StateType.Movement));
+			//StateMachine.SetState(new MovementState(this));
 		}
 
 		private void Update()
@@ -41,7 +48,7 @@ namespace Code.Scripts.AI.Brain
 			_movementController.MoveToTargetPosition(position);
 		}
 
-		public void Idle()
+		public void Stop()
 		{
 			_movementController.StopMovement();
 		}
@@ -57,8 +64,17 @@ namespace Code.Scripts.AI.Brain
 			{
 				return false;
 			}
+			return Vector3.Distance(transform.position, EnemyTankPosition) <= _shotDistance;
+		}
 
-			return Vector3.Distance(transform.position, EnemyTankPosition) < _shotDistance;
+		public void RotateTurret(Vector3 targetPoint)
+		{
+			_turretController.RotateTurret(targetPoint);
+		}
+
+		public bool IsAimed(Vector3 targetPoint)
+		{
+			return _turretController.RotateTurret(targetPoint);
 		}
 
 		private void OnTriggerEnter(Collider other)
@@ -70,25 +86,10 @@ namespace Code.Scripts.AI.Brain
 			}
 		}
 
-		private void OnTriggerStay(Collider other)
-		{
-			if (other.TryGetComponent<Tank>(out var tank) && tank.Team != Team)
-			{
-				_enemyTank = tank;
-				_seeEnemy = true;
-			}
-			else
-			{
-				_enemyTank = null;
-				_seeEnemy = false;
-			}
-		}
-
 		private void OnTriggerExit(Collider other)
 		{
 			if (other.TryGetComponent<Tank>(out var tank) && tank.Team != Team)
 			{
-				_enemyTank = null;
 				_seeEnemy = false;
 			}
 		}
