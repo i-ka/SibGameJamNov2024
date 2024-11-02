@@ -20,7 +20,7 @@ namespace SibGameJam.HUD
 
         private void LateUpdate()
         {
-            healthPanel.transform.position = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0, 5, 0));
+            healthPanel.transform.position = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0, 4.1f, 0));
         }
 
         
