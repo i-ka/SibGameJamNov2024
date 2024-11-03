@@ -1,8 +1,9 @@
+using SibGameJam.ScriptableObjects.PlayerBonuses;
 using VContainer.Unity;
 
 namespace SibGameJam.Ui
 {
-    public class LevelingUiController: IInitializable
+    public class LevelingUiController : IInitializable
     {
         private readonly LevelingUi ui;
         private readonly ResearchManager researchManager;
@@ -16,13 +17,13 @@ namespace SibGameJam.Ui
         public void Initialize()
         {
             researchManager.OnLevelUp += UpdateLevel;
-            UpdateLevel(researchManager.CurrentLevel);
+            UpdateLevel(researchManager.CurrentLevel, null);
             researchManager.OnPointsAdded += UpdateCurrenLevelSlider;
             UpdateCurrenLevelSlider(researchManager.PointsInCurrentLevel, researchManager.NextLevelLevelPoints);
 
         }
 
-        private void UpdateLevel(int level) => ui.LevelText.text = $"{level}";
+        private void UpdateLevel(int level, PlayerBonus playerBonus) => ui.LevelText.text = $"{level}";
 
         private void UpdateCurrenLevelSlider(int currentPoints, int totalPoints)
         {

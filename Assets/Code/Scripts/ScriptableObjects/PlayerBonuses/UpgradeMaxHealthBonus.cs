@@ -17,16 +17,4 @@ namespace SibGameJam.ScriptableObjects.PlayerBonuses
             player.HealthController.UpgradeMaxHealth((int)(player.HealthController.MaxHeatlth * BonusHealthMultiplier));
         }
     }
-
-    [CreateAssetMenu(fileName = "UpgradeSpeedBonus", menuName = "PlayerBonus/UpgradeSpeedBonus", order = 1)]
-    public class UpgradeSpeedBonus : PlayerBonus
-    {
-        [field: SerializeField]
-        public float BonusSpeedMultiplier { get; private set; }
-
-        public override void Apply(IObjectResolver objectResolver)
-        {
-            Debug.Log($"Add {BonusSpeedMultiplier} to player veihcle");
-        }
-    }
 }
