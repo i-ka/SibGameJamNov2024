@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.VFX;
+using System.Collections.Generic;
 
-public class PlayerSpeedForGraph : MonoBehaviour
+public class PlayerSpeedForRoadDustFX : MonoBehaviour
 {
 public VisualEffect vfx;
+
 private Vector3 previousPosition;
 
 void Start() 
