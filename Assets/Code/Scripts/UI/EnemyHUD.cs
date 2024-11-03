@@ -20,11 +20,17 @@ namespace SibGameJam.HUD
 
         // private
         private bool isShown = true;
+        EnemyHudViewController hudViewController;
 
         private void Awake()
         {
 
-            FindAnyObjectByType<EnemyHudViewController>().AddToList(this);
+            hudViewController = FindAnyObjectByType<EnemyHudViewController>();
+
+            if (hudViewController)
+            {
+                hudViewController.AddToList(this);
+            }
         }
 
         public Vector3 TankPostion()
@@ -40,8 +46,9 @@ namespace SibGameJam.HUD
 
         public void SetHealth(int lastDamage, int currentHealth, int maxHealth)
         {
+            Debug.LogAssertion("Damaged");
             textHealthValue.text = $"{currentHealth}";
-            fillHealthValue.fillAmount = currentHealth / maxHealth;
+            fillHealthValue.fillAmount = (float)currentHealth / (float)maxHealth;
         }
 
         public IEnumerator ShowTankDamage(int lastDamage, Vector3 tankPosition, Camera cam)
@@ -70,6 +77,10 @@ namespace SibGameJam.HUD
         public void DeactivateHud()
         {
             gameObject.SetActive(false);
+            if (hudViewController)
+            {
+                hudViewController.RemoveFromList(this);
+            }
         }
 
         public void Show()
