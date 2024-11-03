@@ -30,7 +30,7 @@ namespace SibGameJam.Ui
             UpdateCurrenFactoryLevelSlider(factoryUpgradeManager.PointsInCurrentLevel, factoryUpgradeManager.NextLevelLevelPoints);
         }
 
-        private void UpdateLevel(int level, PlayerBonus playerBonus) => ui.LevelText.text = $"{level}";
+        private void UpdateLevel(int level, PlayerBonus playerBonus) => ui.LevelText.text = $"{level + 1}";
 
         private void UpdateCurrenLevelSlider(float currentPoints, float totalPoints)
         {
@@ -38,7 +38,7 @@ namespace SibGameJam.Ui
             ui.CurrentLevelProgres.value = currentPoints;
         }
 
-        private void UpdateFactoryLevel(int level, PlayerBonus[] bonuses) => ui.FactoryLevelText.text = $"{level}";
+        private void UpdateFactoryLevel(int level, PlayerBonus[] bonuses) => ui.FactoryLevelText.text = $"{level + 1}";
 
         private void UpdateCurrenFactoryLevelSlider(int currentPoints, int totalPoints)
         {
