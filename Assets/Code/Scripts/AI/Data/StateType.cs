@@ -5,6 +5,6 @@ namespace Code.Scripts.AI.Data
 		Movement = 0,
 		Aiming = 1,
 		Shooting = 2,
-		
+		Idle = 3,
 	}
 }

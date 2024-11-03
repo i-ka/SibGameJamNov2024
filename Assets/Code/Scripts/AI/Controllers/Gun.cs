@@ -1,4 +1,3 @@
-using Code.Scripts.AI.Brain;
 using Code.Scripts.AI.Data;
 using Code.Scripts.Pool;
 using UnityEngine;
@@ -24,11 +23,6 @@ namespace Code.Scripts.AI.Controllers
 			_projectilePool = new(_bulletPrefab, 5, _poolContainer);
 		}
 
-		private void Awake()
-		{
-			
-		}
-
 		public void Shoot(Team team)
 		{
 			if (Time.time - _lastShotTime < _reloadingTime)
@@ -37,8 +31,7 @@ namespace Code.Scripts.AI.Controllers
 			}
 
 			var bullet = _projectilePool.GetFreeElement();
-			bullet.transform.position = _bulletSpawnPointTransform.position;
-			bullet.transform.rotation = _turretTransform.rotation;
+			bullet.transform.SetPositionAndRotation(_bulletSpawnPointTransform.position, _turretTransform.rotation);
 			bullet.EnemyTeam = team == Team.Red ? Team.Blue : Team.Red;
 			bullet.SetSpeed(_bulletSpeed);
 			_lastShotTime = Time.time;
