@@ -1496,6 +1496,7 @@ MonoBehaviour:
   _movementController: {fileID: 4663826266883513657}
   _turretController: {fileID: 3794939548273517105}
   _gun: {fileID: 6664690654488044397}
+  _healthController: {fileID: 2460517178953657371}
   _shotDistance: 40
 --- !u!65 &3979434968062565199
 BoxCollider:

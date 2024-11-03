@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.5748165, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1063,6 +1063,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1545807392
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5245872112722799635, guid: 149bd26144c9d0e4690b375fe6f950c5, type: 3}
+      propertyPath: m_Name
+      value: SmallTank
+      objectReference: {fileID: 0}
+    - target: {fileID: 5991616308541235467, guid: 149bd26144c9d0e4690b375fe6f950c5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.862038
+      objectReference: {fileID: 0}
+    - target: {fileID: 5991616308541235467, guid: 149bd26144c9d0e4690b375fe6f950c5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.2066345
+      objectReference: {fileID: 0}
+    - target: {fileID: 5991616308541235467, guid: 149bd26144c9d0e4690b375fe6f950c5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.816079
+      objectReference: {fileID: 0}
+    - target: {fileID: 5991616308541235467, guid: 149bd26144c9d0e4690b375fe6f950c5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5991616308541235467, guid: 149bd26144c9d0e4690b375fe6f950c5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5991616308541235467, guid: 149bd26144c9d0e4690b375fe6f950c5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5991616308541235467, guid: 149bd26144c9d0e4690b375fe6f950c5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5991616308541235467, guid: 149bd26144c9d0e4690b375fe6f950c5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5991616308541235467, guid: 149bd26144c9d0e4690b375fe6f950c5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5991616308541235467, guid: 149bd26144c9d0e4690b375fe6f950c5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 149bd26144c9d0e4690b375fe6f950c5, type: 3}
 --- !u!1 &1557428579
 GameObject:
   m_ObjectHideFlags: 0
@@ -1533,6 +1590,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Robot
       objectReference: {fileID: 0}
+    - target: {fileID: 8290491191569176702, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
+      propertyPath: <AbilityData>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: d6d7c7714258c16439451d96c9aa74d8, type: 2}
     - target: {fileID: 8646827077184089881, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.494733
@@ -2232,3 +2293,4 @@ SceneRoots:
   - {fileID: 1982590482}
   - {fileID: 66401051663969398}
   - {fileID: 2022393557}
+  - {fileID: 1545807392}

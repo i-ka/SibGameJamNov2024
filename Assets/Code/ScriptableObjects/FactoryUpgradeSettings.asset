@@ -15,7 +15,8 @@ MonoBehaviour:
   <Levels>k__BackingField:
   - PointCost: 5
     UpgradeVariants:
-    - {fileID: 11400000, guid: 45f35b8a46fa24c9d8da0d26740aeadd, type: 2}
+    - {fileID: 11400000, guid: 7b62849ef14621d41a264e4c9a567071, type: 2}
+    - {fileID: 11400000, guid: 463fad646a82f9244ab04a36114b6a66, type: 2}
   - PointCost: 10
     UpgradeVariants:
     - {fileID: 11400000, guid: 45f35b8a46fa24c9d8da0d26740aeadd, type: 2}
