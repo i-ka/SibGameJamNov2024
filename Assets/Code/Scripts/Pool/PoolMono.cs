@@ -26,7 +26,7 @@ namespace Code.Scripts.Pool
 		}
 
 		private T Prefab { get; }
-		public bool AutoExpand { get; set; }
+		public bool AutoExpand { get; set; } = true;
 		private Transform Container { get; }
 
 		private void CreatePool(int count)
