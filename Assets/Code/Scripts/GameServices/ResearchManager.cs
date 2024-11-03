@@ -46,7 +46,7 @@ namespace SibGameJam
             {
                 var nextLevel = _playerLevelingConfiguration.Levels[i];
                 var currentLevel = i - 1 >= 0 ? _playerLevelingConfiguration.Levels[i - 1] : null;
-                if (nextLevel.points >= _currentPoints)
+                if (nextLevel.points > _currentPoints)
                 {
                     if (i > CurrentLevel)
                     {
