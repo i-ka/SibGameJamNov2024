@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Code.Scripts.AI.Data;
 
 namespace SibGameJam
 {
@@ -20,7 +21,7 @@ namespace SibGameJam
 
         public void OnTankDestroyed(ITank tank)
         {
-            if (tank.Side == Side.Enemy)
+            if (tank.Team == Team.Red)
                 researchManager.AddResearchPoints(1);
             tanks.Remove(tank);
             tank.OnDestroyed -= OnTankDestroyed;

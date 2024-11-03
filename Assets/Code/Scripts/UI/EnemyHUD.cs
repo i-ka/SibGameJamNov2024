@@ -18,12 +18,25 @@ namespace SibGameJam.HUD
         [SerializeField] private float effectDuration;
         [SerializeField] private GameObject damageIndicatorPrefab;
 
-        private void LateUpdate()
+        // private
+        private bool isShown = true;
+
+        private void Awake()
         {
-            healthPanel.transform.position = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0, 4.1f, 0));
+
+            FindAnyObjectByType<EnemyHudViewController>().AddToList(this);
         }
 
-        
+        public Vector3 TankPostion()
+        {
+            return GetComponentInParent<Rigidbody>().position;
+        }
+
+        private void LateUpdate()
+        {
+            healthPanel.transform.LookAt(Camera.main.transform.position);
+
+        }
 
         public void SetHealth(int lastDamage, int currentHealth, int maxHealth)
         {
@@ -57,6 +70,52 @@ namespace SibGameJam.HUD
         public void DeactivateHud()
         {
             gameObject.SetActive(false);
+        }
+
+        public void Show()
+        {
+            if (isShown) return;
+            isShown = true;
+
+            Debug.Log("show");
+
+            StopAllCoroutines();
+            StartCoroutine(ShowProcess());
+        }
+
+        public void Hide()
+        {
+            if (!isShown) return;
+            isShown = false;
+
+            Debug.Log("hide");
+
+            StopAllCoroutines();
+            StartCoroutine(HideProcess());
+        }
+
+        private IEnumerator ShowProcess()
+        {
+            healthPanel.SetActive(true);
+            transform.localScale = Vector3.zero;
+            for (float t = 0; t < 1; t += Time.deltaTime * 4f)
+            {
+                transform.localScale = Vector3.one * t;
+                yield return null;
+            }
+
+            transform.localScale = Vector3.one;
+        }
+
+        private IEnumerator HideProcess()
+        {
+            for (float t = 0; t < 1; t += Time.deltaTime * 4f)
+            {
+                transform.localScale = Vector3.one * (1f - t);
+                yield return null;
+            }
+
+            healthPanel.SetActive(false);
         }
     }
 }

@@ -12,7 +12,6 @@ namespace Code.Scripts.AI.Brain.States
 
 		public override void Enter()
 		{
-			Debug.LogError("Enter MovementState");
 		}
 
 		public override void Execute()
@@ -30,7 +29,7 @@ namespace Code.Scripts.AI.Brain.States
 
 			if (!tank.CanSeeEnemy() && !tank.CanShotEnemy())
 			{
-				if (NavMesh.SamplePosition(new(0.0F, 0.0F, 100.0F), out NavMeshHit hit, 100, NavMesh.AllAreas))
+				if (NavMesh.SamplePosition(tank.BaseTransform.position, out var hit, 100, NavMesh.AllAreas))
 				{
 					tank.MoveToPosition(hit.position);
 				}
@@ -41,7 +40,6 @@ namespace Code.Scripts.AI.Brain.States
 		public override void Exit()
 		{
 			tank.Stop();
-			Debug.LogError("Exit MovementState");
 		}
 	}
 }

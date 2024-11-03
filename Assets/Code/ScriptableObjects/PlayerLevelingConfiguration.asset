@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b953f403f9f4e2a43a79cbc6d176058b, type: 3}
   m_Name: PlayerLevelingConfiguration
   m_EditorClassIdentifier: 
-  <Levels>k__BackingField: 000000000f0000001e000000320000004b0000006400000082000000a0000000c8000000fa0000002c010000
+  <Levels>k__BackingField:
+  - points: 15
+    bonus: {fileID: 11400000, guid: 45f35b8a46fa24c9d8da0d26740aeadd, type: 2}
+  - points: 30
+    bonus: {fileID: 11400000, guid: 482954faead4a444a95803b0a8227029, type: 2}
