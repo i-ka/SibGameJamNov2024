@@ -47,7 +47,6 @@ namespace SibGameJam.HUD
 
         public void SetHealth(int delta, int currentHealth, int maxHealth)
         {
-            Debug.LogAssertion("Damaged");
             textHealthValue.text = $"{currentHealth}";
             fillHealthValue.fillAmount = (float)currentHealth / (float)maxHealth;
 
