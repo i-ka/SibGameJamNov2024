@@ -66,6 +66,8 @@ namespace FS.Gameplay.PlayerVehicle
         public int GetMoveDirection => moveDirection;
         public float GetSpeedInKmpH => currentSpeed * 3.6f;
 
+        public float MaxForwardSpeedInKmpH => maxForwardSpeedInKmpH;
+
         #endregion
 
         #region Initialize
@@ -214,6 +216,11 @@ namespace FS.Gameplay.PlayerVehicle
                     wheel.steerAngle = -currentSteerAngle;
                 }
             }
+        }
+
+        public void UpgradeMaxForwardSpeed(float speedToAdd)
+        {
+            maxForwardSpeedInKmpH += speedToAdd;
         }
 
         #endregion
