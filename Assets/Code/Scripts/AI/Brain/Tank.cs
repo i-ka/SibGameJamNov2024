@@ -1,12 +1,15 @@
+using System;
+using Code.Scripts.AI.Brain.States;
 using Code.Scripts.AI.Controllers;
 using Code.Scripts.AI.Data;
+using SibGameJam;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
 
 namespace Code.Scripts.AI.Brain
 {
-	public class Tank : MonoBehaviour
+	public class Tank : MonoBehaviour, ITank
 	{
 		[SerializeField] private Team _team;
 		[SerializeField] private MovementController _movementController;
@@ -24,18 +27,23 @@ namespace Code.Scripts.AI.Brain
 
 		private StateFactory _stateFactory;
 
-		public Transform BaseTransform
+        public event Action<ITank> OnDestroyed;
+
+        public Side Side => Side.Ally;
+
+        public Transform BaseTransform
 		{
 			get => _baseTransform;
 			set { _baseTransform = value; }
 		}
 
-		public Team Team => _team;
+        public Team Team => _team;
+        
 
 		public StateMachine StateMachine => _stateMachine;
 		public StateFactory StateFactory => _stateFactory;
 		public Vector3 EnemyTankPosition => _enemyTank.transform.position;
-
+		
 
 		private void Awake()
 		{

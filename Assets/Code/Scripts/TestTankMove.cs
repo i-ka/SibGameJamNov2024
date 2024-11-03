@@ -1,4 +1,5 @@
 using System;
+using Code.Scripts.AI.Data;
 using SibGameJam;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ public class TestTankMove : MonoBehaviour, ITank
 
     private float _destroyTimer = 0;
 
-    public Side Side => Side.Enemy;
+    public Team Team => Team.Red;
 
     private void Update()
     {
