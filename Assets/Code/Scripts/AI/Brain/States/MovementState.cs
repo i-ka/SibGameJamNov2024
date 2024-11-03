@@ -18,7 +18,7 @@ namespace Code.Scripts.AI.Brain.States
 		{
 			if (tank.CanSeeEnemy() && !tank.CanShotEnemy())
 			{
-				tank.MoveToPosition(tank.EnemyTankPosition);
+				tank.MoveToPosition(tank.EnemyPosition);
 			}
 
 			if (tank.CanSeeEnemy() && tank.CanShotEnemy())
