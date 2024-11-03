@@ -11,16 +11,22 @@ namespace Code.Scripts.AI.Controllers
 		[SerializeField] private Projectile _bulletPrefab;
 		[SerializeField] private float _bulletSpeed;
 		[SerializeField] private float _reloadingTime;
-		[SerializeField] private Transform _poolContainer;
 		[SerializeField] private Transform _turretTransform;
 
 		private PoolMono<Projectile> _projectilePool;
+		private Transform _poolContainer;
 
 		private float _lastShotTime;
 
+		public void Initialize(Transform poolContainer)
+		{
+			_poolContainer = poolContainer;
+			_projectilePool = new(_bulletPrefab, 5, _poolContainer);
+		}
+
 		private void Awake()
 		{
-			_projectilePool = new(_bulletPrefab, 5, _poolContainer);
+			
 		}
 
 		public void Shoot(Team team)

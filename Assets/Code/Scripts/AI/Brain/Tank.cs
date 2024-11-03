@@ -10,49 +10,80 @@ namespace Code.Scripts.AI.Brain
 {
 	public class Tank : MonoBehaviour, ITank
 	{
+		public event Action<ITank> OnDestroyed;
 		[SerializeField] private Team _team;
 		[SerializeField] private MovementController _movementController;
 		[SerializeField] private TurretController _turretController;
 		[SerializeField] private Gun _gun;
 
-		[SerializeField] private Transform _baseTransform;
-
 		[SerializeField] private float _shotDistance;
 
-		private StateMachine _stateMachine;
+		private Transform _bulletPoolTransform;
 
 		private bool _seeEnemy;
-		private Tank _enemyTank;
 
-		private StateFactory _stateFactory;
+		public Transform BaseTransform { get; private set; }
 
-        public event Action<ITank> OnDestroyed;
-        
-        public Transform BaseTransform
+		public Transform BulletPoolContainer
 		{
-			get => _baseTransform;
-			set { _baseTransform = value; }
+			get => _bulletPoolTransform;
+			set
+			{
+				_bulletPoolTransform = value;
+				_gun.Initialize(value);
+			}
 		}
 
-        public Team Team => _team;
-        
 
-		public StateMachine StateMachine => _stateMachine;
-		public StateFactory StateFactory => _stateFactory;
-		public Vector3 EnemyTankPosition => _enemyTank.transform.position;
-		
+		public StateMachine StateMachine { get; private set; }
 
-		private void Awake()
-		{
-			_stateFactory = new(this);
-			_stateMachine ??= new();
-			_stateMachine.SetState(_stateFactory.GetState(StateType.Movement));
-			//StateMachine.SetState(new MovementState(this));
-		}
+		public StateFactory StateFactory { get; private set; }
+
+		public GameObject Enemy { get; private set; }
+
+		public Vector3 EnemyPosition => Enemy.transform.position;
 
 		private void Update()
 		{
-			_stateMachine.Update();
+			StateMachine?.Update();
+		}
+
+		private void OnTriggerEnter(Collider other)
+		{
+			if (other.TryGetComponent<Tank>(out var tank) && tank.Team != Team)
+			{
+				if (Enemy == null)
+				{
+					Enemy = tank.gameObject;
+				}
+
+				_seeEnemy = true;
+			}
+		}
+
+		private void OnTriggerExit(Collider other)
+		{
+			if (other.TryGetComponent<Tank>(out var tank) && tank.Team != Team)
+			{
+				_seeEnemy = false;
+				Enemy = null;
+			}
+		}
+
+		public Team Team
+		{
+			get => _team;
+			private set => _team = value;
+		}
+
+		public void Initialize(Team team, Transform baseTransform, Transform bulletsPoolContainer)
+		{
+			Team = team;
+			BaseTransform = baseTransform;
+			BulletPoolContainer = bulletsPoolContainer;
+			StateFactory = new(this);
+			StateMachine ??= new();
+			StateMachine.SetState(StateFactory.GetState(StateType.Movement));
 		}
 
 		public void MoveToPosition(Vector3 position)
@@ -72,13 +103,13 @@ namespace Code.Scripts.AI.Brain
 
 		public bool CanShotEnemy()
 		{
-			if (_enemyTank is null)
+			if (Enemy is null)
 			{
 				return false;
 			}
 
-			var isNearEnough = Vector3.Distance(transform.position, EnemyTankPosition) <= _shotDistance;
-			var isAimed = IsAimed(EnemyTankPosition);
+			var isNearEnough = Vector3.Distance(transform.position, EnemyPosition) <= _shotDistance;
+			var isAimed = IsAimed(EnemyPosition);
 			return isNearEnough && isAimed;
 		}
 
@@ -95,24 +126,6 @@ namespace Code.Scripts.AI.Brain
 		public void Shoot()
 		{
 			_gun.Shoot(Team);
-		}
-
-		private void OnTriggerEnter(Collider other)
-		{
-			if (other.TryGetComponent<Tank>(out var tank) && tank.Team != Team)
-			{
-				_enemyTank = tank;
-				_seeEnemy = true;
-			}
-		}
-
-		private void OnTriggerExit(Collider other)
-		{
-			if (other.TryGetComponent<Tank>(out var tank) && tank.Team != Team)
-			{
-				_seeEnemy = false;
-				_enemyTank = null;
-			}
 		}
 	}
 }
