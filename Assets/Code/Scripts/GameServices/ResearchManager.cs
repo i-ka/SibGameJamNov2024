@@ -1,6 +1,7 @@
 using System;
 using SibGameJam.ScriptableObjects;
 using UnityEngine;
+using VContainer;
 
 namespace SibGameJam
 {
@@ -11,13 +12,15 @@ namespace SibGameJam
         public int PointsInCurrentLevel { get; private set; }
 
         private readonly PlayerLevelingConfiguration _playerLevelingConfiguration;
+        private readonly IObjectResolver _objectResolver;
         private int _currentPoints;
         public event Action<int> OnLevelUp;
         public event Action<int, int> OnPointsAdded;
 
-        public ResearchManager(PlayerLevelingConfiguration levelingConfiguration)
+        public ResearchManager(PlayerLevelingConfiguration levelingConfiguration, IObjectResolver objectResolver)
         {
             _playerLevelingConfiguration = levelingConfiguration;
+            _objectResolver = objectResolver;
         }
 
         public void AddResearchPoints(int researchPoints)
@@ -31,15 +34,19 @@ namespace SibGameJam
         {
             for (var i = 0; i < _playerLevelingConfiguration.Levels.Count; i++)
             {
-                var nextLevelPoints = _playerLevelingConfiguration.Levels[i];
-                if (nextLevelPoints >= _currentPoints)
+                var nextLevel = _playerLevelingConfiguration.Levels[i];
+                var currentLevel = i - 1 > 0 ? _playerLevelingConfiguration.Levels[i - 1] : null;
+                if (nextLevel.points >= _currentPoints)
                 {
                     if (i > CurrentLevel)
+                    {
                         OnLevelUp?.Invoke(i);
-                    
+                        currentLevel.bonus.Apply(_objectResolver);
+                    }
+
                     CurrentLevel = i;
-                    PointsInCurrentLevel = _currentPoints - (i - 1 > 0 ? _playerLevelingConfiguration.Levels[i - 1] : 0);
-                    NextLevelLevelPoints = nextLevelPoints - (i - 1 > 0 ? _playerLevelingConfiguration.Levels[i - 1] : 0);
+                    PointsInCurrentLevel = _currentPoints - (i - 1 > 0 ? _playerLevelingConfiguration.Levels[i - 1].points : 0);
+                    NextLevelLevelPoints = nextLevel.points - (i - 1 > 0 ? _playerLevelingConfiguration.Levels[i - 1].points : 0);
                     Debug.Log($"Update levels. Current level: {CurrentLevel} points in current level: {PointsInCurrentLevel} next level points {NextLevelLevelPoints} total points: {_currentPoints}");
                     return;
                 }

@@ -1,3 +1,4 @@
+using FS.Gameplay.PlayerVehicle;
 using SibGameJam.GameServices;
 using SibGameJam.ScriptableObjects;
 using SibGameJam.Ui;
@@ -11,7 +12,7 @@ namespace SibGameJam
     {
         [SerializeField]
         private PlayerLevelingConfiguration _levelingConfiguration;
-        
+
         [SerializeField]
         private LevelingUi _levelingUi;
 
@@ -30,6 +31,13 @@ namespace SibGameJam
             builder.RegisterEntryPoint<LevelingUiController>();
 
             builder.Register<FactoryUpgradeManager>(Lifetime.Singleton);
+
+            var playerVehicle = GameObject.FindAnyObjectByType<VehicleController>();
+            if (playerVehicle != null)
+                builder.RegisterInstance(playerVehicle);
+            else
+                Debug.LogWarning("Player VehicleController not found on scene");
+
         }
     }
 }

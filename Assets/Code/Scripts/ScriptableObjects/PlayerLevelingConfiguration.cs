@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using SibGameJam.ScriptableObjects.PlayerBonuses;
 using UnityEngine;
 
 namespace SibGameJam.ScriptableObjects
@@ -7,6 +9,13 @@ namespace SibGameJam.ScriptableObjects
     public class PlayerLevelingConfiguration : ScriptableObject
     {
         [field: SerializeField]
-        public List<int> Levels { get; private set; }
+        public List<PlayerLevelData> Levels { get; private set; }
+    }
+
+    [Serializable]
+    public class PlayerLevelData
+    {
+        public int points;
+        public PlayerBonus bonus;
     }
 }

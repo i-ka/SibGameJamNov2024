@@ -30,6 +30,8 @@ namespace FS.Gameplay.PlayerVehicle
 
         #region Properties
 
+        public HealthController HealthController => healthController;
+
         #endregion
 
 
