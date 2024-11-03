@@ -186,7 +186,6 @@ namespace FS.Gameplay.PlayerVehicle
                 lastRoutine = PrepareToTeleport();
                 StopCoroutine(lastRoutine);
                 StopAllCoroutines();
-                Debug.LogAssertion($"Stop prerparing to teleport");
                 isPreparingToTeleport = false;
             }
 
@@ -203,8 +202,6 @@ namespace FS.Gameplay.PlayerVehicle
             {
                 time -= 1;
                 yield return new WaitForSeconds(1);
-                Debug.LogAssertion($"Telelport starts in {time}");
-                
             }
 
 
@@ -219,7 +216,6 @@ namespace FS.Gameplay.PlayerVehicle
             lastRoutine = PrepareToTeleport();
             StopCoroutine(lastRoutine);
             StopAllCoroutines();
-            Debug.LogAssertion("Teleported");
             rb.position = teleportPoint.position;
             rb.rotation = teleportPoint.rotation;
             rb.velocity = Vector3.zero;
