@@ -1,9 +1,11 @@
 using System;
+using System.Collections.Generic;
 using Code.Scripts.AI.Controllers;
 using Code.Scripts.AI.Data;
 using Code.Scripts.HealthSystem;
 using SibGameJam;
 using UnityEngine;
+using UnityEngine.AI;
 using Vector3 = UnityEngine.Vector3;
 
 
@@ -15,14 +17,20 @@ namespace Code.Scripts.AI.Brain
 		[SerializeField] private Team _team;
 		[SerializeField] private MovementController _movementController;
 		[SerializeField] private TurretController _turretController;
+		[SerializeField] private HealthController _healthController;
 		[SerializeField] private Gun _gun;
 		[SerializeField] private HealthController _healthController;
 
 		[SerializeField] private float _shotDistance;
+		[SerializeField] private int _escapeThresholdHealth;
+		[SerializeField] private int _healingMax;
+		[SerializeField] private int _escapeEscapeZoneThreshold;
 
 		private Transform _bulletPoolTransform;
 
 		private bool _seeEnemy;
+
+		private List<Transform> _escapePoints;
 
 		public Transform BaseTransform { get; private set; }
 		
@@ -46,6 +54,13 @@ namespace Code.Scripts.AI.Brain
 		public GameObject Enemy { get; private set; }
 
 		public Vector3 EnemyPosition => Enemy.transform.position;
+
+		public int CurrentHealth => _healthController.CurrentHealth;
+
+		public int EscapeThresholdHealth => _escapeThresholdHealth;
+		public List<Transform> EscapePoints => _escapePoints;
+		public int HealingMax => _healingMax;
+		public int EscapeEscapeZoneThreshold => _escapeEscapeZoneThreshold;
 
 		private void Update()
 		{
@@ -80,11 +95,13 @@ namespace Code.Scripts.AI.Brain
 			private set => _team = value;
 		}
 
-		public void Initialize(Team team, Transform baseTransform, Transform bulletsPoolContainer)
+		public void Initialize(Team team, Transform baseTransform, Transform bulletsPoolContainer, List<Transform> escapePoints)
 		{
+			_healthController.Init();
 			Team = team;
 			BaseTransform = baseTransform;
 			BulletPoolContainer = bulletsPoolContainer;
+			_escapePoints = escapePoints;
 			StateFactory = new(this);
 			StateMachine ??= new();
 			StateMachine.SetState(StateFactory.GetState(StateType.Movement));

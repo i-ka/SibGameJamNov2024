@@ -11,7 +11,8 @@ namespace Code.Scripts.HealthSystem
     {
         #region Properties
 
-        public int MaxHeatlth => _maxHealth;
+        public int MaxHealth => _maxHealth;
+        public int CurrentHealth => _currentHealth;
 
         #endregion
 
