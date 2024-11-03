@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d686d694939e6640866cb2fa5930f42, type: 3}
   m_Name: FactoryUpgradeSettings
   m_EditorClassIdentifier: 
-  <Levels>k__BackingField: []
+  <Levels>k__BackingField:
+  - PointCost: 5
+    UpgradeVariants:
+    - {fileID: 11400000, guid: 45f35b8a46fa24c9d8da0d26740aeadd, type: 2}
+  - PointCost: 10
+    UpgradeVariants:
+    - {fileID: 11400000, guid: 45f35b8a46fa24c9d8da0d26740aeadd, type: 2}

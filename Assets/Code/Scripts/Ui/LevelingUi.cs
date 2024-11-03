@@ -13,6 +13,12 @@ namespace SibGameJam.Ui
         
         [field:SerializeField]
         public Slider CurrentLevelProgres { get; private set; }
+
+        [field: SerializeField]
+        public TextMeshProUGUI FactoryLevelText { get; private set; }
+
+        [field:SerializeField]
+        public Slider FactoryCurrentLevelProgress { get; private set; }
     }
 }
 
