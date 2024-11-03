@@ -60,6 +60,10 @@ namespace Code.Scripts.HealthSystem
 
         public void AddHealth(int value)
         {
+            if (_isDead)
+            {
+                return;
+            }
 
             // TODO
             // calculate value btw last and current value for correct values
@@ -107,6 +111,11 @@ namespace Code.Scripts.HealthSystem
                 CancelInvoke();
                 _isRegenerating = false;
             }
+        }
+
+        public void UpgradeRegenerateValue(int value)
+        {
+            _regenerateHealthValue = value;
         }
 
         public void UpgradeMaxHealth(int healthToAdd)
