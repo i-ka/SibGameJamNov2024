@@ -10,15 +10,16 @@ namespace SibGameJam
     public class ResearchManager
     {
         public int CurrentLevel { get; private set; }
-        public int NextLevelLevelPoints { get; private set; }
-        public int PointsInCurrentLevel { get; private set; }
+        public float NextLevelLevelPoints { get; private set; }
+        public float PointsInCurrentLevel { get; private set; }
+        public float ResearchSpeedMultiplier { get; private set; } = 1;
 
         private readonly PlayerLevelingConfiguration _playerLevelingConfiguration;
         private readonly IObjectResolver _objectResolver;
-        private int _currentPoints;
+        private float _currentPoints;
 
         public event Action<int, PlayerBonus> OnLevelUp;
-        public event Action<int, int> OnPointsAdded;
+        public event Action<float, float> OnPointsAdded;
 
         public ResearchManager(PlayerLevelingConfiguration levelingConfiguration, IObjectResolver objectResolver)
         {
@@ -29,9 +30,14 @@ namespace SibGameJam
 
         public void AddResearchPoints(int researchPoints)
         {
-            _currentPoints += researchPoints;
+            _currentPoints += researchPoints * ResearchSpeedMultiplier;
             UpdateCurrentLevelState();
             OnPointsAdded?.Invoke(PointsInCurrentLevel, NextLevelLevelPoints);
+        }
+
+        public void UpgradeResearchSpeed(float newMultiplier)
+        {
+            ResearchSpeedMultiplier = newMultiplier;
         }
 
         private void UpdateCurrentLevelState()

@@ -25,7 +25,7 @@ namespace SibGameJam.Ui
 
         private void UpdateLevel(int level, PlayerBonus playerBonus) => ui.LevelText.text = $"{level}";
 
-        private void UpdateCurrenLevelSlider(int currentPoints, int totalPoints)
+        private void UpdateCurrenLevelSlider(float currentPoints, float totalPoints)
         {
             ui.CurrentLevelProgres.maxValue = totalPoints;
             ui.CurrentLevelProgres.value = currentPoints;
