@@ -8,9 +8,9 @@ namespace FS.Gameplay.PlayerVehicle
     {
         [Header("Engine")]
         [SerializeField] private AudioSource engineSound;
-        [SerializeField] private float minimalPitch, maximalPitch, currentPitch;
-        [SerializeField] private float minimalVolume, maximalVolume, currentVolume;
-        [SerializeField] private float changeRate = 1;
+        [SerializeField] private float minPitchMoving, maxPitchMoving, currentPitchMoving;
+        [SerializeField] private float minVolumeMoving, maxVolumeMoving, currentVolumeMoving;
+        [SerializeField] private float soundRateMoving = 1;
 
         private List<AudioSource> vehicleSounds = new List<AudioSource>();
 
@@ -24,18 +24,23 @@ namespace FS.Gameplay.PlayerVehicle
         {
             if (input != 0)
             {
-                currentPitch = Mathf.Lerp(currentPitch, maximalPitch, Time.deltaTime * changeRate);
-                currentVolume = Mathf.Lerp(currentVolume, maximalVolume, Time.deltaTime * changeRate);
+                currentPitchMoving =
+                    Mathf.Lerp(currentPitchMoving, maxPitchMoving * Mathf.Abs(input), Time.deltaTime * soundRateMoving);
+                currentVolumeMoving =
+                    Mathf.Lerp(currentVolumeMoving, maxVolumeMoving * Mathf.Abs(input), Time.deltaTime * soundRateMoving);
             }
-            else if (input == 0)
+            else
             {
-                currentPitch = Mathf.Lerp(currentPitch, minimalPitch, Time.deltaTime * changeRate);
-                currentVolume = Mathf.Lerp(currentVolume, minimalVolume, Time.deltaTime * changeRate);
+                currentPitchMoving =
+                    Mathf.Lerp(currentPitchMoving, minPitchMoving, Time.deltaTime * soundRateMoving);
+                currentVolumeMoving =
+                    Mathf.Lerp(currentVolumeMoving, minVolumeMoving, Time.deltaTime * soundRateMoving);
             }
 
-            engineSound.pitch = currentPitch;
-            engineSound.volume = currentVolume;
+            engineSound.pitch = currentPitchMoving;
+            engineSound.volume = currentVolumeMoving;
         }
+
 
         public void EnableSound()
         {

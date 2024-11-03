@@ -1273,26 +1273,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Robot
       objectReference: {fileID: 0}
-    - target: {fileID: 8392834682883137423, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
-      propertyPath: changeRate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8392834682883137423, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
-      propertyPath: maximalPitch
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 8392834682883137423, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
-      propertyPath: minimalPitch
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8392834682883137423, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
-      propertyPath: maximalVolume
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8392834682883137423, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
-      propertyPath: minimalVolume
-      value: 0.25
-      objectReference: {fileID: 0}
     - target: {fileID: 8646827077184089881, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14.129286
