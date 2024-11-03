@@ -405,7 +405,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9039157389446948885}
   m_Layer: 0
-  m_Name: P_Lut
+  m_Name: P_Lut 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

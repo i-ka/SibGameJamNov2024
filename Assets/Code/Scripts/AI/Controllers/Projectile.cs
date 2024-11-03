@@ -15,7 +15,18 @@ namespace Code.Scripts.AI.Controllers
 		private bool _isDisabling;
 
 		public Team EnemyTeam { get; set; }
-		
+		[SerializeField] private float _lifeTimeSeconds;
+
+		private void Awake()
+		{
+			StartCoroutine(DestroyWithDelay());
+		}
+
+		private IEnumerator DestroyWithDelay()
+		{
+			yield return new WaitForSeconds(_lifeTimeSeconds);
+			Destroy(gameObject);
+		}
 
 		public void SetSpeed(float speed)
 		{
