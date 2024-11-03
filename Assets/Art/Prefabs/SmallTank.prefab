@@ -748,6 +748,7 @@ MonoBehaviour:
   verticalDistance: 1.5
   effectDuration: 4
   damageIndicatorPrefab: {fileID: 3558114322009793472, guid: ac60ab38813c7a54ebff7b2d74cc4874, type: 3}
+  recoveryIndicatorPrefab: {fileID: 1555173283846542622, guid: befc3dc88aee1c146b3056d957c69fc0, type: 3}
 --- !u!1 &2727058334213759234
 GameObject:
   m_ObjectHideFlags: 0
@@ -1530,6 +1531,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 200
+  _canRegenerateHealth: 1
+  _regenerateHealthValue: 5
+  _regenerateHealthDelay: 3
+  _regenerateHealthOnStartDelay: 3
   OnObjectRepaired:
     m_PersistentCalls:
       m_Calls:

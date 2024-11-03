@@ -17,12 +17,18 @@ namespace Code.Scripts.HealthSystem
         #region Variables
 
         [SerializeField] private int _maxHealth;
+        [SerializeField] private bool _canRegenerateHealth = true;
+        [SerializeField] private int _regenerateHealthValue = 5;
+
+        [SerializeField] private int _regenerateHealthDelay = 3;
+        [SerializeField] private int _regenerateHealthOnStartDelay = 3;
 
         // private
         private int _currentHealth;
         private bool _isDead = false;
         private int _lastDamageValue;
         private int _lastRepairValue;
+        private bool _isRegenerating = false;
 
         private void Awake()
         {
@@ -75,13 +81,32 @@ namespace Code.Scripts.HealthSystem
 
             _lastDamageValue = value;
             _currentHealth = Mathf.Clamp(_currentHealth - _lastDamageValue, 0, _maxHealth);
-            OnObjectDamaged.Invoke(_lastDamageValue, _currentHealth, _maxHealth);
+            OnObjectDamaged.Invoke(-_lastDamageValue, _currentHealth, _maxHealth);
 
-            if(_currentHealth <= 0)
+            CancelInvoke();
+            _isRegenerating = false;
+
+            if (_canRegenerateHealth && !_isRegenerating)
+            {
+                InvokeRepeating(nameof(RegenerateHealth), _regenerateHealthOnStartDelay, _regenerateHealthDelay);
+            }
+
+            if (_currentHealth <= 0)
             {
                 OnObjectDestroyed.Invoke();
             }
 
+        }
+
+        private void RegenerateHealth()
+        {
+            AddHealth(_regenerateHealthValue);
+            _isRegenerating = true;
+            if (_currentHealth >= _maxHealth)
+            {
+                CancelInvoke();
+                _isRegenerating = false;
+            }
         }
 
         public void UpgradeMaxHealth(int healthToAdd)
