@@ -50,3 +50,5 @@ MonoBehaviour:
   autoInjectGameObjects:
   - {fileID: 0}
   _levelingConfiguration: {fileID: 11400000, guid: f4b187adf8eac084a8cf7b276335d053, type: 2}
+  _levelingUi: {fileID: 0}
+  _factoryUpgradeSettings: {fileID: 11400000, guid: b83c19f079d723a499776d1bbb2dc364, type: 2}

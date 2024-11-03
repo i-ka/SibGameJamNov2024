@@ -1,5 +1,4 @@
 using Code.Scripts.AI.Data;
-using UnityEngine;
 
 namespace Code.Scripts.AI.Brain.States
 {
@@ -11,7 +10,6 @@ namespace Code.Scripts.AI.Brain.States
 
 		public override void Enter()
 		{
-			Debug.LogError("Enter AimingState");
 		}
 
 		public override void Execute()
@@ -26,7 +24,6 @@ namespace Code.Scripts.AI.Brain.States
 
 		public override void Exit()
 		{
-			Debug.LogError("Exit AimingState");
 		}
 	}
 }

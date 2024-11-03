@@ -10,6 +10,8 @@ namespace Code.Scripts.HealthSystem
     {
         #region Properties
 
+        public int MaxHeatlth => _maxHealth;
+
         #endregion
 
         #region Variables
@@ -70,7 +72,12 @@ namespace Code.Scripts.HealthSystem
 
         }
 
-
+        public void UpgradeMaxHealth(int healthToAdd)
+        {
+            _maxHealth += healthToAdd;
+            _currentHealth = _maxHealth;
+            OnObjectRepaired.Invoke(0, _currentHealth, _maxHealth);
+        }
 
         #endregion
     }
