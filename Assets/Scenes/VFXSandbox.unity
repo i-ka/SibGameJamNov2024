@@ -353,6 +353,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 600748919150319356, guid: 9081692f7c3d5b545b36573c47354f2f, type: 3}
+      propertyPath: targetCollider
+      value: 
+      objectReference: {fileID: 1659603153}
     - target: {fileID: 1289117520050190829, guid: 9081692f7c3d5b545b36573c47354f2f, type: 3}
       propertyPath: m_Center.y
       value: 1.2
@@ -373,13 +377,21 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4834131978056679732, guid: 9081692f7c3d5b545b36573c47354f2f, type: 3}
+      propertyPath: targetCollider
+      value: 
+      objectReference: {fileID: 1659603153}
+    - target: {fileID: 5143236713088970266, guid: 9081692f7c3d5b545b36573c47354f2f, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6662050163951710683, guid: 9081692f7c3d5b545b36573c47354f2f, type: 3}
       propertyPath: m_Name
       value: P_Lut
       objectReference: {fileID: 0}
     - target: {fileID: 9039157389446948885, guid: 9081692f7c3d5b545b36573c47354f2f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.96
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9039157389446948885, guid: 9081692f7c3d5b545b36573c47354f2f, type: 3}
       propertyPath: m_LocalPosition.y
