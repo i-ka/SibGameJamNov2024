@@ -32,12 +32,16 @@ namespace SibGameJam
 
             builder.Register<FactoryUpgradeManager>(Lifetime.Singleton);
 
-            var playerVehicle = GameObject.FindAnyObjectByType<VehicleController>();
-            if (playerVehicle != null)
-                builder.RegisterInstance(playerVehicle);
-            else
-                Debug.LogWarning("Player VehicleController not found on scene");
+            RegisterComponentFromScene<VehicleController>(builder);
+        }
 
+        private void RegisterComponentFromScene<TComponentType>(IContainerBuilder builder) where TComponentType : MonoBehaviour
+        {
+            var component = FindAnyObjectByType<TComponentType>();
+            if (component != null)
+                builder.RegisterInstance(component);
+            else
+                Debug.LogWarning($"Player {typeof(TComponentType).Name} not found on scene");
         }
     }
 }
