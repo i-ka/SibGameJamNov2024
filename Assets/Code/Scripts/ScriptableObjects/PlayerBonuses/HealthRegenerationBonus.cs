@@ -1,3 +1,4 @@
+using FS.Gameplay.PlayerVehicle;
 using UnityEngine;
 using VContainer;
 
@@ -11,7 +12,8 @@ namespace SibGameJam.ScriptableObjects.PlayerBonuses
 
         public override void Apply(IObjectResolver objectResolver)
         {
-            Debug.Log($"Add regeneration to player {HealthRegeneration} hp/sec");
+            var player = objectResolver.Resolve<VehicleController>();
+            player.HealthController.UpgradeRegenerateValue(HealthRegeneration);
         }
     }
 }
