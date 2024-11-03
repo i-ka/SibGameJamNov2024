@@ -1,5 +1,6 @@
 using System;
 using Code.Scripts.AI.Data;
+using Code.Scripts.HealthSystem;
 
 namespace SibGameJam
 {
@@ -7,5 +8,7 @@ namespace SibGameJam
     {
         event Action<ITank> OnDestroyed;
         Team Team { get; }
+        
+        HealthController HealthController { get; }
     }
 }

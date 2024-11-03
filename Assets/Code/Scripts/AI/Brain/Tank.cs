@@ -1,6 +1,7 @@
 using System;
 using Code.Scripts.AI.Controllers;
 using Code.Scripts.AI.Data;
+using Code.Scripts.HealthSystem;
 using SibGameJam;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
@@ -15,6 +16,7 @@ namespace Code.Scripts.AI.Brain
 		[SerializeField] private MovementController _movementController;
 		[SerializeField] private TurretController _turretController;
 		[SerializeField] private Gun _gun;
+		[SerializeField] private HealthController _healthController;
 
 		[SerializeField] private float _shotDistance;
 
@@ -23,6 +25,8 @@ namespace Code.Scripts.AI.Brain
 		private bool _seeEnemy;
 
 		public Transform BaseTransform { get; private set; }
+		
+		public HealthController HealthController => _healthController;
 
 		public Transform BulletPoolContainer
 		{

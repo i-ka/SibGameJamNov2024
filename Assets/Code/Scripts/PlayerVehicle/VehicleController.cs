@@ -20,6 +20,7 @@ namespace FS.Gameplay.PlayerVehicle
         [SerializeField] private InputController inputController;
         [SerializeField] private HealthController healthController;
         [SerializeField] private PlayerHUD playerHUD;
+        [SerializeField] private PlayerAbilityController abilityController;
         #endregion
 
         #region Variables
