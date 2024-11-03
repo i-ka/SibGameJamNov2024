@@ -48,7 +48,7 @@ WheelCollider:
     damper: 5000
     targetPosition: 0.4
   m_SuspensionDistance: 0.5
-  m_ForceAppPointDistance: 0.3
+  m_ForceAppPointDistance: 0.15
   m_Mass: 200
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -58,11 +58,11 @@ WheelCollider:
     m_AsymptoteValue: 1.5
     m_Stiffness: 2.5
   m_SidewaysFriction:
-    m_ExtremumSlip: 1
-    m_ExtremumValue: 0.75
-    m_AsymptoteSlip: 0.65
-    m_AsymptoteValue: 1.45
-    m_Stiffness: 2.4
+    m_ExtremumSlip: 1.2
+    m_ExtremumValue: 0.85
+    m_AsymptoteSlip: 0.75
+    m_AsymptoteValue: 1.55
+    m_Stiffness: 2.5
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1776,7 +1776,7 @@ WheelCollider:
     damper: 5000
     targetPosition: 0.4
   m_SuspensionDistance: 0.5
-  m_ForceAppPointDistance: 0.3
+  m_ForceAppPointDistance: 0.15
   m_Mass: 200
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1786,11 +1786,11 @@ WheelCollider:
     m_AsymptoteValue: 1.5
     m_Stiffness: 2.5
   m_SidewaysFriction:
-    m_ExtremumSlip: 1
-    m_ExtremumValue: 0.75
-    m_AsymptoteSlip: 0.65
-    m_AsymptoteValue: 1.45
-    m_Stiffness: 2.4
+    m_ExtremumSlip: 1.2
+    m_ExtremumValue: 0.85
+    m_AsymptoteSlip: 0.75
+    m_AsymptoteValue: 1.55
+    m_Stiffness: 2.5
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1848,7 +1848,7 @@ WheelCollider:
     damper: 5000
     targetPosition: 0.4
   m_SuspensionDistance: 0.5
-  m_ForceAppPointDistance: 0.3
+  m_ForceAppPointDistance: 0.15
   m_Mass: 200
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1858,11 +1858,11 @@ WheelCollider:
     m_AsymptoteValue: 1.5
     m_Stiffness: 2.5
   m_SidewaysFriction:
-    m_ExtremumSlip: 1
-    m_ExtremumValue: 0.75
-    m_AsymptoteSlip: 0.65
-    m_AsymptoteValue: 1.45
-    m_Stiffness: 2.4
+    m_ExtremumSlip: 1.2
+    m_ExtremumValue: 0.85
+    m_AsymptoteSlip: 0.75
+    m_AsymptoteValue: 1.55
+    m_Stiffness: 2.5
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2450,6 +2450,54 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.8935918, y: 0.5970899, z: 4.2251515}
   m_Center: {x: -0.006536424, y: 0.8370393, z: 0.1}
+--- !u!1 &6668213922419551296
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6193600559589094842}
+  - component: {fileID: 6699937079970763061}
+  m_Layer: 0
+  m_Name: EnemyHudViewController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6193600559589094842
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6668213922419551296}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1389832321986552756}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6699937079970763061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6668213922419551296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 334cee6681efa2d49b1410760ed0fbbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iconPrefab: {fileID: 0}
+  cameraPos: {fileID: 2184820706901991415}
+  playerCamera: {fileID: 3074614641326220051}
+  minDrawDistance: 0
 --- !u!1 &6730739692053532945
 GameObject:
   m_ObjectHideFlags: 0
@@ -2847,6 +2895,7 @@ Transform:
   - {fileID: 3787437196840083145}
   - {fileID: 8641820486033905786}
   - {fileID: 631515720421039134}
+  - {fileID: 6193600559589094842}
   m_Father: {fileID: 8646827077184089881}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8338423059590153494
@@ -2972,7 +3021,7 @@ WheelCollider:
     damper: 5000
     targetPosition: 0.4
   m_SuspensionDistance: 0.5
-  m_ForceAppPointDistance: 0.3
+  m_ForceAppPointDistance: 0.15
   m_Mass: 200
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -2982,11 +3031,11 @@ WheelCollider:
     m_AsymptoteValue: 1.5
     m_Stiffness: 2.5
   m_SidewaysFriction:
-    m_ExtremumSlip: 1
-    m_ExtremumValue: 0.75
-    m_AsymptoteSlip: 0.65
-    m_AsymptoteValue: 1.45
-    m_Stiffness: 2.4
+    m_ExtremumSlip: 1.2
+    m_ExtremumValue: 0.85
+    m_AsymptoteSlip: 0.75
+    m_AsymptoteValue: 1.55
+    m_Stiffness: 2.5
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
