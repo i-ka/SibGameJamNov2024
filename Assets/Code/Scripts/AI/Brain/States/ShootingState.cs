@@ -14,6 +14,11 @@ namespace Code.Scripts.AI.Brain.States
 
 		public override void Execute()
 		{
+			if (tank.CurrentHealth < tank.EscapeThresholdHealth)
+			{
+				tank.StateMachine.SetState(tank.StateFactory.GetState(StateType.Movement));
+				return;
+			}
 			if (tank.CanSeeEnemy() && tank.CanShotEnemy())
 			{
 				tank.Shoot();

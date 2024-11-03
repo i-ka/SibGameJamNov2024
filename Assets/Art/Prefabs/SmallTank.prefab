@@ -1424,7 +1424,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: -1372625422
   m_Radius: 3
-  m_Speed: 3.5
+  m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -1477,8 +1477,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletSpawnPointTransform: {fileID: 1693477697375377773}
   _bulletPrefab: {fileID: 8285670914004802762, guid: f9c812f95d22f014c902b4c63a5f538b, type: 3}
-  _bulletSpeed: 300
-  _reloadingTime: 3
+  _bulletSpeed: 600
+  _reloadingTime: 2
   _turretTransform: {fileID: 3635875282758055212}
 --- !u!114 &9069495634710731418
 MonoBehaviour:
@@ -1495,8 +1495,13 @@ MonoBehaviour:
   _team: 1
   _movementController: {fileID: 4663826266883513657}
   _turretController: {fileID: 3794939548273517105}
+  _healthController: {fileID: 2460517178953657371}
   _gun: {fileID: 6664690654488044397}
+  _healthController: {fileID: 2460517178953657371}
   _shotDistance: 40
+  _escapeThresholdHealth: 130
+  _healingMax: 190
+  _escapeEscapeZoneThreshold: 100
 --- !u!65 &3979434968062565199
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1533,7 +1538,7 @@ MonoBehaviour:
   _maxHealth: 200
   _canRegenerateHealth: 1
   _regenerateHealthValue: 5
-  _regenerateHealthDelay: 3
+  _regenerateHealthDelay: 8
   _regenerateHealthOnStartDelay: 3
   OnObjectRepaired:
     m_PersistentCalls:

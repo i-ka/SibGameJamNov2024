@@ -1,3 +1,5 @@
+using System.Linq;
+using FS.Gameplay.PlayerVehicle;
 using UnityEngine;
 using VContainer;
 namespace SibGameJam.ScriptableObjects.PlayerBonuses
@@ -10,7 +12,12 @@ namespace SibGameJam.ScriptableObjects.PlayerBonuses
 
         public override void Apply(IObjectResolver objectResolver)
         {
-            Debug.Log($"Adding {BonusAbilityCharges} to player repair ability");
+            var player = objectResolver.Resolve<VehicleController>();
+            var repairAbility = player.AbilityController.Abilities.FirstOrDefault(a => a is RepairAbility);
+            if (repairAbility == null)
+                Debug.LogError("Repair Ability could not be found");
+            
+            (repairAbility as RepairAbility)?.AddCharges(BonusAbilityCharges);
         }
     }
 }

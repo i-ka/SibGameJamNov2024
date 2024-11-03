@@ -22,6 +22,8 @@ namespace Code.Scripts.TankFactory
 		[SerializeField] private Transform _redBase;
 		[SerializeField] private Transform _blueBase;
 
+		[SerializeField] private List<Transform> _escapePoints;
+
 		[SerializeField] private Transform _bulletPoolContainer;
 
 		private int _currentProducedTankIndex;
@@ -61,7 +63,7 @@ namespace Code.Scripts.TankFactory
 			var spawnPoint = _spawnPoints[_currentSpawnPointIndex];
 
 			var spawnedTank = _objectResolver.Instantiate(tankToInstantiate, spawnPoint.position, Quaternion.identity);
-			spawnedTank.Initialize(_team, enemyBaseTransform, _bulletPoolContainer);
+			spawnedTank.Initialize(_team, enemyBaseTransform, _bulletPoolContainer, _escapePoints);
 			_tankManager.RegisterTank(spawnedTank);
 
 			_currentProducedTankIndex = (_currentProducedTankIndex + 1) % _producedTankPrefabs.Count;
