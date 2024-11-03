@@ -20,6 +20,7 @@ namespace FS.Gameplay.PlayerVehicle
         [SerializeField] private InputController inputController;
         [SerializeField] private HealthController healthController;
         [SerializeField] private PlayerHUD playerHUD;
+        [SerializeField] private PlayerAbilityController abilityController;
         [SerializeField] private SoundController soundController;
         #endregion
 
@@ -33,6 +34,7 @@ namespace FS.Gameplay.PlayerVehicle
 
         public HealthController HealthController => healthController;
         public MovementController MovementController => movementController;
+        public PlayerAbilityController AbilityController => abilityController;
 
         public void SetInputEnabled(bool state)
         {

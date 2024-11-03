@@ -14,7 +14,7 @@ namespace SibGameJam.ScriptableObjects.PlayerBonuses
         public override void Apply(IObjectResolver objectResolver)
         {
             var player = objectResolver.Resolve<VehicleController>();
-            player.HealthController.UpgradeMaxHealth((int)(player.HealthController.MaxHeatlth * BonusHealthMultiplier));
+            player.HealthController.UpgradeMaxHealth((int)(player.HealthController.MaxHealth * BonusHealthMultiplier));
         }
     }
 }

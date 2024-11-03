@@ -13,6 +13,7 @@ namespace Code.Scripts.AI.Brain
 			_statePool.Add(StateType.Movement, new MovementState(tank));
 			_statePool.Add(StateType.Aiming, new AimingState(tank));
 			_statePool.Add(StateType.Shooting, new ShootingState(tank));
+			_statePool.Add(StateType.Idle, new IdleState(tank));
 		}
 
 		public State GetState(StateType stateType)

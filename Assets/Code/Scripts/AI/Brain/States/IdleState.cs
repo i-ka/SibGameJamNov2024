@@ -1,10 +1,11 @@
 using Code.Scripts.AI.Data;
+using UnityEngine;
 
 namespace Code.Scripts.AI.Brain.States
 {
-	public class ShootingState : State
+	public class IdleState : State
 	{
-		public ShootingState(Tank tank) : base(tank)
+		public IdleState(Tank tank) : base(tank)
 		{
 		}
 
@@ -14,23 +15,23 @@ namespace Code.Scripts.AI.Brain.States
 
 		public override void Execute()
 		{
-			if (tank.CurrentHealth < tank.EscapeThresholdHealth)
+			Debug.LogError("Idle");
+			if (tank.CanSeeEnemy() && tank.CurrentHealth < tank.EscapeEscapeZoneThreshold)
 			{
 				tank.StateMachine.SetState(tank.StateFactory.GetState(StateType.Movement));
-				return;
 			}
-			if (tank.CanSeeEnemy() && tank.CanShotEnemy())
-			{
-				tank.Shoot();
-			}
-			else if (tank.CanSeeEnemy() && !tank.CanShotEnemy())
+
+			if (tank.CanSeeEnemy() && tank.CanShotEnemy() && tank.CurrentHealth > tank.EscapeEscapeZoneThreshold)
 			{
 				tank.StateMachine.SetState(tank.StateFactory.GetState(StateType.Aiming));
 			}
-			else
+
+			if (tank.CurrentHealth > tank.HealingMax)
 			{
 				tank.StateMachine.SetState(tank.StateFactory.GetState(StateType.Movement));
 			}
+
+			tank.Stop();
 		}
 
 		public override void Exit()

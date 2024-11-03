@@ -17,14 +17,16 @@ namespace Code.Scripts.AI.Brain.States
 			if (tank.Enemy is null)
 			{
 				tank.StateMachine.SetState(tank.StateFactory.GetState(StateType.Movement));
+				return;
 			}
 
-			tank.RotateTurret(tank.EnemyPosition);
 			if (tank.IsAimed(tank.EnemyPosition))
 			{
 				tank.StateMachine.SetState(tank.StateFactory.GetState(StateType.Shooting));
-				//tank.StateMachine.SetState(new ShootingState(tank));
+				return;
 			}
+
+			tank.RotateTurret(tank.EnemyPosition);
 		}
 
 		public override void Exit()

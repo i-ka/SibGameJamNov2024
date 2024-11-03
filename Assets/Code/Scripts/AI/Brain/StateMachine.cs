@@ -1,11 +1,8 @@
-using UnityEngine;
-
 namespace Code.Scripts.AI.Brain
 {
 	public class StateMachine
 	{
 		private State _currentState;
-		public State CurrentState => _currentState;
 
 		public void SetState(State newState)
 		{
@@ -17,7 +14,6 @@ namespace Code.Scripts.AI.Brain
 		public void Update()
 		{
 			_currentState?.Execute();
-			
 		}
 	}
 }

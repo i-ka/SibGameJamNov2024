@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using SibGameJam.HUD;
+using Unity.VisualScripting;
 
 namespace Code.Scripts.HealthSystem
 {
@@ -10,7 +11,8 @@ namespace Code.Scripts.HealthSystem
     {
         #region Properties
 
-        public int MaxHeatlth => _maxHealth;
+        public int MaxHealth => _maxHealth;
+        public int CurrentHealth => _currentHealth;
 
         #endregion
 
@@ -71,6 +73,12 @@ namespace Code.Scripts.HealthSystem
             _lastRepairValue = value;
             _currentHealth = Mathf.Clamp(_currentHealth + _lastRepairValue, 0, _maxHealth);
             OnObjectRepaired.Invoke(_lastRepairValue, _currentHealth, _maxHealth);
+        }
+
+        public void RestoreHealth()
+        {
+            var healthToRestore = _maxHealth - _currentHealth;
+            AddHealth(healthToRestore);
         }
 
         public void ReduceHealth(int value)
