@@ -44,22 +44,22 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.66
   m_SuspensionSpring:
-    spring: 60000
-    damper: 8000
-    targetPosition: 0.35
-  m_SuspensionDistance: 0.35
-  m_ForceAppPointDistance: 0
+    spring: 50000
+    damper: 5000
+    targetPosition: 0.4
+  m_SuspensionDistance: 0.5
+  m_ForceAppPointDistance: 0.3
   m_Mass: 200
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
     m_ExtremumSlip: 0.8
     m_ExtremumValue: 1.2
-    m_AsymptoteSlip: 0.65
+    m_AsymptoteSlip: 0.6
     m_AsymptoteValue: 1.5
     m_Stiffness: 2.5
   m_SidewaysFriction:
-    m_ExtremumSlip: 1.2
-    m_ExtremumValue: 0.9
+    m_ExtremumSlip: 1
+    m_ExtremumValue: 0.75
     m_AsymptoteSlip: 0.65
     m_AsymptoteValue: 1.45
     m_Stiffness: 2.4
@@ -799,7 +799,7 @@ Transform:
   m_GameObject: {fileID: 2258192305362060774}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.61, z: 0}
+  m_LocalPosition: {x: 0, y: 0.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1772,22 +1772,22 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.66
   m_SuspensionSpring:
-    spring: 60000
-    damper: 8000
-    targetPosition: 0.35
-  m_SuspensionDistance: 0.35
-  m_ForceAppPointDistance: 0
+    spring: 50000
+    damper: 5000
+    targetPosition: 0.4
+  m_SuspensionDistance: 0.5
+  m_ForceAppPointDistance: 0.3
   m_Mass: 200
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
     m_ExtremumSlip: 0.8
     m_ExtremumValue: 1.2
-    m_AsymptoteSlip: 0.65
+    m_AsymptoteSlip: 0.6
     m_AsymptoteValue: 1.5
     m_Stiffness: 2.5
   m_SidewaysFriction:
-    m_ExtremumSlip: 1.2
-    m_ExtremumValue: 0.9
+    m_ExtremumSlip: 1
+    m_ExtremumValue: 0.75
     m_AsymptoteSlip: 0.65
     m_AsymptoteValue: 1.45
     m_Stiffness: 2.4
@@ -1844,22 +1844,22 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.66
   m_SuspensionSpring:
-    spring: 60000
-    damper: 8000
-    targetPosition: 0.35
-  m_SuspensionDistance: 0.35
-  m_ForceAppPointDistance: 0
+    spring: 50000
+    damper: 5000
+    targetPosition: 0.4
+  m_SuspensionDistance: 0.5
+  m_ForceAppPointDistance: 0.3
   m_Mass: 200
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
     m_ExtremumSlip: 0.8
     m_ExtremumValue: 1.2
-    m_AsymptoteSlip: 0.65
+    m_AsymptoteSlip: 0.6
     m_AsymptoteValue: 1.5
     m_Stiffness: 2.5
   m_SidewaysFriction:
-    m_ExtremumSlip: 1.2
-    m_ExtremumValue: 0.9
+    m_ExtremumSlip: 1
+    m_ExtremumValue: 0.75
     m_AsymptoteSlip: 0.65
     m_AsymptoteValue: 1.45
     m_Stiffness: 2.4
@@ -2697,17 +2697,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 2569508114647923256}
   camera: {fileID: 2184820706901991415}
-  targetdistance: 5
+  targetdistance: 7
   xSpeed: 130
   ySpeed: 130
   scrollSensitivity: 6
   smoothnessX: 0.15
   smoothnessY: 0.15
   smoothnessZoom: 0.15
-  distanceMin: 5
-  distanceMax: 15
-  yMinLimit: -30
-  yMaxLimit: 80
+  distanceMin: 6
+  distanceMax: 6
+  yMinLimit: 20
+  yMaxLimit: 32
   x: 0
   y: 0
   targetX: 0
@@ -2772,7 +2772,7 @@ MonoBehaviour:
   currentSteerAngle: 0
   maxForwardSpeedInKmpH: 20
   maxBackSpeedInKmpH: 10
-  maxWheelRPM: 450
+  maxWheelRPM: 10000
   maxMotorTorque: 2000
   gasAccelerationRate: 1.2
   currentMotorTorque: 0
@@ -2968,22 +2968,22 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.66
   m_SuspensionSpring:
-    spring: 60000
-    damper: 8000
-    targetPosition: 0.35
-  m_SuspensionDistance: 0.35
-  m_ForceAppPointDistance: 0
+    spring: 50000
+    damper: 5000
+    targetPosition: 0.4
+  m_SuspensionDistance: 0.5
+  m_ForceAppPointDistance: 0.3
   m_Mass: 200
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
     m_ExtremumSlip: 0.8
     m_ExtremumValue: 1.2
-    m_AsymptoteSlip: 0.65
+    m_AsymptoteSlip: 0.6
     m_AsymptoteValue: 1.5
     m_Stiffness: 2.5
   m_SidewaysFriction:
-    m_ExtremumSlip: 1.2
-    m_ExtremumValue: 0.9
+    m_ExtremumSlip: 1
+    m_ExtremumValue: 0.75
     m_AsymptoteSlip: 0.65
     m_AsymptoteValue: 1.45
     m_Stiffness: 2.4
