@@ -19,6 +19,7 @@ namespace FS.Gameplay.PlayerVehicle
             for (var i = 0; i < abilities.Length; i++)
             {
                 var ability = abilities[i];
+                if (ability == null) return;
                 if (ability.CanUse())
                 {
                     if (Input.GetKey(abilityKeys[i]))
