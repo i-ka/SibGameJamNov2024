@@ -1,5 +1,4 @@
 using Code.Scripts.AI.Data;
-using UnityEngine;
 
 namespace Code.Scripts.AI.Brain.States
 {
@@ -11,13 +10,17 @@ namespace Code.Scripts.AI.Brain.States
 
 		public override void Enter()
 		{
-			Debug.LogError("Enter AimingState");
 		}
 
 		public override void Execute()
 		{
-			tank.RotateTurret(tank.EnemyTankPosition);
-			if (tank.IsAimed(tank.EnemyTankPosition))
+			if (tank.Enemy is null)
+			{
+				tank.StateMachine.SetState(tank.StateFactory.GetState(StateType.Movement));
+			}
+
+			tank.RotateTurret(tank.EnemyPosition);
+			if (tank.IsAimed(tank.EnemyPosition))
 			{
 				tank.StateMachine.SetState(tank.StateFactory.GetState(StateType.Shooting));
 				//tank.StateMachine.SetState(new ShootingState(tank));
@@ -26,7 +29,6 @@ namespace Code.Scripts.AI.Brain.States
 
 		public override void Exit()
 		{
-			Debug.LogError("Exit AimingState");
 		}
 	}
 }

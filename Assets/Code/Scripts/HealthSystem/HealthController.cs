@@ -24,6 +24,13 @@ namespace Code.Scripts.HealthSystem
         private int _lastDamageValue;
         private int _lastRepairValue;
 
+        private void Awake()
+        {
+            _currentHealth = _maxHealth;
+            Debug.Log("Hello");
+            OnObjectRepaired.Invoke(0, _currentHealth, _maxHealth);
+        }
+
         public void Init()
         {
             _currentHealth = _maxHealth;
@@ -66,9 +73,14 @@ namespace Code.Scripts.HealthSystem
             // TODO
             // calculate value btw last and current value for correct values
 
-            _lastRepairValue = value;
-            _currentHealth = Mathf.Clamp(_currentHealth + _lastRepairValue, 0, _maxHealth);
-            OnObjectRepaired.Invoke(_lastRepairValue, _currentHealth, _maxHealth);
+            _lastDamageValue = value;
+            _currentHealth = Mathf.Clamp(_currentHealth - _lastDamageValue, 0, _maxHealth);
+            OnObjectDamaged.Invoke(_lastDamageValue, _currentHealth, _maxHealth);
+
+            if(_currentHealth <= 0)
+            {
+                OnObjectDestroyed.Invoke();
+            }
 
         }
 
