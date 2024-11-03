@@ -831,6 +831,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &3591560024265009709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1693477697375377773}
+  m_Layer: 7
+  m_Name: BulletSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1693477697375377773
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3591560024265009709}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.955}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5148846038791514299}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3698920357349920130
 GameObject:
   m_ObjectHideFlags: 0
@@ -1252,12 +1283,13 @@ GameObject:
   - component: {fileID: 6608927532083214553}
   - component: {fileID: 3794939548273517105}
   - component: {fileID: 4663826266883513657}
+  - component: {fileID: 6664690654488044397}
   - component: {fileID: 9069495634710731418}
   - component: {fileID: 3979434968062565199}
   - component: {fileID: 2460517178953657371}
   m_Layer: 7
   m_Name: SmallTank
-  m_TagString: Untagged
+  m_TagString: Tank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1270,7 +1302,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5245872112722799635}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -21.6, y: 1.072, z: -11.297999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1430,6 +1462,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _agent: {fileID: 6608927532083214553}
+--- !u!114 &6664690654488044397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5245872112722799635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92ef974b1005438da3a2b5a778845498, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletSpawnPointTransform: {fileID: 1693477697375377773}
+  _bulletPrefab: {fileID: 8285670914004802762, guid: f9c812f95d22f014c902b4c63a5f538b, type: 3}
+  _bulletSpeed: 300
+  _reloadingTime: 3
+  _poolContainer: {fileID: 0}
+  _turretTransform: {fileID: 3635875282758055212}
 --- !u!114 &9069495634710731418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1445,6 +1495,8 @@ MonoBehaviour:
   _team: 1
   _movementController: {fileID: 4663826266883513657}
   _turretController: {fileID: 3794939548273517105}
+  _gun: {fileID: 6664690654488044397}
+  _baseTransform: {fileID: 0}
   _shotDistance: 20
 --- !u!65 &3979434968062565199
 BoxCollider:
@@ -1465,8 +1517,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 19.518703, y: 3.5190144, z: 25.76208}
-  m_Center: {x: 0.03062439, y: 1.2595072, z: 13.711038}
+  m_Size: {x: 19.5187, y: 3.519014, z: 25.76208}
+  m_Center: {x: 0.03062439, y: 1.259507, z: 13.71104}
 --- !u!114 &2460517178953657371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2034,6 +2086,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7508169654781989000}
+  - {fileID: 1693477697375377773}
   m_Father: {fileID: 3635875282758055212}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7371313691848106848
