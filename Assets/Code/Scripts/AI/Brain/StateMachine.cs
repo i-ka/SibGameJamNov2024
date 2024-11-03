@@ -5,6 +5,7 @@ namespace Code.Scripts.AI.Brain
 	public class StateMachine
 	{
 		private State _currentState;
+		public State CurrentState => _currentState;
 
 		public void SetState(State newState)
 		{

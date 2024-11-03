@@ -112,6 +112,7 @@ namespace FS.Gameplay.PlayerVehicle
         private void Update()
         {
             UIUpdate();
+            movementController.PositionAndRotationController();
 
             if (!enableInput) return;
 
