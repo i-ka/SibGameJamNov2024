@@ -12,13 +12,15 @@ namespace SibGameJam
     public class LevelLifetimeScope : LifetimeScope
     {
         [SerializeField]
-        private PlayerLevelingConfiguration _levelingConfiguration;
+        private PlayerLevelingConfiguration _levelingConfigurationPlayer;
+        [SerializeField]
+        private PlayerLevelingConfiguration _levelingConfigurationEnemy;
         [SerializeField]
         private FactoryUpgradeSettings _factoryUpgradeSettings;
 
         protected override void Configure(IContainerBuilder builder)
         {
-            builder.RegisterInstance(_levelingConfiguration);
+            builder.RegisterInstance(_levelingConfigurationPlayer);
             builder.RegisterInstance(_factoryUpgradeSettings);
 
             builder.Register<ResearchManager>(Lifetime.Singleton);
@@ -33,7 +35,6 @@ namespace SibGameJam
 
             RegisterComponentFromScene<FactoryUpgradeUi>(builder);
             builder.RegisterEntryPoint<FactoryUpgradeUiController>();
-
         }
 
         private void RegisterComponentFromScene<TComponentType>(IContainerBuilder builder) where TComponentType : MonoBehaviour

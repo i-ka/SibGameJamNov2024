@@ -42,7 +42,6 @@ namespace SibGameJam.HUD
         private void LateUpdate()
         {
             healthPanel.transform.LookAt(Camera.main.transform.position);
-
         }
 
         public void SetHealth(int delta, int currentHealth, int maxHealth)

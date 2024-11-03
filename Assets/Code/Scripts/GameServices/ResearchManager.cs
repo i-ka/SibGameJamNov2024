@@ -28,6 +28,7 @@ namespace SibGameJam
             UpdateCurrentLevelState();
         }
 
+
         public void AddResearchPoints(int researchPoints)
         {
             _currentPoints += researchPoints * ResearchSpeedMultiplier;

@@ -45,7 +45,7 @@ namespace SibGameJam.HUD
         {
             
             textHealthValue.text = $"{currentHealth} / {maxHealth}";
-            healthBar.fillAmount = currentHealth / maxHealth;
+            healthBar.fillAmount = (float)currentHealth / (float)maxHealth;
 
 
         }
