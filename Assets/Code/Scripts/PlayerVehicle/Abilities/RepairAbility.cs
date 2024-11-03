@@ -41,7 +41,7 @@ namespace FS.Gameplay.PlayerVehicle
                 var tank = target.GetComponent<ITank>();
                 if (tank == null) continue;
 
-                if (tank.Team == Team.Blue)
+                if (tank.Team == Team.Red)
                 {
                     return true;
                 }
@@ -53,7 +53,7 @@ namespace FS.Gameplay.PlayerVehicle
         public override void Use()
         {
             var abilityTargets = Physics.OverlapSphere(_abilityPosition.position, _radius, _applyToLayerMask);
-            var target = abilityTargets.Select(t => t.GetComponent<ITank>()).FirstOrDefault(t => t?.Team == Team.Blue);
+            var target = abilityTargets.Select(t => t.GetComponent<ITank>()).FirstOrDefault(t => t?.Team == Team.Red);
             StartCoroutine(Repair(target));
         }
 
@@ -80,6 +80,7 @@ namespace FS.Gameplay.PlayerVehicle
             EmitFinished();
             Debug.Log("Repair ability applied");
             _applyInProgress = false;
+            _useProgress = 0;
             StartCoroutine(RestoreCharge());
         }
 
