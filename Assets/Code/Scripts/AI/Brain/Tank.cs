@@ -19,7 +19,6 @@ namespace Code.Scripts.AI.Brain
 		[SerializeField] private TurretController _turretController;
 		[SerializeField] private HealthController _healthController;
 		[SerializeField] private Gun _gun;
-		[SerializeField] private HealthController _healthController;
 
 		[SerializeField] private float _shotDistance;
 		[SerializeField] private int _escapeThresholdHealth;
