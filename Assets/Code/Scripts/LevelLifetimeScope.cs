@@ -1,3 +1,4 @@
+using Code.Scripts.Ui;
 using FS.Gameplay.PlayerVehicle;
 using SibGameJam.GameServices;
 using SibGameJam.ScriptableObjects;
@@ -33,6 +34,10 @@ namespace SibGameJam
             builder.Register<FactoryUpgradeManager>(Lifetime.Singleton);
 
             RegisterComponentFromScene<VehicleController>(builder);
+
+            RegisterComponentFromScene<FactoryUpgradeUi>(builder);
+            builder.RegisterEntryPoint<FactoryUpgradeUiController>();
+
         }
 
         private void RegisterComponentFromScene<TComponentType>(IContainerBuilder builder) where TComponentType : MonoBehaviour

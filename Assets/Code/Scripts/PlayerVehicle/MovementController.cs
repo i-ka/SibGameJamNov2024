@@ -268,6 +268,7 @@ namespace FS.Gameplay.PlayerVehicle
         {
             for (int i = 0; i < wheels.Length; ++i)
             {
+                //Debug.Log(brake);
                 if (Mathf.Abs(wheels[i].rpm) <= maxWheelRPM)
                 {
                     wheels[i].motorTorque = torque;
