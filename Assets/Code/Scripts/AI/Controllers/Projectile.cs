@@ -31,11 +31,11 @@ namespace Code.Scripts.AI.Controllers
 
 			_isDisabling = true;
 			_eventTriggerForMultipleSystems.SendEventToVFX();
-			StartCoroutine(DisableWithDelay());
 			if (collision.gameObject.TryGetComponent(out HealthController healthObject))
 			{
 				healthObject.ReduceHealth(_damage);
 			}
+			StartCoroutine(DisableWithDelay());
 		}
 
 		private IEnumerator DisableWithDelay()

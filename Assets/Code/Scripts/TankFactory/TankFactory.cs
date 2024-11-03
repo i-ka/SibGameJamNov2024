@@ -25,25 +25,10 @@ namespace Code.Scripts.TankFactory
 		[SerializeField] private Transform _bulletPoolContainer;
 
 		private int _currentProducedTankIndex;
-		private float _currentProductionProgress;
 		private int _currentSpawnPointIndex;
 
 		private IObjectResolver _objectResolver;
 		private TankManager _tankManager;
-
-		// private void Update()
-		// {
-		// 	_currentProductionProgress += Time.deltaTime;
-		// 	if (_currentProductionProgress >= _productionTime)
-		// 	{
-		// 		SpawnTank();
-		// 		_currentProductionProgress = 0;
-		// 	}
-		// }
-		// private void Awake()
-		// {
-		// 	StartCoroutine(SpawnTanks());
-		// }
 
 		[Inject]
 		public void Construct(IObjectResolver objectResolver, TankManager tankManager)
