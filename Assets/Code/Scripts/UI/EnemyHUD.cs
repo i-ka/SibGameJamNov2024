@@ -42,12 +42,10 @@ namespace SibGameJam.HUD
         private void LateUpdate()
         {
             healthPanel.transform.LookAt(Camera.main.transform.position);
-
         }
 
         public void SetHealth(int delta, int currentHealth, int maxHealth)
         {
-            Debug.LogAssertion("Damaged");
             textHealthValue.text = $"{currentHealth}";
             fillHealthValue.fillAmount = (float)currentHealth / (float)maxHealth;
 
