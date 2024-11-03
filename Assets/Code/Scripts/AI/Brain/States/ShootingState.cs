@@ -1,8 +1,8 @@
-using UnityEngine;
+using Code.Scripts.AI.Data;
 
 namespace Code.Scripts.AI.Brain.States
 {
-	public class ShootingState:State
+	public class ShootingState : State
 	{
 		public ShootingState(Tank tank) : base(tank)
 		{
@@ -10,17 +10,26 @@ namespace Code.Scripts.AI.Brain.States
 
 		public override void Enter()
 		{
-			Debug.LogError("Enter ShootingState");
 		}
 
 		public override void Execute()
 		{
-			throw new System.NotImplementedException();
+			if (tank.CanSeeEnemy() && tank.CanShotEnemy())
+			{
+				tank.Shoot();
+			}
+			else if (tank.CanSeeEnemy() && !tank.CanShotEnemy())
+			{
+				tank.StateMachine.SetState(tank.StateFactory.GetState(StateType.Aiming));
+			}
+			else
+			{
+				tank.StateMachine.SetState(tank.StateFactory.GetState(StateType.Movement));
+			}
 		}
 
 		public override void Exit()
 		{
-			Debug.LogError("Exit ShootingState");
 		}
 	}
 }

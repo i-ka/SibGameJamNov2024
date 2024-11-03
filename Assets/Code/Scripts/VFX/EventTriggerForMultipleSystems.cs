@@ -1,29 +1,19 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.VFX;
 
 [RequireComponent(typeof(Collider))]
-
 public class EventTriggerForMultipleSystems : MonoBehaviour
 {
+	public List<VisualEffect> vfxSystems;
+	public string eventName = "OnHit";
 
-    public List<VisualEffect> vfxSystems;
-    public string eventName = "OnHit";
-    
-    private void OnTriggerEnter(Collider other) 
-    {
-        SendEventToVFX();
-    }
-    public void SendEventToVFX()
-    {
-        foreach (var vfx in vfxSystems)
-        {
-            if (vfx != null)
-            {
-                vfx.SendEvent(eventName);
-            }
-        }
-    }
+	public void SendEventToVFX()
+	{
+		foreach (var vfx in vfxSystems.Where(vfx => vfx != null))
+		{
+			vfx.SendEvent(eventName);
+		}
+	}
 }
-
-
