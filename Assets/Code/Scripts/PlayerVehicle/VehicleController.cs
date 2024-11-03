@@ -20,6 +20,7 @@ namespace FS.Gameplay.PlayerVehicle
         [SerializeField] private InputController inputController;
         [SerializeField] private HealthController healthController;
         [SerializeField] private PlayerHUD playerHUD;
+        [SerializeField] private SoundController soundController;
         #endregion
 
         #region Variables
@@ -32,6 +33,11 @@ namespace FS.Gameplay.PlayerVehicle
 
         public HealthController HealthController => healthController;
         public MovementController MovementController => movementController;
+
+        public void SetInputEnabled(bool state)
+        {
+            enableInput = state;
+        }
 
         #endregion
 
@@ -49,6 +55,7 @@ namespace FS.Gameplay.PlayerVehicle
                 inputController.Init();
                 healthController.Init();
                 playerHUD.Init();
+                soundController.Init();
 
                 Debug.Log($"{gameObject.name} initialized successfully!");
                 Debug.Log($"{gameObject.name} ready to go!");
@@ -72,6 +79,7 @@ namespace FS.Gameplay.PlayerVehicle
             inputController ??= GetComponentInChildren<InputController>();
             healthController ??= GetComponent<HealthController>();
             playerHUD ??= GetComponentInChildren<PlayerHUD>();
+            soundController ??= GetComponentInChildren<SoundController>();
         }
 
         private bool CheckComponents()
@@ -101,6 +109,11 @@ namespace FS.Gameplay.PlayerVehicle
                 Debug.LogError($"No {playerHUD} in {gameObject.name}");
                 return false;
             }
+            if (!soundController)
+            {
+                Debug.LogError($"No {soundController} in {gameObject.name}");
+                return false;
+            }
 
             return true;
         }
@@ -113,12 +126,11 @@ namespace FS.Gameplay.PlayerVehicle
         {
             UIUpdate();
             movementController.PositionAndRotationController();
+            CameraUpdate();
+            SoundUpdate();
 
             if (!enableInput) return;
-
             MovementUpdate();
-            CameraUpdate();
-
         }
 
         private void UIUpdate()
@@ -131,12 +143,16 @@ namespace FS.Gameplay.PlayerVehicle
         {
             movementController.UpdateController();
             movementController.SetInput(inputController.GetDriveAxis());
-
         }
 
         private void CameraUpdate()
         {
             cameraController.SetInput(inputController.GetLeftMouseButtonHold(), inputController.GetMouseAxis(), inputController.GetMouseScroll());
+        }
+
+        private void SoundUpdate()
+        {
+            soundController.SetPitchToEngineSound(inputController.GetDriveAxis().x);
         }
 
         #endregion
@@ -145,6 +161,7 @@ namespace FS.Gameplay.PlayerVehicle
 
         private void FixedUpdate()
         {
+            if (!enableInput) return;
             MovementFixedUpdate();
         }
 
