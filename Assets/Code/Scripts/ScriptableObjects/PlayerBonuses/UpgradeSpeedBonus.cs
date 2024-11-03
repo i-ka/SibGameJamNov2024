@@ -1,3 +1,4 @@
+using FS.Gameplay.PlayerVehicle;
 using UnityEngine;
 using VContainer;
 
@@ -11,7 +12,9 @@ namespace SibGameJam.ScriptableObjects.PlayerBonuses
 
         public override void Apply(IObjectResolver objectResolver)
         {
-            Debug.Log($"Add {BonusSpeedMultiplier} to player veihcle");
+            var player = objectResolver.Resolve<VehicleController>();
+            var speedBonus = player.MovementController.MaxForwardSpeedInKmpH * BonusSpeedMultiplier;
+            player.MovementController.UpgradeMaxForwardSpeed(speedBonus);
         }
     }
 }
