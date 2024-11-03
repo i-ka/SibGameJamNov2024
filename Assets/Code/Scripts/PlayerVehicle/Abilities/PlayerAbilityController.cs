@@ -1,11 +1,13 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace FS.Gameplay.PlayerVehicle
 {
     public class PlayerAbilityController: MonoBehaviour
     {
-        [SerializeField] private IPlayerAbility[] abilities = new IPlayerAbility[3];
+        [SerializeField] private PlayerAbility[] abilities = new PlayerAbility[3];
+        public IReadOnlyCollection<PlayerAbility> Abilities => abilities;
 
         [SerializeField] private KeyCode[] abilityKeys = new KeyCode[]
         {

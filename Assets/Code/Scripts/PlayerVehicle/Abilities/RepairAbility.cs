@@ -9,11 +9,8 @@ using UnityEngine;
 
 namespace FS.Gameplay.PlayerVehicle
 {
-    public class RepairAbility : MonoBehaviour, IPlayerAbility
+    public class RepairAbility : PlayerAbility
     {
-        public event Action<float> OnProgressChanged;
-        public event Action OnFinished;
-        
         [SerializeField] private Transform _abilityPosition;
         [SerializeField] private float _radius;
         [SerializeField] private float _duration = 3;
@@ -21,6 +18,8 @@ namespace FS.Gameplay.PlayerVehicle
         [SerializeField] private LayerMask _applyToLayerMask;
 
         [SerializeField] private int _maxCharges = 2;
+
+        [SerializeField] private bool _applyInProgress = false;
         
         
         private int _currentCharges;
@@ -31,9 +30,10 @@ namespace FS.Gameplay.PlayerVehicle
             _currentCharges = _maxCharges;
         }
 
-        public bool CanUse()
+        public override bool CanUse()
         {
             if (_currentCharges == 0) return false;
+            if (_applyInProgress) return false;
             
             var abilityTargets = Physics.OverlapSphere(_abilityPosition.position, _radius, _applyToLayerMask);
             foreach (var target in abilityTargets)
@@ -50,26 +50,36 @@ namespace FS.Gameplay.PlayerVehicle
             return false;
         }
 
-        public void Use()
+        public override void Use()
         {
             var abilityTargets = Physics.OverlapSphere(_abilityPosition.position, _radius, _applyToLayerMask);
             var target = abilityTargets.Select(t => t.GetComponent<ITank>()).FirstOrDefault(t => t?.Team == Team.Blue);
             StartCoroutine(Repair(target));
         }
 
+        public void AddCharges(int chargeCount)
+        {
+            _maxCharges += chargeCount;
+            for (int i = 0; i < chargeCount; i++)
+                StartCoroutine(RestoreCharge());
+        }
+
         private IEnumerator Repair(ITank target)
         {
+            Debug.Log("Start repair");
+            _applyInProgress = true;
             while (_useProgress < _duration)
             {
                 _useProgress += Time.deltaTime;
-                OnProgressChanged?.Invoke(_useProgress);
+                EmitProgressChanged(_useProgress);
                 yield return new WaitForEndOfFrame();
             }
 
             _currentCharges--;
             target.HealthController.RestoreHealth();
-            OnFinished?.Invoke();
+            EmitFinished();
             Debug.Log("Repair ability applied");
+            _applyInProgress = false;
             StartCoroutine(RestoreCharge());
         }
 
