@@ -2497,7 +2497,8 @@ MonoBehaviour:
   iconPrefab: {fileID: 0}
   cameraPos: {fileID: 2184820706901991415}
   playerCamera: {fileID: 3074614641326220051}
-  minDrawDistance: 0
+  minDrawDistance: 80
+  enemyHUDs: []
 --- !u!1 &6730739692053532945
 GameObject:
   m_ObjectHideFlags: 0
