@@ -8,6 +8,9 @@ namespace SibGameJam.ScriptableObjects.PlayerBonuses
     {
         [field: SerializeField]
         public string BonusName { get; private set; }
+        
+        [field: SerializeField]
+        public string Description { get; private set; }
 
         public abstract void Apply(IObjectResolver objectResolver);
     }

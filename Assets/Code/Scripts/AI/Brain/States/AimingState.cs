@@ -14,12 +14,19 @@ namespace Code.Scripts.AI.Brain.States
 
 		public override void Execute()
 		{
-			tank.RotateTurret(tank.EnemyTankPosition);
-			if (tank.IsAimed(tank.EnemyTankPosition))
+			if (tank.Enemy is null)
+			{
+				tank.StateMachine.SetState(tank.StateFactory.GetState(StateType.Movement));
+				return;
+			}
+
+			if (tank.IsAimed(tank.EnemyPosition))
 			{
 				tank.StateMachine.SetState(tank.StateFactory.GetState(StateType.Shooting));
-				//tank.StateMachine.SetState(new ShootingState(tank));
+				return;
 			}
+
+			tank.RotateTurret(tank.EnemyPosition);
 		}
 
 		public override void Exit()

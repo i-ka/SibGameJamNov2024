@@ -47,7 +47,7 @@ namespace Code.Scripts.Pool
 			return createdObject;
 		}
 
-		public bool HasFreeElement(out T element)
+		private bool HasFreeElement(out T element)
 		{
 			foreach (var mono in _pool.Where(mono => !mono.gameObject.activeInHierarchy))
 			{

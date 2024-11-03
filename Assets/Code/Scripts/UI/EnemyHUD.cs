@@ -17,14 +17,21 @@ namespace SibGameJam.HUD
         [SerializeField] private float verticalDistance;
         [SerializeField] private float effectDuration;
         [SerializeField] private GameObject damageIndicatorPrefab;
+        [SerializeField] private GameObject recoveryIndicatorPrefab;
 
         // private
         private bool isShown = true;
+        EnemyHudViewController hudViewController;
 
         private void Awake()
         {
 
-            FindAnyObjectByType<EnemyHudViewController>().AddToList(this);
+            hudViewController = FindAnyObjectByType<EnemyHudViewController>();
+
+            if (hudViewController)
+            {
+                hudViewController.AddToList(this);
+            }
         }
 
         public Vector3 TankPostion()
@@ -38,26 +45,38 @@ namespace SibGameJam.HUD
 
         }
 
-        public void SetHealth(int lastDamage, int currentHealth, int maxHealth)
+        public void SetHealth(int delta, int currentHealth, int maxHealth)
         {
+            Debug.LogAssertion("Damaged");
             textHealthValue.text = $"{currentHealth}";
-            fillHealthValue.fillAmount = currentHealth / maxHealth;
+            fillHealthValue.fillAmount = (float)currentHealth / (float)maxHealth;
+
+            if(delta > 0)
+            {
+                StartCoroutine(ShowTankRecovery(delta));
+            }
+            else if(delta < 0)
+            {
+                StartCoroutine(ShowTankDamage(delta));
+            }
         }
 
-        public IEnumerator ShowTankDamage(int lastDamage, Vector3 tankPosition, Camera cam)
+        public IEnumerator ShowTankDamage(int lastDamage)
         {
             float elapsed = effectDuration;
 
-            GameObject newDamageObject = Instantiate(damageIndicatorPrefab, cam.WorldToScreenPoint(tankPosition), Quaternion.identity, healthStatsCanvas.transform);
+            GameObject newDamageObject = Instantiate(damageIndicatorPrefab, healthPanel.transform.position, Quaternion.identity, healthStatsCanvas.transform);
+            newDamageObject.transform.LookAt(Camera.main.transform);
+
             TextMeshProUGUI damageText = newDamageObject.GetComponentInChildren<TextMeshProUGUI>();
 
             while (elapsed > 0)
             {
                 Vector3 moveUp = Vector3.LerpUnclamped(new Vector3(0, verticalDistance, 0), Vector3.zero, elapsed);
-                newDamageObject.transform.position = cam.WorldToScreenPoint(tankPosition + new Vector3(0, 16, 0) + moveUp);
+                newDamageObject.transform.position = healthPanel.transform.position + new Vector3(0, 6, 0) + moveUp;
 
                 damageText.alpha = (elapsed / effectDuration) * 1.0f;
-                damageText.text = $"-{lastDamage}";
+                damageText.text = $"{lastDamage}";
 
                 elapsed -= Time.deltaTime;
 
@@ -67,9 +86,39 @@ namespace SibGameJam.HUD
             Destroy(newDamageObject);
         }
 
+        public IEnumerator ShowTankRecovery(int lastRecovery)
+        {
+            float elapsed = effectDuration;
+
+            GameObject newRecoveryObject = Instantiate(recoveryIndicatorPrefab, healthPanel.transform.position, Quaternion.identity, healthStatsCanvas.transform);
+            newRecoveryObject.transform.LookAt(Camera.main.transform);
+
+            TextMeshProUGUI recoveryText = newRecoveryObject.GetComponentInChildren<TextMeshProUGUI>();
+
+            while (elapsed > 0)
+            {
+                Vector3 moveUp = Vector3.LerpUnclamped(new Vector3(0, verticalDistance, 0), Vector3.zero, elapsed);
+                newRecoveryObject.transform.position = healthPanel.transform.position + new Vector3(0, 6, 0) + moveUp;
+
+                recoveryText.alpha = (elapsed / effectDuration) * 1.0f;
+                recoveryText.text = $"+{lastRecovery}";
+
+                elapsed -= Time.deltaTime;
+
+                yield return null;
+            }
+
+            Destroy(newRecoveryObject);
+        }
+
         public void DeactivateHud()
         {
             gameObject.SetActive(false);
+
+            if (hudViewController)
+            {
+                hudViewController.RemoveFromList(this);
+            }
         }
 
         public void Show()
@@ -77,7 +126,6 @@ namespace SibGameJam.HUD
             if (isShown) return;
             isShown = true;
 
-            Debug.Log("show");
 
             StopAllCoroutines();
             StartCoroutine(ShowProcess());
@@ -88,7 +136,6 @@ namespace SibGameJam.HUD
             if (!isShown) return;
             isShown = false;
 
-            Debug.Log("hide");
 
             StopAllCoroutines();
             StartCoroutine(HideProcess());

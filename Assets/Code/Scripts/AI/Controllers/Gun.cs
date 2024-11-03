@@ -1,4 +1,3 @@
-using Code.Scripts.AI.Brain;
 using Code.Scripts.AI.Data;
 using Code.Scripts.Pool;
 using UnityEngine;
@@ -11,15 +10,16 @@ namespace Code.Scripts.AI.Controllers
 		[SerializeField] private Projectile _bulletPrefab;
 		[SerializeField] private float _bulletSpeed;
 		[SerializeField] private float _reloadingTime;
-		[SerializeField] private Transform _poolContainer;
 		[SerializeField] private Transform _turretTransform;
 
 		private PoolMono<Projectile> _projectilePool;
+		private Transform _poolContainer;
 
 		private float _lastShotTime;
 
-		private void Awake()
+		public void Initialize(Transform poolContainer)
 		{
+			_poolContainer = poolContainer;
 			_projectilePool = new(_bulletPrefab, 5, _poolContainer);
 		}
 
@@ -31,8 +31,7 @@ namespace Code.Scripts.AI.Controllers
 			}
 
 			var bullet = _projectilePool.GetFreeElement();
-			bullet.transform.position = _bulletSpawnPointTransform.position;
-			bullet.transform.rotation = _turretTransform.rotation;
+			bullet.transform.SetPositionAndRotation(_bulletSpawnPointTransform.position, _turretTransform.rotation);
 			bullet.EnemyTeam = team == Team.Red ? Team.Blue : Team.Red;
 			bullet.SetSpeed(_bulletSpeed);
 			_lastShotTime = Time.time;

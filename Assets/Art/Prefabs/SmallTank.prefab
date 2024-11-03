@@ -748,6 +748,7 @@ MonoBehaviour:
   verticalDistance: 1.5
   effectDuration: 4
   damageIndicatorPrefab: {fileID: 3558114322009793472, guid: ac60ab38813c7a54ebff7b2d74cc4874, type: 3}
+  recoveryIndicatorPrefab: {fileID: 1555173283846542622, guid: befc3dc88aee1c146b3056d957c69fc0, type: 3}
 --- !u!1 &2727058334213759234
 GameObject:
   m_ObjectHideFlags: 0
@@ -927,14 +928,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: f2bdc1bd721228f479d4f924da2f8148, type: 3}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 1
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!1 &3745240744175264175
@@ -1303,7 +1304,7 @@ Transform:
   m_GameObject: {fileID: 5245872112722799635}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.6, y: 1.072, z: -11.297999}
+  m_LocalPosition: {x: -21.6, y: 1.072, z: -11.298}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1422,8 +1423,8 @@ NavMeshAgent:
   m_GameObject: {fileID: 5245872112722799635}
   m_Enabled: 1
   m_AgentTypeID: -1372625422
-  m_Radius: 2
-  m_Speed: 3.5
+  m_Radius: 3
+  m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -1476,9 +1477,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletSpawnPointTransform: {fileID: 1693477697375377773}
   _bulletPrefab: {fileID: 8285670914004802762, guid: f9c812f95d22f014c902b4c63a5f538b, type: 3}
-  _bulletSpeed: 300
-  _reloadingTime: 3
-  _poolContainer: {fileID: 0}
+  _bulletSpeed: 600
+  _reloadingTime: 2
   _turretTransform: {fileID: 3635875282758055212}
 --- !u!114 &9069495634710731418
 MonoBehaviour:
@@ -1495,9 +1495,13 @@ MonoBehaviour:
   _team: 1
   _movementController: {fileID: 4663826266883513657}
   _turretController: {fileID: 3794939548273517105}
+  _healthController: {fileID: 2460517178953657371}
   _gun: {fileID: 6664690654488044397}
-  _baseTransform: {fileID: 0}
-  _shotDistance: 20
+  _healthController: {fileID: 2460517178953657371}
+  _shotDistance: 40
+  _escapeThresholdHealth: 130
+  _healingMax: 190
+  _escapeEscapeZoneThreshold: 100
 --- !u!65 &3979434968062565199
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1517,8 +1521,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 19.5187, y: 3.519014, z: 25.76208}
-  m_Center: {x: 0.03062439, y: 1.259507, z: 13.71104}
+  m_Size: {x: 19.5187, y: 4, z: 30}
+  m_Center: {x: 0, y: 0.44, z: 16.13}
 --- !u!114 &2460517178953657371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1532,6 +1536,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 200
+  _canRegenerateHealth: 1
+  _regenerateHealthValue: 5
+  _regenerateHealthDelay: 8
+  _regenerateHealthOnStartDelay: 3
   OnObjectRepaired:
     m_PersistentCalls:
       m_Calls:
@@ -1564,7 +1572,19 @@ MonoBehaviour:
         m_CallState: 2
   OnObjectDestroyed:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 815647025193174102}
+        m_TargetAssemblyTypeName: SibGameJam.HUD.EnemyHUD, Assembly-CSharp
+        m_MethodName: DeactivateHud
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5790213399260862733
 GameObject:
   m_ObjectHideFlags: 0

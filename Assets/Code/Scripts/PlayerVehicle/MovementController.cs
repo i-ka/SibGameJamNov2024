@@ -1,7 +1,6 @@
 using UnityEngine;
-using Unity.VisualScripting.FullSerializer;
-using UnityEngine.Windows;
-
+using System.Collections.Generic;
+using System.Collections;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -16,6 +15,7 @@ namespace FS.Gameplay.PlayerVehicle
         [Header("Basic Components")]
         [SerializeField] private Rigidbody rb;
         [SerializeField] private Transform com;
+        [SerializeField] private Transform teleportPointAfterIncline;
 
         [Header("Custom Components")]
         [SerializeField] private WheelViewController wheelViewController;
@@ -57,6 +57,16 @@ namespace FS.Gameplay.PlayerVehicle
         [Header("Brakes")]
         [SerializeField] private float brakingForce;
         [SerializeField] private float currentBrake;
+
+        [Header("Other")]
+        [SerializeField] private float currentInclineAngle;
+        [SerializeField] private float inclineAngleToTeleport;
+
+
+        [SerializeField] private bool isPreparingToTeleport = false;
+        [SerializeField] bool isInclined = false;
+
+        private IEnumerator lastRoutine = null;
 
         #endregion
 
@@ -142,6 +152,73 @@ namespace FS.Gameplay.PlayerVehicle
             else if (rb.velocity.magnitude > maxBackSpeedInKmpH && moveDirection <= 0)
             {
                 rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxBackSpeedInKmpH);
+            }
+        }
+
+        public void PositionAndRotationController()
+        {
+            currentInclineAngle = Vector3.Angle(rb.transform.up, Vector3.up);
+
+            if (currentInclineAngle > inclineAngleToTeleport)
+            {
+                isInclined = true;
+            }
+            else
+            {
+                isInclined = false;
+                isPreparingToTeleport = false;
+                lastRoutine = PrepareToTeleport();
+                StopCoroutine(lastRoutine);
+                StopAllCoroutines();
+            }
+
+            if (isPreparingToTeleport == false && isInclined == true)
+            {
+                StartCoroutine(PrepareToTeleport());
+            }
+
+            if (isInclined == false)
+            {
+                lastRoutine = PrepareToTeleport();
+                StopCoroutine(lastRoutine);
+                StopAllCoroutines();
+                isPreparingToTeleport = false;
+            }
+
+        }
+
+        private IEnumerator PrepareToTeleport()
+        {
+
+            isPreparingToTeleport = true;
+            int prepareTime = 3;
+            int time = prepareTime;
+
+            while (time > 0)
+            {
+                time -= 1;
+                yield return new WaitForSeconds(1);
+            }
+
+
+            TeleportPlayer(teleportPointAfterIncline);
+            isPreparingToTeleport = false;
+        }
+
+        private void TeleportPlayer(Transform teleportPoint)
+        {
+            isInclined = false;
+            isPreparingToTeleport = false;
+            lastRoutine = PrepareToTeleport();
+            StopCoroutine(lastRoutine);
+            StopAllCoroutines();
+            rb.position = teleportPoint.position;
+            rb.rotation = teleportPoint.rotation;
+            rb.velocity = Vector3.zero;
+
+            foreach (var wheel in wheels)
+            {
+                wheel.brakeTorque = 10000;
             }
         }
 
