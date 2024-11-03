@@ -13,10 +13,6 @@ namespace SibGameJam
     {
         [SerializeField]
         private PlayerLevelingConfiguration _levelingConfiguration;
-
-        [SerializeField]
-        private LevelingUi _levelingUi;
-
         [SerializeField]
         private FactoryUpgradeSettings _factoryUpgradeSettings;
 
@@ -28,7 +24,7 @@ namespace SibGameJam
             builder.Register<ResearchManager>(Lifetime.Singleton);
             builder.Register<TankManager>(Lifetime.Singleton);
 
-            builder.RegisterInstance(_levelingUi);
+            RegisterComponentFromScene<LevelingUi>(builder);
             builder.RegisterEntryPoint<LevelingUiController>();
 
             builder.Register<FactoryUpgradeManager>(Lifetime.Singleton);
