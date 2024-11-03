@@ -1,5 +1,4 @@
 using System;
-using Code.Scripts.AI.Brain.States;
 using Code.Scripts.AI.Controllers;
 using Code.Scripts.AI.Data;
 using SibGameJam;
@@ -28,9 +27,7 @@ namespace Code.Scripts.AI.Brain
 		private StateFactory _stateFactory;
 
         public event Action<ITank> OnDestroyed;
-
-        public Side Side => Side.Ally;
-
+        
         public Transform BaseTransform
 		{
 			get => _baseTransform;
