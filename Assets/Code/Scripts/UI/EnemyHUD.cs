@@ -77,7 +77,6 @@ namespace SibGameJam.HUD
             if (isShown) return;
             isShown = true;
 
-            Debug.Log("show");
 
             StopAllCoroutines();
             StartCoroutine(ShowProcess());
@@ -88,7 +87,6 @@ namespace SibGameJam.HUD
             if (!isShown) return;
             isShown = false;
 
-            Debug.Log("hide");
 
             StopAllCoroutines();
             StartCoroutine(HideProcess());
