@@ -20,6 +20,11 @@ namespace SibGameJam.HUD
             enemyHUDs.Add(enemyHud);
         }
 
+        public void RemoveFromList(EnemyHUD enemyHud)
+        {
+            enemyHUDs.Remove(enemyHud);
+        }
+
         public void Update()
         {
             

@@ -31,7 +31,10 @@ namespace Code.Scripts.AI.Controllers
 
 			_isDisabling = true;
 			_eventTriggerForMultipleSystems.SendEventToVFX();
-			if (collision.gameObject.TryGetComponent(out HealthController healthObject))
+
+			HealthController healthObject = collision.gameObject.GetComponentInParent<HealthController>();
+
+            if (healthObject)
 			{
 				healthObject.ReduceHealth(_damage);
 			}
