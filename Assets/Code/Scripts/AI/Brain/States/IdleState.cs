@@ -25,7 +25,7 @@ namespace Code.Scripts.AI.Brain.States
 				tank.StateMachine.SetState(tank.StateFactory.GetState(StateType.Aiming));
 			}
 
-			if (tank.CurrentHealth > tank.HealingMax)
+			if (tank.CurrentHealth >= tank.HealingMax)
 			{
 				tank.StateMachine.SetState(tank.StateFactory.GetState(StateType.Movement));
 			}

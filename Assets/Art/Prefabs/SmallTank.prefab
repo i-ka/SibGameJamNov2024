@@ -1423,10 +1423,10 @@ NavMeshAgent:
   m_GameObject: {fileID: 5245872112722799635}
   m_Enabled: 1
   m_AgentTypeID: -1372625422
-  m_Radius: 3
-  m_Speed: 4
+  m_Radius: 5
+  m_Speed: 5
   m_Acceleration: 8
-  avoidancePriority: 50
+  avoidancePriority: 0
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
@@ -1449,7 +1449,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _turret: {fileID: 3635875282758055212}
+  _gun: {fileID: 5148846038791514299}
   _rotationSpeed: 10
+  _barrelMaxNegativeAngle: 90
+  _barrelMaxPositiveAngle: 90
+  _barrelElevationSpeed: 100
 --- !u!114 &4663826266883513657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1503,8 +1507,8 @@ MonoBehaviour:
   _gun: {fileID: 6664690654488044397}
   _shotDistance: 40
   _escapeThresholdHealth: 80
-  _healingMax: 190
-  _escapeEscapeZoneThreshold: 100
+  _healingMax: 100
+  _escapeEscapeZoneThreshold: 30
 --- !u!65 &3979434968062565199
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1543,6 +1547,7 @@ MonoBehaviour:
   _regenerateHealthValue: 5
   _regenerateHealthDelay: 8
   _regenerateHealthOnStartDelay: 3
+  _currentHealth: 0
   OnObjectRepaired:
     m_PersistentCalls:
       m_Calls:

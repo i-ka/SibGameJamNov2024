@@ -11,13 +11,13 @@ namespace Code.Scripts.AI.Controllers
 		[SerializeField] private float _disablingDelaySeconds;
 		[SerializeField] private EventTriggerForMultipleSystems _eventTriggerForMultipleSystems;
 		[SerializeField] private int _damage;
-		
+
 		private bool _isDisabling;
 
 		public Team EnemyTeam { get; set; }
 		[SerializeField] private float _lifeTimeSeconds;
 
-		private void Awake()
+		private void OnEnable()
 		{
 			StartCoroutine(DestroyWithDelay());
 		}
@@ -25,7 +25,7 @@ namespace Code.Scripts.AI.Controllers
 		private IEnumerator DestroyWithDelay()
 		{
 			yield return new WaitForSeconds(_lifeTimeSeconds);
-			Destroy(gameObject);
+			gameObject.SetActive(false);
 		}
 
 		public void SetDamage(int damage)
@@ -50,10 +50,11 @@ namespace Code.Scripts.AI.Controllers
 
 			HealthController healthObject = collision.gameObject.GetComponentInParent<HealthController>();
 
-            if (healthObject)
+			if (healthObject)
 			{
 				healthObject.ReduceHealth(_damage);
 			}
+
 			StartCoroutine(DisableWithDelay());
 		}
 
