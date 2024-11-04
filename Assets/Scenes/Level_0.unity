@@ -27518,13 +27518,48 @@ MonoBehaviour:
   _currentHealth: 0
   OnObjectRepaired:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 881603081}
+        m_TargetAssemblyTypeName: SibGameJam.HUD.EnemyHUD, Assembly-CSharp
+        m_MethodName: SetHealth
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnObjectDamaged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 881603081}
+        m_TargetAssemblyTypeName: SibGameJam.HUD.EnemyHUD, Assembly-CSharp
+        m_MethodName: SetHealth
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnObjectDestroyed:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &881603081 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7766223992380139425, guid: f797e8838735c6545b52e1151f1aa3d3, type: 3}
+  m_PrefabInstance: {fileID: 881603077}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b37829e16a802dc4980ee92aa84c6a3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &881603082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27538,6 +27573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Team>k__BackingField: 2
+  <HealthController>k__BackingField: {fileID: 881603080}
 --- !u!1001 &887344126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39854,10 +39890,34 @@ MonoBehaviour:
   _currentHealth: 0
   OnObjectRepaired:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7165436318472927105}
+        m_TargetAssemblyTypeName: SibGameJam.HUD.EnemyHUD, Assembly-CSharp
+        m_MethodName: SetHealth
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnObjectDamaged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7165436318472927105}
+        m_TargetAssemblyTypeName: SibGameJam.HUD.EnemyHUD, Assembly-CSharp
+        m_MethodName: SetHealth
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnObjectDestroyed:
     m_PersistentCalls:
       m_Calls: []
@@ -39874,6 +39934,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Team>k__BackingField: 1
+  <HealthController>k__BackingField: {fileID: 1347176389}
 --- !u!1 &1348628228
 GameObject:
   m_ObjectHideFlags: 0
@@ -64916,6 +64977,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1347176391}
   m_SourcePrefab: {fileID: 100100000, guid: 92c48cc61f7660649b366bd3998ad3ff, type: 3}
+--- !u!114 &7165436318472927105 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4204985353695467077, guid: 92c48cc61f7660649b366bd3998ad3ff, type: 3}
+  m_PrefabInstance: {fileID: 7165436318472927104}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b37829e16a802dc4980ee92aa84c6a3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &7205854739414468209
 MeshFilter:
   m_ObjectHideFlags: 0
