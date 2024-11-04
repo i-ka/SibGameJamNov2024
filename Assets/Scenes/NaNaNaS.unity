@@ -219,6 +219,26 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2852864786878522578, guid: a7d09ce2e234e499f89e8c3872fab65b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2852864786878522578, guid: a7d09ce2e234e499f89e8c3872fab65b, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2852864786878522578, guid: a7d09ce2e234e499f89e8c3872fab65b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2852864786878522578, guid: a7d09ce2e234e499f89e8c3872fab65b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2852864786878522578, guid: a7d09ce2e234e499f89e8c3872fab65b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3242785217632610268, guid: a7d09ce2e234e499f89e8c3872fab65b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -284,6 +304,26 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5725284084199716316, guid: a7d09ce2e234e499f89e8c3872fab65b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5996938853555866166, guid: a7d09ce2e234e499f89e8c3872fab65b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5996938853555866166, guid: a7d09ce2e234e499f89e8c3872fab65b, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5996938853555866166, guid: a7d09ce2e234e499f89e8c3872fab65b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5996938853555866166, guid: a7d09ce2e234e499f89e8c3872fab65b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5996938853555866166, guid: a7d09ce2e234e499f89e8c3872fab65b, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
@@ -769,6 +809,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1334426733097201178, guid: cb46bcddd8c3c824ca95ada2a8d619f8, type: 3}
+      propertyPath: _levelingConfigurationEnemy
+      value: 
+      objectReference: {fileID: 11400000, guid: b08d4c2f953952743b1c2bb8d9624316, type: 2}
+    - target: {fileID: 1334426733097201178, guid: cb46bcddd8c3c824ca95ada2a8d619f8, type: 3}
+      propertyPath: _levelingConfigurationPlayer
+      value: 
+      objectReference: {fileID: 11400000, guid: f4b187adf8eac084a8cf7b276335d053, type: 2}
+    - target: {fileID: 1334426733097201178, guid: cb46bcddd8c3c824ca95ada2a8d619f8, type: 3}
       propertyPath: autoInjectGameObjects.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -837,6 +885,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2965457509689168999, guid: 693b15044dc1767418f66b035202462d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.008
+      objectReference: {fileID: 0}
     - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
       propertyPath: _team
       value: 2
@@ -850,8 +902,36 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 165339248}
     - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
+      propertyPath: _enemyBase
+      value: 
+      objectReference: {fileID: 7019306379629376677}
+    - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
+      propertyPath: _startSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
+      propertyPath: _startDamage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
+      propertyPath: _startHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
+      propertyPath: _tankColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
+      propertyPath: _tankColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
+      propertyPath: _tankColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
       propertyPath: _maximumTanksCount
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
       propertyPath: _bulletPoolContainer
@@ -868,7 +948,7 @@ PrefabInstance:
     - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
       propertyPath: _escapePoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1090403432}
+      objectReference: {fileID: 1802157771}
     - target: {fileID: 8668555022073132586, guid: 693b15044dc1767418f66b035202462d, type: 3}
       propertyPath: m_Name
       value: RedFactory
@@ -881,6 +961,11 @@ PrefabInstance:
 --- !u!1 &596167268 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8668555022073132586, guid: 693b15044dc1767418f66b035202462d, type: 3}
+  m_PrefabInstance: {fileID: 596167267}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &596167271 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2611814521614900191, guid: 693b15044dc1767418f66b035202462d, type: 3}
   m_PrefabInstance: {fileID: 596167267}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &625749690
@@ -1041,7 +1126,7 @@ Transform:
   m_GameObject: {fileID: 679557248}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 41.1, y: 0, z: -36.1}
+  m_LocalPosition: {x: 20.3, y: 0, z: -36.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1106,9 +1191,9 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.6666667
+  m_VoxelSize: 1
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: b0d5c697319df3d438c1b6aa24766a4a, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 0bb8c38bb8ed54c4882d8f3aa8e854b7, type: 2}
   m_BuildHeightMesh: 1
 --- !u!1 &866681821
 GameObject:
@@ -1223,7 +1308,7 @@ Transform:
   m_GameObject: {fileID: 898917928}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 36.9, y: 0, z: 32.6}
+  m_LocalPosition: {x: 20.3, y: 0, z: 32.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1254,7 +1339,7 @@ Transform:
   m_GameObject: {fileID: 1090403431}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -41.87, y: 0, z: -36.1}
+  m_LocalPosition: {x: -20.7, y: 0, z: -36.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1359,8 +1444,8 @@ Transform:
   m_GameObject: {fileID: 1345228126}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.80198854, y: 0.249, z: 4.150416}
-  m_LocalScale: {x: 5.59, y: 1, z: 5.53}
+  m_LocalPosition: {x: 0, y: 0.46, z: 22.6}
+  m_LocalScale: {x: 19.34, y: 1.91, z: 31}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1390,7 +1475,7 @@ Transform:
   m_GameObject: {fileID: 1802157770}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -43.1, y: 0, z: 32.6}
+  m_LocalPosition: {x: -20.7, y: 0, z: 32.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1399,6 +1484,11 @@ Transform:
 --- !u!1 &7019306379629376674 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8668555022073132586, guid: 693b15044dc1767418f66b035202462d, type: 3}
+  m_PrefabInstance: {fileID: 8097567443760695071}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7019306379629376677 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2611814521614900191, guid: 693b15044dc1767418f66b035202462d, type: 3}
   m_PrefabInstance: {fileID: 8097567443760695071}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8097567443760695071
@@ -1458,6 +1548,34 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 165339248}
     - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
+      propertyPath: _enemyBase
+      value: 
+      objectReference: {fileID: 596167271}
+    - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
+      propertyPath: _startSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
+      propertyPath: _startDamage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
+      propertyPath: _startHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
+      propertyPath: _tankColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
+      propertyPath: _tankColor.g
+      value: 0.6642289
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
+      propertyPath: _tankColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
       propertyPath: _maximumTanksCount
       value: 2
       objectReference: {fileID: 0}
@@ -1465,6 +1583,10 @@ PrefabInstance:
       propertyPath: _bulletPoolContainer
       value: 
       objectReference: {fileID: 507759251}
+    - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
+      propertyPath: <Team>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
       propertyPath: _escapePoints.Array.size
       value: 2

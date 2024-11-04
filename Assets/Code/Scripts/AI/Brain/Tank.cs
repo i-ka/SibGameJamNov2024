@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using Code.Scripts.AI.Controllers;
 using Code.Scripts.AI.Data;
 using Code.Scripts.HealthSystem;
+using Code.Scripts.TankFactory;
+using Code.Scripts.TankFactorySpace;
 using SibGameJam;
+using SibGameJam.TankFactorySpace;
 using UnityEngine;
-using UnityEngine.AI;
+using Random = UnityEngine.Random;
 using Vector3 = UnityEngine.Vector3;
 
 
@@ -14,12 +17,17 @@ namespace Code.Scripts.AI.Brain
 	public class Tank : MonoBehaviour, ITank
 	{
 		public event Action<ITank> OnDestroyed;
+		[SerializeField] private GameObject _tankSkeleton;
+		[SerializeField] private Resource _screw;
+		[SerializeField] private int _screwsCount;
+		[SerializeField] private float _screwSpawnOffset;
 		[SerializeField] private Team _team;
 		[SerializeField] private MovementController _movementController;
 		[SerializeField] private TurretController _turretController;
 		[SerializeField] private HealthController _healthController;
 		[SerializeField] private Gun _gun;
-		[SerializeField] private HealthController _healthController;
+
+		[SerializeField] private List<MeshRenderer> _detailsToPaint;
 
 		[SerializeField] private float _shotDistance;
 		[SerializeField] private int _escapeThresholdHealth;
@@ -28,13 +36,7 @@ namespace Code.Scripts.AI.Brain
 
 		private Transform _bulletPoolTransform;
 
-		private bool _seeEnemy;
-
-		private List<Transform> _escapePoints;
-
 		public Transform BaseTransform { get; private set; }
-		
-		public HealthController HealthController => _healthController;
 
 		public Transform BulletPoolContainer
 		{
@@ -57,8 +59,10 @@ namespace Code.Scripts.AI.Brain
 
 		public int CurrentHealth => _healthController.CurrentHealth;
 
+
 		public int EscapeThresholdHealth => _escapeThresholdHealth;
-		public List<Transform> EscapePoints => _escapePoints;
+		public List<Transform> EscapePoints { get; private set; }
+
 		public int HealingMax => _healingMax;
 		public int EscapeEscapeZoneThreshold => _escapeEscapeZoneThreshold;
 
@@ -76,18 +80,25 @@ namespace Code.Scripts.AI.Brain
 					Enemy = tank.gameObject;
 				}
 
-				_seeEnemy = true;
+				return;
+			}
+
+			if (other.TryGetComponent<TankFactory.TankFactory>(out var factory) && factory.Team != Team)
+			{
+				Debug.Log("Detected enemy factory");
+				Enemy ??= factory.gameObject;
 			}
 		}
 
 		private void OnTriggerExit(Collider other)
 		{
-			if (other.TryGetComponent<Tank>(out var tank) && tank.Team != Team)
+			if (other.TryGetComponent<Tank>(out var tank) && tank.Team != Team && other.gameObject == Enemy)
 			{
-				_seeEnemy = false;
 				Enemy = null;
 			}
 		}
+
+		public HealthController HealthController => _healthController;
 
 		public Team Team
 		{
@@ -95,16 +106,43 @@ namespace Code.Scripts.AI.Brain
 			private set => _team = value;
 		}
 
-		public void Initialize(Team team, Transform baseTransform, Transform bulletsPoolContainer, List<Transform> escapePoints)
+		public void Initialize(Team team, Transform baseTransform, Transform bulletsPoolContainer, List<Transform> escapePoints, TankStats stats, Color color)
 		{
-			_healthController.Init();
+			_healthController.Init(Mathf.RoundToInt(stats.Health));
+			_movementController.Init(stats.Speed);
+			_gun.SetDamage(stats.Damage);
 			Team = team;
 			BaseTransform = baseTransform;
 			BulletPoolContainer = bulletsPoolContainer;
-			_escapePoints = escapePoints;
+			EscapePoints = escapePoints;
 			StateFactory = new(this);
 			StateMachine ??= new();
 			StateMachine.SetState(StateFactory.GetState(StateType.Movement));
+			_healthController.OnDestroyed += Tank_OnDestroyed;
+			Paint(color);
+		}
+
+		private void Tank_OnDestroyed()
+		{
+			OnDestroyed?.Invoke(this);
+			Instantiate(_tankSkeleton, transform.position, transform.rotation);
+			var tankPosition = transform.position;
+			var screwSpawnPositions = new List<Vector3>
+			{
+				new(tankPosition.x - _screwSpawnOffset, tankPosition.y - 0.5F, tankPosition.z),
+				new(tankPosition.x + _screwSpawnOffset, tankPosition.y - 0.5F, tankPosition.z),
+				new(tankPosition.x, tankPosition.y - 0.5F, tankPosition.z + _screwSpawnOffset),
+				new(tankPosition.x, tankPosition.y - 0.5F, tankPosition.z - _screwSpawnOffset),
+			};
+			for (var index = 0; index < _screwsCount; index++)
+			{
+				var screwPosition = screwSpawnPositions[Random.Range(0, screwSpawnPositions.Count)];
+				var screw = Instantiate(_screw, screwPosition, Quaternion.identity);
+				screw.Type = Team == Team.Red ? ResourceType.AllyWreck : ResourceType.EnemyWreck;
+				screwSpawnPositions.Remove(screwPosition);
+			}
+
+			Destroy(gameObject);
 		}
 
 		public void MoveToPosition(Vector3 position)
@@ -119,12 +157,12 @@ namespace Code.Scripts.AI.Brain
 
 		public bool CanSeeEnemy()
 		{
-			return _seeEnemy;
+			return Enemy;
 		}
 
 		public bool CanShotEnemy()
 		{
-			if (Enemy is null)
+			if (Enemy is null || !Enemy)
 			{
 				return false;
 			}
@@ -136,17 +174,31 @@ namespace Code.Scripts.AI.Brain
 
 		public void RotateTurret(Vector3 targetPoint)
 		{
-			_turretController.RotateTurret(targetPoint);
+			_turretController.Aim(targetPoint);
 		}
 
 		public bool IsAimed(Vector3 targetPoint)
 		{
-			return _turretController.RotateTurret(targetPoint);
+			return _turretController.Aim(targetPoint);
 		}
 
 		public void Shoot()
 		{
 			_gun.Shoot(Team);
+		}
+
+		private void Paint(Color color)
+		{
+			foreach (var detail in _detailsToPaint)
+			{
+				foreach (var material in detail.materials)
+				{
+					if (material.name.Contains("TeamColor"))
+					{
+						material.color = color;
+					}
+				}
+			}
 		}
 	}
 }

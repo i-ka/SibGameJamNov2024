@@ -53,7 +53,10 @@ namespace FS.Gameplay.PlayerVehicle
         public override void Use()
         {
             var abilityTargets = Physics.OverlapSphere(_abilityPosition.position, _radius, _applyToLayerMask);
-            var target = abilityTargets.Select(t => t.GetComponent<ITank>()).FirstOrDefault(t => t?.Team == Team.Red);
+            var target = abilityTargets
+                .Select(t => t.GetComponent<ITank>())
+                .OrderBy(t => t.HealthController.CurrentHealth)
+                .FirstOrDefault(t => t?.Team == Team.Red);
             StartCoroutine(Repair(target));
         }
 

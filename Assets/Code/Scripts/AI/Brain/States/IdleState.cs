@@ -15,7 +15,6 @@ namespace Code.Scripts.AI.Brain.States
 
 		public override void Execute()
 		{
-			Debug.LogError("Idle");
 			if (tank.CanSeeEnemy() && tank.CurrentHealth < tank.EscapeEscapeZoneThreshold)
 			{
 				tank.StateMachine.SetState(tank.StateFactory.GetState(StateType.Movement));
@@ -26,7 +25,7 @@ namespace Code.Scripts.AI.Brain.States
 				tank.StateMachine.SetState(tank.StateFactory.GetState(StateType.Aiming));
 			}
 
-			if (tank.CurrentHealth > tank.HealingMax)
+			if (tank.CurrentHealth >= tank.HealingMax)
 			{
 				tank.StateMachine.SetState(tank.StateFactory.GetState(StateType.Movement));
 			}

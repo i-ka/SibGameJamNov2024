@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace FS.Gameplay.PlayerVehicle
 {
-    public class PlayerAbilityController: MonoBehaviour
+    public class PlayerAbilityController : MonoBehaviour
     {
         [SerializeField] private PlayerAbility[] abilities = new PlayerAbility[3];
         public IReadOnlyCollection<PlayerAbility> Abilities => abilities;

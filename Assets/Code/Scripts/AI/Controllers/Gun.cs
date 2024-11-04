@@ -10,6 +10,7 @@ namespace Code.Scripts.AI.Controllers
 		[SerializeField] private Projectile _bulletPrefab;
 		[SerializeField] private float _bulletSpeed;
 		[SerializeField] private float _reloadingTime;
+		[SerializeField] private int _damage;
 		[SerializeField] private Transform _turretTransform;
 
 		private PoolMono<Projectile> _projectilePool;
@@ -23,6 +24,11 @@ namespace Code.Scripts.AI.Controllers
 			_projectilePool = new(_bulletPrefab, 5, _poolContainer);
 		}
 
+		public void SetDamage(int damage)
+		{
+			_damage = damage;
+		}
+
 		public void Shoot(Team team)
 		{
 			if (Time.time - _lastShotTime < _reloadingTime)
@@ -31,7 +37,8 @@ namespace Code.Scripts.AI.Controllers
 			}
 
 			var bullet = _projectilePool.GetFreeElement();
-			bullet.transform.SetPositionAndRotation(_bulletSpawnPointTransform.position, _turretTransform.rotation);
+			bullet.SetDamage(_damage);
+			bullet.transform.SetPositionAndRotation(_bulletSpawnPointTransform.position, Quaternion.LookRotation(_bulletSpawnPointTransform.forward, _bulletSpawnPointTransform.up));
 			bullet.EnemyTeam = team == Team.Red ? Team.Blue : Team.Red;
 			bullet.SetSpeed(_bulletSpeed);
 			_lastShotTime = Time.time;
