@@ -15,9 +15,11 @@ namespace Code.Scripts.TankFactory
 		[field: SerializeField] public int Count { get; private set; }
 
 		private bool _isDestroying;
+		private Collider _collider;
 
 		private void Awake()
 		{
+			_collider = GetComponent<Collider>();
 			StartCoroutine(DestroyWithDelay());
 		}
 
@@ -36,7 +38,7 @@ namespace Code.Scripts.TankFactory
 			{
 				return;
 			}
-
+			_collider.enabled = false;
 			_isDestroying = true;
 			StartCoroutine(PlayEffectWithDelay());
 		}
