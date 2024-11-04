@@ -12,6 +12,7 @@ namespace Code.Scripts.AI.Controllers
 		[SerializeField] private float _reloadingTime;
 		[SerializeField] private int _damage;
 		[SerializeField] private Transform _turretTransform;
+		[SerializeField] private Vector2 _gunSpread;
 
 		private PoolMono<Projectile> _projectilePool;
 		private Transform _poolContainer;
@@ -36,8 +37,14 @@ namespace Code.Scripts.AI.Controllers
 				return;
 			}
 
-			var bullet = _projectilePool.GetFreeElement();
+            float xSpread = Random.Range(-_gunSpread.x, _gunSpread.x);
+            float ySpread = Random.Range(-_gunSpread.y, _gunSpread.y);
+
+            Vector3 spreadDirection = new Vector3(xSpread, ySpread);
+
+            var bullet = _projectilePool.GetFreeElement();
 			bullet.SetDamage(_damage);
+			bullet.SetSpread(spreadDirection);
 			bullet.transform.SetPositionAndRotation(_bulletSpawnPointTransform.position, Quaternion.LookRotation(_bulletSpawnPointTransform.forward, _bulletSpawnPointTransform.up));
 			bullet.EnemyTeam = team == Team.Red ? Team.Blue : Team.Red;
 			bullet.SetSpeed(_bulletSpeed);
