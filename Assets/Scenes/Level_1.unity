@@ -270,6 +270,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1470358733}
     - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
+      propertyPath: _enemyBase
+      value: 
+      objectReference: {fileID: 1470358734}
+    - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
       propertyPath: _productionTime
       value: 3
       objectReference: {fileID: 0}
@@ -702,6 +706,10 @@ PrefabInstance:
     - target: {fileID: 4989619614994503259, guid: a7d09ce2e234e499f89e8c3872fab65b, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5390342942442568142, guid: a7d09ce2e234e499f89e8c3872fab65b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5725284084199716316, guid: a7d09ce2e234e499f89e8c3872fab65b, type: 3}
       propertyPath: m_AnchorMax.y
@@ -18386,6 +18394,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1470358733}
     - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
+      propertyPath: _enemyBase
+      value: 
+      objectReference: {fileID: 24633673}
+    - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
       propertyPath: _productionTime
       value: 3
       objectReference: {fileID: 0}
@@ -21344,6 +21356,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1334426733097201178, guid: cb46bcddd8c3c824ca95ada2a8d619f8, type: 3}
+      propertyPath: _levelingConfigurationEnemy
+      value: 
+      objectReference: {fileID: 11400000, guid: b08d4c2f953952743b1c2bb8d9624316, type: 2}
+    - target: {fileID: 1334426733097201178, guid: cb46bcddd8c3c824ca95ada2a8d619f8, type: 3}
+      propertyPath: _levelingConfigurationPlayer
+      value: 
+      objectReference: {fileID: 11400000, guid: f4b187adf8eac084a8cf7b276335d053, type: 2}
     - target: {fileID: 1334426733097201178, guid: cb46bcddd8c3c824ca95ada2a8d619f8, type: 3}
       propertyPath: autoInjectGameObjects.Array.size
       value: 2

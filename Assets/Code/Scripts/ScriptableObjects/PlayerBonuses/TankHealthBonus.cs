@@ -1,4 +1,6 @@
 using System.Linq;
+using Code.Scripts.AI.Data;
+using Code.Scripts.GameServices;
 using FS.Gameplay.PlayerVehicle;
 using UnityEngine;
 using VContainer;
@@ -10,10 +12,15 @@ namespace SibGameJam.ScriptableObjects.PlayerBonuses
     {
         [field: SerializeField]
         public float HealthMultiplier { get; private set; }
+        [field: SerializeField]
+        public Team Team { get; private set; }
 
         public override void Apply(IObjectResolver objectResolver)
-        { 
-            Debug.Log($"TanksHealthBonus Apply with {HealthMultiplier} health");
+        {
+            var registeredFabric = objectResolver.Resolve<FactoryRegistry>();
+            var factory = registeredFabric.GetFabric(Team);
+            // TODO 
+            // factory update methods
         }
     }
 }
