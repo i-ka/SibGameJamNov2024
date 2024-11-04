@@ -105,12 +105,12 @@ namespace Code.Scripts.AI.Brain
 				Enemy = null;
 			}
 
-			if (other.TryGetComponent<TankFactory.TankFactory>(out var factory) && other.gameObject == Enemy)
+			if (other.TryGetComponent<Tower>(out var tower) && other.gameObject == Enemy)
 			{
 				Enemy = null;
 			}
 
-			if (other.TryGetComponent<VehicleController>(out var player) && other.gameObject == Enemy)
+			if (other.TryGetComponent<HealthController>(out var healthController) && other.gameObject == Enemy)
 			{
 				Enemy = null;
 			}
