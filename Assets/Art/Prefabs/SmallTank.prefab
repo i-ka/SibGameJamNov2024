@@ -1499,12 +1499,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tankSkeleton: {fileID: 2664255051838987618, guid: 92ce63c1a1287424898c3213c4bedf26, type: 3}
   _screw: {fileID: 4309615600595102049, guid: 9081692f7c3d5b545b36573c47354f2f, type: 3}
-  _screwSpawnOffset: {x: 0, y: 0, z: 5}
+  _screwsCount: 3
+  _screwSpawnOffset: 4
   _team: 1
   _movementController: {fileID: 4663826266883513657}
   _turretController: {fileID: 3794939548273517105}
   _healthController: {fileID: 2460517178953657371}
   _gun: {fileID: 6664690654488044397}
+  _detailsToPaint:
+  - {fileID: 2387862695233357998}
+  - {fileID: 5068193431333361953}
+  - {fileID: 5498566253606038641}
+  - {fileID: 2142152610428252575}
+  - {fileID: 2536615987525918423}
   _shotDistance: 40
   _escapeThresholdHealth: 80
   _healingMax: 100
