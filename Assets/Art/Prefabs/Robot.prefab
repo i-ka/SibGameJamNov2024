@@ -387,6 +387,7 @@ MonoBehaviour:
   playerHUD: {fileID: 5072345677244077006}
   abilityController: {fileID: 2538967147766335947}
   soundController: {fileID: 8392834682883137423}
+  resourceBag: {fileID: 6374785581637972997}
 --- !u!114 &7908516366000040637
 MonoBehaviour:
   m_ObjectHideFlags: 0
