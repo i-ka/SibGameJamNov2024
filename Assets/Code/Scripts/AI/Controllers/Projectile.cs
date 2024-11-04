@@ -13,6 +13,7 @@ namespace Code.Scripts.AI.Controllers
 		[SerializeField] private int _damage;
 
 		private bool _isDisabling;
+		private Vector3 _spread;
 
 		public Team EnemyTeam { get; set; }
 		[SerializeField] private float _lifeTimeSeconds;
@@ -33,9 +34,14 @@ namespace Code.Scripts.AI.Controllers
 			_damage = damage;
 		}
 
-		public void SetSpeed(float speed)
+        public void SetSpread(Vector3 newSpread)
+        {
+            _spread = newSpread;
+        }
+
+        public void SetSpeed(float speed)
 		{
-			_rigidbody.velocity = transform.forward * (speed * Time.fixedDeltaTime);
+			_rigidbody.velocity = (transform.forward + _spread) * (speed * Time.fixedDeltaTime);
 		}
 
 		private void OnCollisionEnter(Collision collision)

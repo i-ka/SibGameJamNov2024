@@ -1485,6 +1485,7 @@ MonoBehaviour:
   _reloadingTime: 2
   _damage: 0
   _turretTransform: {fileID: 3635875282758055212}
+  _gunSpread: {x: 0.07, y: 0.07}
 --- !u!114 &9069495634710731418
 MonoBehaviour:
   m_ObjectHideFlags: 0
