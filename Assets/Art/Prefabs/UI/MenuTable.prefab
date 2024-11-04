@@ -1330,7 +1330,22 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0417\u0434\u0435\u0441\u044C \u0431\u044B\u043B..."
+  m_text: 'Semyon Zuev
+
+    Ignat Kaalinich
+
+    Tair Vildanov
+
+    Pavel Lopatin
+
+    Anton
+    Zarubiin
+
+    Natasha Tukhvatshyna
+
+    Pater
+
+    Aleksandr Ivanov (alvi3d)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2ae7b6eac6278074ba3a6553267b045c, type: 2}
   m_sharedMaterial: {fileID: -5159468218191126285, guid: 2ae7b6eac6278074ba3a6553267b045c, type: 2}
@@ -1357,8 +1372,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 11.8
+  m_fontSizeBase: 11.8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1369,7 +1384,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 21.5
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -3436,8 +3451,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041D\u0443\u0436\u043D\u043E \u043D\u0430\u043F\u0438\u0441\u0430\u0442\u044C,
-    \u043A\u0443\u0434\u0430 \u0436\u0430\u0442\u044C"
+  m_text: "w, a, s, d - \u043F\u0435\u0440\u0435\u0434\u0432\u0438\u0436\u0435\u043D\u0438\u0435\n\u041B\u041A\u041C
+    - \u043A\u0430\u043C\u0435\u0440\u0430"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2ae7b6eac6278074ba3a6553267b045c, type: 2}
   m_sharedMaterial: {fileID: -5159468218191126285, guid: 2ae7b6eac6278074ba3a6553267b045c, type: 2}
@@ -3464,8 +3479,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28.1
-  m_fontSizeBase: 28.1
+  m_fontSize: 12.9
+  m_fontSizeBase: 12.9
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3476,7 +3491,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 125.8
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
