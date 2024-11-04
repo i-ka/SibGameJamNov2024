@@ -20,6 +20,7 @@ namespace SibGameJam.TankFactorySpace
         [SerializeField] private Transform _collectorPosition;
         [SerializeField] private LayerMask _resourcesMask;
         [SerializeField] private PlayerResourceBag _resourceBag;
+        [SerializeField] private AudioSource _collectSound;
 
         private float _collectionTimer = 0;
         private Resource _currentResource;
@@ -43,6 +44,9 @@ namespace SibGameJam.TankFactorySpace
 
             var resourceToCollect = collisions[0].gameObject.GetComponent<Resource>();
             _currentResource = resourceToCollect;
+
+           
+
             OnResourceCollectionStarted?.Invoke(_currentResource, this);
         }
 
@@ -69,6 +73,8 @@ namespace SibGameJam.TankFactorySpace
                 {
                     _currentResource.Collect();
                     OnResourceCollected?.Invoke(this);
+                    _collectSound.pitch = UnityEngine.Random.Range(0.98f, 1.02f);
+                    _collectSound.PlayOneShot(_collectSound.clip);
                 };
                 _currentResource = null;
                 _collectionTimer = 0;
