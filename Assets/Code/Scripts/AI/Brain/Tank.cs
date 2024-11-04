@@ -109,6 +109,7 @@ namespace Code.Scripts.AI.Brain
 		{
 			_healthController.Init(Mathf.RoundToInt(stats.Health));
 			_movementController.Init(stats.Speed);
+			_gun.SetDamage(stats.Damage);
 			Team = team;
 			BaseTransform = baseTransform;
 			BulletPoolContainer = bulletsPoolContainer;

@@ -1502,7 +1502,7 @@ MonoBehaviour:
   _healthController: {fileID: 2460517178953657371}
   _gun: {fileID: 6664690654488044397}
   _shotDistance: 40
-  _escapeThresholdHealth: 130
+  _escapeThresholdHealth: 80
   _healingMax: 190
   _escapeEscapeZoneThreshold: 100
 --- !u!65 &3979434968062565199
