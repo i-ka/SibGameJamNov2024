@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using Code.Scripts.AI.Brain;
 using Code.Scripts.AI.Data;
+using Code.Scripts.HealthSystem;
 using Code.Scripts.GameServices;
 using SibGameJam;
 using UnityEngine;
+using UnityEngine.Serialization;
 using VContainer;
 using VContainer.Unity;
 
@@ -19,13 +21,15 @@ namespace Code.Scripts.TankFactorySpace
         [SerializeField] private float _productionTime = 5;
         [SerializeField] private float _maximumTanksCount;
 
-        [SerializeField] private Team _team;
+		[field: FormerlySerializedAs("_team")] [field:SerializeField] public Team Team { get; private set; }
 
         [SerializeField] private Transform _enemyBase;
 
         [SerializeField] private List<Transform> _escapePoints;
 
         [SerializeField] private Transform _bulletPoolContainer;
+		
+		[field: SerializeField] public HealthController HealthController { get; private set; }
 
         private int _currentProducedTankIndex;
         private int _currentSpawnPointIndex;
@@ -62,7 +66,7 @@ namespace Code.Scripts.TankFactorySpace
 
             while (true)
             {
-                if (_tankManager.tanks.Count(tank => tank.Team == _team) < _maximumTanksCount)
+                if (_tankManager.tanks.Count(tank => tank.Team == Team) < _maximumTanksCount)
                 {
                     SpawnTank();
                 }
@@ -77,7 +81,7 @@ namespace Code.Scripts.TankFactorySpace
             var spawnPoint = _spawnPoints[_currentSpawnPointIndex];
 
             var spawnedTank = _objectResolver.Instantiate(tankToInstantiate, spawnPoint.position, Quaternion.identity);
-            spawnedTank.Initialize(_team, _enemyBase, _bulletPoolContainer, _escapePoints, _tankStats);
+            spawnedTank.Initialize(Team, _enemyBase, _bulletPoolContainer, _escapePoints, _tankStats);
             _tankManager.RegisterTank(spawnedTank);
 
             _currentProducedTankIndex = (_currentProducedTankIndex + 1) % _producedTankPrefabs.Count;
