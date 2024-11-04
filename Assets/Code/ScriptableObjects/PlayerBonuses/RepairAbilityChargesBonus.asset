@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16330675d2e6e4f82814a523e7de0b6c, type: 3}
   m_Name: RepairAbilityChargesBonus
   m_EditorClassIdentifier: 
-  <BonusName>k__BackingField: 
-  <Description>k__BackingField: 
-  <BonusAbilityCharges>k__BackingField: 0
+  <BonusName>k__BackingField: "\u042D\u0444\u0444\u0435\u043A\u0442\u0438\u0432\u043D\u0430\u044F
+    \u043F\u043E\u0447\u0438\u043D\u043A\u0430"
+  <Description>k__BackingField: "\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E
+    \u0437\u0430\u0440\u044F\u0434\u043E\u0432 \u043F\u043E\u0447\u0438\u043D\u043A\u0438
+    \u0443\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442\u0441\u044F
+    \u043D\u0430 +1"
+  <BonusAbilityCharges>k__BackingField: 1

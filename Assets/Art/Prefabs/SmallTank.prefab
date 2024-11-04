@@ -1620,7 +1620,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletSpawnPointTransform: {fileID: 1693477697375377773}
   _bulletPrefab: {fileID: 8285670914004802762, guid: f9c812f95d22f014c902b4c63a5f538b, type: 3}
-  _bulletSpeed: 600
+  _bulletSpeed: 800
   _reloadingTime: 2
   _damage: 0
   _turretTransform: {fileID: 3635875282758055212}
@@ -1654,7 +1654,7 @@ MonoBehaviour:
   - {fileID: 2142152610428252575}
   - {fileID: 2536615987525918423}
   _shotDistance: 40
-  _escapeThresholdHealth: 80
+  _escapeThresholdHealth: 40
   _healingMax: 100
   _escapeEscapeZoneThreshold: 30
 --- !u!65 &3979434968062565199

@@ -445,6 +445,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
+      propertyPath: _tower
+      value: 
+      objectReference: {fileID: 881603082}
+    - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
       propertyPath: _redBase
       value: 
       objectReference: {fileID: 24633674}
@@ -462,7 +466,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
       propertyPath: _startDamage
-      value: 10
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
       propertyPath: _startHealth
@@ -7720,6 +7724,10 @@ PrefabInstance:
     - target: {fileID: 6330982947002042615, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
       propertyPath: m_VersionIndex
       value: 2760
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374785581637972997, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
+      propertyPath: _unloadTime
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6603905838441303235, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
       propertyPath: m_Mesh
@@ -27538,6 +27546,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Team>k__BackingField: 2
+  <HealthController>k__BackingField: {fileID: 881603080}
 --- !u!1001 &887344126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39874,6 +39883,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Team>k__BackingField: 1
+  <HealthController>k__BackingField: {fileID: 1347176389}
 --- !u!1 &1348628228
 GameObject:
   m_ObjectHideFlags: 0
@@ -43146,6 +43156,10 @@ PrefabInstance:
       value: 4.928
       objectReference: {fileID: 0}
     - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
+      propertyPath: _tower
+      value: 
+      objectReference: {fileID: 1347176391}
+    - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
       propertyPath: _redBase
       value: 
       objectReference: {fileID: 24633674}
@@ -43163,7 +43177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
       propertyPath: _startDamage
-      value: 10
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
       propertyPath: _startHealth
