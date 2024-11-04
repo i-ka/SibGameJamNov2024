@@ -35,6 +35,9 @@ namespace SibGameJam
 
             RegisterComponentFromScene<FactoryUpgradeUi>(builder);
             builder.RegisterEntryPoint<FactoryUpgradeUiController>();
+            
+            RegisterComponentFromScene<PlayerResourcesUi>(builder);
+            builder.RegisterEntryPoint<PlayerResourceUiController>();
         }
 
         private void RegisterComponentFromScene<TComponentType>(IContainerBuilder builder) where TComponentType : MonoBehaviour
