@@ -504,6 +504,10 @@ PrefabInstance:
       propertyPath: _escapePoints.Array.data[0]
       value: 
       objectReference: {fileID: 1632036313}
+    - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
+      propertyPath: <HealthController>k__BackingField
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4408361995754395984, guid: 693b15044dc1767418f66b035202462d, type: 3}
       propertyPath: m_Icon
       value: 
@@ -546,6 +550,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7685262023743600158, guid: 693b15044dc1767418f66b035202462d, type: 3}
+    - {fileID: 7034841564995724629, guid: 693b15044dc1767418f66b035202462d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2611814521614900191, guid: 693b15044dc1767418f66b035202462d, type: 3}
@@ -26723,6 +26728,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2980899889575862600, guid: f797e8838735c6545b52e1151f1aa3d3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 881603080}
+    - targetCorrespondingSourceObject: {fileID: 2980899889575862600, guid: f797e8838735c6545b52e1151f1aa3d3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 881603082}
   m_SourcePrefab: {fileID: 100100000, guid: f797e8838735c6545b52e1151f1aa3d3, type: 3}
 --- !u!4 &881603078 stripped
 Transform:
@@ -26761,6 +26769,18 @@ MonoBehaviour:
   OnObjectDestroyed:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &881603082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881603079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e53f57c4f09842a7998dd233d8ab9870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &887344126
 PrefabInstance:
   m_ObjectHideFlags: 0
