@@ -1409,6 +1409,42 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 613428940186992106, guid: 09eb8e37de03c0742bbb20edc70249cf, type: 3}
+      propertyPath: m_text
+      value: 'Semyon Zuev
+
+        Ignat Kaalinich
+
+        Tair Vildanov
+
+        Pavel
+        Lopatin
+
+        Anton Zarubin
+
+        Natasha Tukhvatshyna
+
+        Pater
+
+        Aleksandr
+        Ivanov (alvi3d)'
+      objectReference: {fileID: 0}
+    - target: {fileID: 613428940186992106, guid: 09eb8e37de03c0742bbb20edc70249cf, type: 3}
+      propertyPath: m_fontSize
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 613428940186992106, guid: 09eb8e37de03c0742bbb20edc70249cf, type: 3}
+      propertyPath: m_lineSpacing
+      value: 52.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 613428940186992106, guid: 09eb8e37de03c0742bbb20edc70249cf, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 613428940186992106, guid: 09eb8e37de03c0742bbb20edc70249cf, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 736373129834155932, guid: 09eb8e37de03c0742bbb20edc70249cf, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1455,7 +1491,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2271407203393487414, guid: 09eb8e37de03c0742bbb20edc70249cf, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -173.35
+      value: -265.7
       objectReference: {fileID: 0}
     - target: {fileID: 2429189132497500646, guid: 09eb8e37de03c0742bbb20edc70249cf, type: 3}
       propertyPath: m_IsActive
@@ -1616,6 +1652,10 @@ PrefabInstance:
     - target: {fileID: 4813570947463468293, guid: 09eb8e37de03c0742bbb20edc70249cf, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4818901843591973204, guid: 09eb8e37de03c0742bbb20edc70249cf, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -23
       objectReference: {fileID: 0}
     - target: {fileID: 4931304781842332243, guid: 09eb8e37de03c0742bbb20edc70249cf, type: 3}
       propertyPath: m_AnchorMax.y
