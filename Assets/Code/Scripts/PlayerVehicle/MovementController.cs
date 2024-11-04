@@ -15,7 +15,7 @@ namespace FS.Gameplay.PlayerVehicle
         [Header("Basic Components")]
         [SerializeField] private Rigidbody rb;
         [SerializeField] private Transform com;
-        [SerializeField] private Transform teleportPointAfterIncline;
+        public Transform teleportPointAfterIncline;
 
         [Header("Custom Components")]
         [SerializeField] private WheelViewController wheelViewController;
@@ -97,6 +97,7 @@ namespace FS.Gameplay.PlayerVehicle
 #endif
             }
 
+            teleportPointAfterIncline = GameObject.FindGameObjectWithTag("PositionToRestart").transform;
             if (com) rb.centerOfMass = com.localPosition;
             wheelViewController.Init();
             SetWheels(wheelViewController.WheelsColliders);
@@ -205,7 +206,7 @@ namespace FS.Gameplay.PlayerVehicle
             isPreparingToTeleport = false;
         }
 
-        private void TeleportPlayer(Transform teleportPoint)
+        public void TeleportPlayer(Transform teleportPoint)
         {
             isInclined = false;
             isPreparingToTeleport = false;

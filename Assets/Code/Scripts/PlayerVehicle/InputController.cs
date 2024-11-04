@@ -15,6 +15,7 @@ namespace FS.Gameplay.PlayerVehicle
         private float mouseScroll;
 
         private bool leftMouseButtonHold;
+        private bool autoDestroyButtonHold;
 
         #endregion
 
@@ -48,6 +49,12 @@ namespace FS.Gameplay.PlayerVehicle
         {
             leftMouseButtonHold = Input.GetButton("Fire1");
             return leftMouseButtonHold;
+        }
+
+        public bool GetAutoDestroyButton()
+        {
+            autoDestroyButtonHold = Input.GetButtonDown("AutoDestroyButton");
+            return autoDestroyButtonHold;
         }
 
         #endregion
