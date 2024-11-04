@@ -16,4 +16,5 @@ MonoBehaviour:
   <Description>k__BackingField: "\u0421\u043E\u044E\u0437\u043D\u044B\u0435 \u0442\u0430\u043D\u043A\u0438
     \u043F\u043E\u043B\u0443\u0447\u0430\u044E\u0442 +10 \u043A \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u0438
     \u0434\u0432\u0438\u0436\u0435\u043D\u0438\u044F."
-  <Speed>k__BackingField: 10
+  <SpeedMultiplier>k__BackingField: 0.1
+  <Team>k__BackingField: 2
