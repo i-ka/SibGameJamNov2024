@@ -60,7 +60,7 @@ namespace Code.Scripts.AI.Controllers
 		private IEnumerator DisableWithDelay()
 		{
 			yield return new WaitForSeconds(_disablingDelaySeconds);
-
+			_damage = 0;
 			gameObject.SetActive(false);
 			_isDisabling = false;
 		}

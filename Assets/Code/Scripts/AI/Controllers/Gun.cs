@@ -24,6 +24,11 @@ namespace Code.Scripts.AI.Controllers
 			_projectilePool = new(_bulletPrefab, 5, _poolContainer);
 		}
 
+		public void SetDamage(int damage)
+		{
+			_damage = damage;
+		}
+
 		public void Shoot(Team team)
 		{
 			if (Time.time - _lastShotTime < _reloadingTime)

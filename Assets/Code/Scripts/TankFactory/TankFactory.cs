@@ -84,9 +84,9 @@ namespace Code.Scripts.TankFactorySpace
             _currentSpawnPointIndex = (_currentSpawnPointIndex + 1) % _spawnPoints.Count;
         }
 
-        public void UpgradeDamage(int newDamage)
+        public void UpgradeDamage(float damageMultiplier)
         {
-            _tankStats.Damage = newDamage;
+            _tankStats.Damage += Mathf.RoundToInt(_tankStats.Damage * damageMultiplier);
         }
 
         public void UpgradeSpeed(float speedMultiplier)
