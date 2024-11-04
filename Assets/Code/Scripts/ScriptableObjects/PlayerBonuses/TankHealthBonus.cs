@@ -20,7 +20,7 @@ namespace SibGameJam.ScriptableObjects.PlayerBonuses
             var registeredFabric = objectResolver.Resolve<FactoryRegistry>();
             var factory = registeredFabric.GetFabric(Team);
             // TODO 
-            // factory update methods
+            factory.UpgradeHealth(HealthMultiplier);
         }
     }
 }

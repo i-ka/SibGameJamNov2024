@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using Code.Scripts.AI.Controllers;
 using Code.Scripts.AI.Data;
 using Code.Scripts.HealthSystem;
-using Code.Scripts.TankFactory;
+using Code.Scripts.TankFactorySpace;
 using SibGameJam;
-using SibGameJam.TankFactory;
+using SibGameJam.TankFactorySpace;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
@@ -99,7 +99,8 @@ namespace Code.Scripts.AI.Brain
 
 		public void Initialize(Team team, Transform baseTransform, Transform bulletsPoolContainer, List<Transform> escapePoints, TankStats stats)
 		{
-			_healthController.Init(stats.Health);
+			_healthController.Init(Mathf.RoundToInt(stats.Health));
+			_movementController.Init(stats.Speed);
 			Team = team;
 			BaseTransform = baseTransform;
 			BulletPoolContainer = bulletsPoolContainer;

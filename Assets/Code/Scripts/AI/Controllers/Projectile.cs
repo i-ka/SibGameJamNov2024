@@ -28,6 +28,11 @@ namespace Code.Scripts.AI.Controllers
 			Destroy(gameObject);
 		}
 
+		public void SetDamage(int damage)
+		{
+			_damage = damage;
+		}
+
 		public void SetSpeed(float speed)
 		{
 			_rigidbody.velocity = transform.forward * (speed * Time.fixedDeltaTime);
@@ -55,6 +60,7 @@ namespace Code.Scripts.AI.Controllers
 		private IEnumerator DisableWithDelay()
 		{
 			yield return new WaitForSeconds(_disablingDelaySeconds);
+
 			gameObject.SetActive(false);
 			_isDisabling = false;
 		}

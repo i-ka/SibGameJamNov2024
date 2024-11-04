@@ -10,6 +10,7 @@ namespace Code.Scripts.AI.Controllers
 		[SerializeField] private Projectile _bulletPrefab;
 		[SerializeField] private float _bulletSpeed;
 		[SerializeField] private float _reloadingTime;
+		[SerializeField] private int _damage;
 		[SerializeField] private Transform _turretTransform;
 
 		private PoolMono<Projectile> _projectilePool;
@@ -31,6 +32,7 @@ namespace Code.Scripts.AI.Controllers
 			}
 
 			var bullet = _projectilePool.GetFreeElement();
+			bullet.SetDamage(_damage);
 			bullet.transform.SetPositionAndRotation(_bulletSpawnPointTransform.position, _turretTransform.rotation);
 			bullet.EnemyTeam = team == Team.Red ? Team.Blue : Team.Red;
 			bullet.SetSpeed(_bulletSpeed);

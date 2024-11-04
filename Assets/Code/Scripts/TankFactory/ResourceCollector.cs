@@ -1,9 +1,9 @@
 using System;
 using System.Linq;
-using Code.Scripts.TankFactory;
+using Code.Scripts.TankFactorySpace;
 using UnityEngine;
 
-namespace SibGameJam.TankFactory
+namespace SibGameJam.TankFactorySpace
 {
     /// <summary>
     /// Implements logic allowing player to collect resources

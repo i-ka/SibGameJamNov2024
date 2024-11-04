@@ -9,94 +9,107 @@ using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
+
 namespace Code.Scripts.TankFactorySpace
 {
-	public class TankFactory : MonoBehaviour
-	{
-		[SerializeField] private List<Tank> _producedTankPrefabs = new();
-		[SerializeField] private List<Transform> _spawnPoints = new();
-		[SerializeField] private float _productionTime = 5;
-		[SerializeField] private float _maximumTanksCount;
+    public class TankFactory : MonoBehaviour
+    {
+        [SerializeField] private List<Tank> _producedTankPrefabs = new();
+        [SerializeField] private List<Transform> _spawnPoints = new();
+        [SerializeField] private float _productionTime = 5;
+        [SerializeField] private float _maximumTanksCount;
 
-		[SerializeField] private Team _team;
+        [SerializeField] private Team _team;
 
-		[SerializeField] private Transform _enemyBase;
+        [SerializeField] private Transform _enemyBase;
 
-		[SerializeField] private List<Transform> _escapePoints;
+        [SerializeField] private List<Transform> _escapePoints;
 
-		[SerializeField] private Transform _bulletPoolContainer;
+        [SerializeField] private Transform _bulletPoolContainer;
 
-		private int _currentProducedTankIndex;
-		private int _currentSpawnPointIndex;
+        private int _currentProducedTankIndex;
+        private int _currentSpawnPointIndex;
 
-		private IObjectResolver _objectResolver;
-		private TankManager _tankManager;
-		private TankStats _tankStats;
-		
+        private IObjectResolver _objectResolver;
+        private TankManager _tankManager;
+        [Header("Tank start parameters")]
+        [SerializeField] private int _startDamage;
+        [SerializeField] private int _startSpeed;
+        [SerializeField] private float _startHealth;
 
-		[Inject]
-		public void Construct(IObjectResolver objectResolver, TankManager tankManager, FactoryRegistry factoryRegistry)
-		{
-			_objectResolver = objectResolver;
-			_tankManager = tankManager;
-			factoryRegistry.RegisterFabric(_team, this);
+        [SerializeField] private TankStats _tankStats;
 
-			StartCoroutine(SpawnTanks());
-		}
 
-		private IEnumerator SpawnTanks()
-		{
-			var waitForSeconds = new WaitForSeconds(_productionTime);
-
-			while (true)
-			{
-				if (_tankManager.tanks.Count(tank => tank.Team == _team) < _maximumTanksCount)
-				{
-					SpawnTank();
-				}
-				yield return waitForSeconds;
-			}
-		}
-
-		private void SpawnTank()
-		{
-			Debug.Log($"Spawn tank prefab {_currentProducedTankIndex} on spawnpoint index {_currentSpawnPointIndex}");
-			var tankToInstantiate = _producedTankPrefabs[_currentProducedTankIndex];
-			var spawnPoint = _spawnPoints[_currentSpawnPointIndex];
-
-			var spawnedTank = _objectResolver.Instantiate(tankToInstantiate, spawnPoint.position, Quaternion.identity);
-			spawnedTank.Initialize(_team, _enemyBase, _bulletPoolContainer, _escapePoints, _tankStats);
-			_tankManager.RegisterTank(spawnedTank);
-
-			_currentProducedTankIndex = (_currentProducedTankIndex + 1) % _producedTankPrefabs.Count;
-			_currentSpawnPointIndex = (_currentSpawnPointIndex + 1) % _spawnPoints.Count;
-		}
-
-		public void UpgradeDamage(int newDamage)
-		{
-			_tankStats.Damage = newDamage;
-		}
-
-        public void UpgradeSpeed(int newSpeed)
+        [Inject]
+        public void Construct(IObjectResolver objectResolver, TankManager tankManager, FactoryRegistry factoryRegistry)
         {
-            _tankStats.Speed = newSpeed;
+            _objectResolver = objectResolver;
+            _tankManager = tankManager;
+
+            _tankStats = new TankStats();
+            _tankStats.Health = _startHealth;
+            _tankStats.Speed = _startSpeed;
+            _tankStats.Damage = _startDamage;
+
+            factoryRegistry.RegisterFabric(_team, this);
+
+            StartCoroutine(SpawnTanks());
         }
 
-        public void UpgradeHealth(int newHealth)
+        private IEnumerator SpawnTanks()
         {
-            _tankStats.Health = newHealth;
+            var waitForSeconds = new WaitForSeconds(_productionTime);
+
+            while (true)
+            {
+                if (_tankManager.tanks.Count(tank => tank.Team == _team) < _maximumTanksCount)
+                {
+                    SpawnTank();
+                }
+                yield return waitForSeconds;
+            }
+        }
+
+        private void SpawnTank()
+        {
+            Debug.Log($"Spawn tank prefab {_currentProducedTankIndex} on spawnpoint index {_currentSpawnPointIndex}");
+            var tankToInstantiate = _producedTankPrefabs[_currentProducedTankIndex];
+            var spawnPoint = _spawnPoints[_currentSpawnPointIndex];
+
+            var spawnedTank = _objectResolver.Instantiate(tankToInstantiate, spawnPoint.position, Quaternion.identity);
+            spawnedTank.Initialize(_team, _enemyBase, _bulletPoolContainer, _escapePoints, _tankStats);
+            _tankManager.RegisterTank(spawnedTank);
+
+            _currentProducedTankIndex = (_currentProducedTankIndex + 1) % _producedTankPrefabs.Count;
+            _currentSpawnPointIndex = (_currentSpawnPointIndex + 1) % _spawnPoints.Count;
+        }
+
+        public void UpgradeDamage(int newDamage)
+        {
+            _tankStats.Damage = newDamage;
+        }
+
+        public void UpgradeSpeed(float speedMultiplier)
+        {
+            _tankStats.Speed += _tankStats.Speed * speedMultiplier;
+        }
+
+        public void UpgradeHealth(float healthMultiplier)
+        {
+            Debug.Log("Enemy health Upgraded");
+            _tankStats.Health += _tankStats.Health * healthMultiplier;
         }
     }
 
-	[System.Serializable]
-	public class TankStats
-	{
-		private int _damage;
-		private int _speed;
-		private int _health;
+    [System.Serializable]
+    public class TankStats
+    {
+        private int _damage;
+        private float _speed;
+        private float _health;
 
-		public int Damage { get { return _damage; } set { _damage = value; } }
-        public int Speed { get { return _speed; } set { _speed = value; } }
-        public int Health { get { return _health; } set { _health = value; } }
+        public int Damage { get { return _damage; } set { _damage = value; } }
+        public float Speed { get { return _speed; } set { _speed = value; } }
+        public float Health { get { return _health; } set { _health = value; } }
     }
 }
