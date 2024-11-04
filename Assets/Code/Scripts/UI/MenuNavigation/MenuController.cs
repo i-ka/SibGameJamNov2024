@@ -14,12 +14,33 @@ public class MenuController : MonoBehaviour
 public void SettingsPressed()
     {
         SceneManager.LoadScene("SettingsScreen");
+
+    }
+
+public void SettingsWindowPressed()
+    {
+        SceneManager.LoadScene("SettingsWindow");
+
+    }
+
+public void ControllsWindowPressed()
+    {
+        SceneManager.LoadScene("ControlWindow");
+
+    }
+
+public void ControllsPressed()
+    {
+        SceneManager.LoadScene("ControlScreen");
+
     }
 
 public void TitlesPressed()
     {
-        SceneManager.LoadScene("Titles");
+        SceneManager.LoadScene("TitlesScreen");
     }
+
+
 
     public void ExitPressed()
 
