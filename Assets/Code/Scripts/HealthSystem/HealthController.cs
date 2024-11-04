@@ -39,8 +39,9 @@ namespace Code.Scripts.HealthSystem
             OnObjectRepaired.Invoke(0, _currentHealth, _maxHealth);
         }
 
-        public void Init()
+        public void Init(int maxHealth)
         {
+            if(maxHealth != 0) _maxHealth = maxHealth;
             _currentHealth = _maxHealth;
             OnObjectRepaired.Invoke(0, _currentHealth, _maxHealth);
         }

@@ -58,7 +58,7 @@ namespace FS.Gameplay.PlayerVehicle
                 movementController.Init();
                 cameraController.Init();
                 inputController.Init();
-                healthController.Init();
+                healthController.Init(0);
                 playerHUD.Init();
                 soundController.Init();
 

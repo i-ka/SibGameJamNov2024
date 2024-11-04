@@ -9,11 +9,11 @@ namespace SibGameJam.ScriptableObjects
     public class PlayerLevelingConfiguration : ScriptableObject
     {
         [field: SerializeField]
-        public List<PlayerLevelData> Levels { get; private set; }
+        public List<LevelData> Levels { get; private set; }
     }
 
     [Serializable]
-    public class PlayerLevelData
+    public class LevelData
     {
         public int points;
         public PlayerBonus bonus;
