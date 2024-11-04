@@ -27443,15 +27443,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1427487139833145587, guid: f797e8838735c6545b52e1151f1aa3d3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.365082
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 1427487139833145587, guid: f797e8838735c6545b52e1151f1aa3d3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.52250004
+      value: -1.144
       objectReference: {fileID: 0}
     - target: {fileID: 1427487139833145587, guid: f797e8838735c6545b52e1151f1aa3d3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.392582
+      value: 15.84
       objectReference: {fileID: 0}
     - target: {fileID: 1427487139833145587, guid: f797e8838735c6545b52e1151f1aa3d3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -27484,6 +27484,18 @@ PrefabInstance:
     - target: {fileID: 2980899889575862600, guid: f797e8838735c6545b52e1151f1aa3d3, type: 3}
       propertyPath: m_Name
       value: Red tower
+      objectReference: {fileID: 0}
+    - target: {fileID: 3410560105578184512, guid: f797e8838735c6545b52e1151f1aa3d3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 3410560105578184512, guid: f797e8838735c6545b52e1151f1aa3d3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 3410560105578184512, guid: f797e8838735c6545b52e1151f1aa3d3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4780852695370554622, guid: f797e8838735c6545b52e1151f1aa3d3, type: 3}
@@ -64927,15 +64939,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1427487139833145587, guid: 92c48cc61f7660649b366bd3998ad3ff, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.3418016
+      value: -4.33
       objectReference: {fileID: 0}
     - target: {fileID: 1427487139833145587, guid: 92c48cc61f7660649b366bd3998ad3ff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.54750013
+      value: -1.07
       objectReference: {fileID: 0}
     - target: {fileID: 1427487139833145587, guid: 92c48cc61f7660649b366bd3998ad3ff, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.4391935
+      value: 15.85
       objectReference: {fileID: 0}
     - target: {fileID: 1427487139833145587, guid: 92c48cc61f7660649b366bd3998ad3ff, type: 3}
       propertyPath: m_LocalRotation.w
@@ -64968,6 +64980,14 @@ PrefabInstance:
     - target: {fileID: 2980899889575862600, guid: 92c48cc61f7660649b366bd3998ad3ff, type: 3}
       propertyPath: m_Name
       value: Blue tower
+      objectReference: {fileID: 0}
+    - target: {fileID: 9135708163906539172, guid: 92c48cc61f7660649b366bd3998ad3ff, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 9135708163906539172, guid: 92c48cc61f7660649b366bd3998ad3ff, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.7
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4780852695370554622, guid: 92c48cc61f7660649b366bd3998ad3ff, type: 3}
