@@ -54,6 +54,8 @@ namespace Code.Scripts.TankFactorySpace
             _tankStats.Health = _startHealth;
             _tankStats.Speed = _startSpeed;
             _tankStats.Damage = _startDamage;
+            
+            HealthController.OnDestroyed += OnDestroyed;
 
             factoryRegistry.RegisterFabric(Team, this);
 
@@ -102,6 +104,12 @@ namespace Code.Scripts.TankFactorySpace
         {
             Debug.Log("Enemy health Upgraded");
             _tankStats.Health += _tankStats.Health * healthMultiplier;
+        }
+
+        private void OnDestroyed()
+        {
+            Debug.Log("Tank factory destroyed");
+            Destroy(gameObject);
         }
     }
 
