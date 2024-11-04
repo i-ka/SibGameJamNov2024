@@ -12,6 +12,7 @@ namespace SibGameJam.HUD
         [SerializeField] private TextMeshProUGUI textSpeedValue;
         [Space]
         [Header("Tank Health")]
+        [SerializeField] private Slider healthSlider;
         [SerializeField] private TextMeshProUGUI textHealthValue;
         [SerializeField] private Image healthBar;
         [Space]
@@ -27,7 +28,6 @@ namespace SibGameJam.HUD
 
         public void Init()
         {
-
         }
 
         public void SetTankPosition(Vector3 position)
@@ -43,11 +43,10 @@ namespace SibGameJam.HUD
 
         public void SetHealth(int lastDamage, int currentHealth, int maxHealth)
         {
-            
-            textHealthValue.text = $"{currentHealth} / {maxHealth}";
-            healthBar.fillAmount = (float)currentHealth / (float)maxHealth;
-
-
+            healthSlider.maxValue = maxHealth;
+            healthSlider.value = currentHealth;
+            // textHealthValue.text = $"{currentHealth} / {maxHealth}";
+            // healthBar.fillAmount = (float)currentHealth / (float)maxHealth;
         }
 
         public void DeactivateHud()
