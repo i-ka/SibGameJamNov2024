@@ -55,7 +55,7 @@ namespace Code.Scripts.TankFactorySpace
             _tankStats.Speed = _startSpeed;
             _tankStats.Damage = _startDamage;
 
-            factoryRegistry.RegisterFabric(_team, this);
+            factoryRegistry.RegisterFabric(Team, this);
 
             StartCoroutine(SpawnTanks());
         }

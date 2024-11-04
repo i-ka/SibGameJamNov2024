@@ -83,7 +83,7 @@ namespace Code.Scripts.AI.Brain
 				return;
 			}
 
-			if (other.TryGetComponent<TankFactory.TankFactory>(out var factory) && factory.Team != Team)
+			if (other.TryGetComponent<TankFactory>(out var factory) && factory.Team != Team)
 			{
 				Debug.Log("Detected enemy factory");
 				Enemy ??= factory.gameObject;
