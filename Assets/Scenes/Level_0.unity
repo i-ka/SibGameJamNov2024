@@ -663,6 +663,26 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2852864786878522578, guid: a7d09ce2e234e499f89e8c3872fab65b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2852864786878522578, guid: a7d09ce2e234e499f89e8c3872fab65b, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2852864786878522578, guid: a7d09ce2e234e499f89e8c3872fab65b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2852864786878522578, guid: a7d09ce2e234e499f89e8c3872fab65b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2852864786878522578, guid: a7d09ce2e234e499f89e8c3872fab65b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3242785217632610268, guid: a7d09ce2e234e499f89e8c3872fab65b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -687,6 +707,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 3828183660687634605, guid: a7d09ce2e234e499f89e8c3872fab65b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4379283619134822566, guid: a7d09ce2e234e499f89e8c3872fab65b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -706,10 +730,6 @@ PrefabInstance:
     - target: {fileID: 4989619614994503259, guid: a7d09ce2e234e499f89e8c3872fab65b, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5390342942442568142, guid: a7d09ce2e234e499f89e8c3872fab65b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5725284084199716316, guid: a7d09ce2e234e499f89e8c3872fab65b, type: 3}
       propertyPath: m_AnchorMax.y
@@ -732,6 +752,26 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5725284084199716316, guid: a7d09ce2e234e499f89e8c3872fab65b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5996938853555866166, guid: a7d09ce2e234e499f89e8c3872fab65b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5996938853555866166, guid: a7d09ce2e234e499f89e8c3872fab65b, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5996938853555866166, guid: a7d09ce2e234e499f89e8c3872fab65b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5996938853555866166, guid: a7d09ce2e234e499f89e8c3872fab65b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5996938853555866166, guid: a7d09ce2e234e499f89e8c3872fab65b, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
@@ -10351,7 +10391,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.6666667
+  m_VoxelSize: 1
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 5d60188b9add5284cb05636250f3984e, type: 2}
   m_BuildHeightMesh: 1
@@ -21359,7 +21399,7 @@ PrefabInstance:
     - target: {fileID: 1334426733097201178, guid: cb46bcddd8c3c824ca95ada2a8d619f8, type: 3}
       propertyPath: _levelingConfigurationEnemy
       value: 
-      objectReference: {fileID: 11400000, guid: b08d4c2f953952743b1c2bb8d9624316, type: 2}
+      objectReference: {fileID: 11400000, guid: f4b187adf8eac084a8cf7b276335d053, type: 2}
     - target: {fileID: 1334426733097201178, guid: cb46bcddd8c3c824ca95ada2a8d619f8, type: 3}
       propertyPath: _levelingConfigurationPlayer
       value: 

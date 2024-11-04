@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,7 +36,6 @@ namespace Code.Scripts.HealthSystem
         private void Awake()
         {
             _currentHealth = _maxHealth;
-            Debug.Log("Hello");
             OnObjectRepaired.Invoke(0, _currentHealth, _maxHealth);
         }
 
@@ -43,7 +43,6 @@ namespace Code.Scripts.HealthSystem
         {
             _maxHealth = maxHealth;
             _currentHealth = _maxHealth;
-            Debug.Log("Hello");
             OnObjectRepaired.Invoke(0, _currentHealth, _maxHealth);
         }
 
@@ -51,6 +50,8 @@ namespace Code.Scripts.HealthSystem
 
         #region Events
 
+        public event Action OnDestroyed;
+        
         [SerializeField] private UnityEvent<int, int, int> OnObjectRepaired;
         [SerializeField] private UnityEvent<int, int, int> OnObjectDamaged;
         [SerializeField] private UnityEvent OnObjectDestroyed;
@@ -107,6 +108,7 @@ namespace Code.Scripts.HealthSystem
             if (_currentHealth <= 0)
             {
                 OnObjectDestroyed.Invoke();
+                OnDestroyed?.Invoke();
             }
 
         }

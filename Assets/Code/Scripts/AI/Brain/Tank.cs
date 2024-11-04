@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using Code.Scripts.AI.Controllers;
 using Code.Scripts.AI.Data;
 using Code.Scripts.HealthSystem;
-using Code.Scripts.TankFactorySpace;
+using Code.Scripts.TankFactory;
 using SibGameJam;
+using SibGameJam.TankFactory;
 using UnityEngine;
-using UnityEngine.AI;
 using Vector3 = UnityEngine.Vector3;
 
 
@@ -15,6 +15,9 @@ namespace Code.Scripts.AI.Brain
 	public class Tank : MonoBehaviour, ITank
 	{
 		public event Action<ITank> OnDestroyed;
+		[SerializeField] private GameObject _tankSkeleton;
+		[SerializeField] private Resource _screw;
+		[SerializeField] private Vector3 _screwSpawnOffset;
 		[SerializeField] private Team _team;
 		[SerializeField] private MovementController _movementController;
 		[SerializeField] private TurretController _turretController;
@@ -28,12 +31,10 @@ namespace Code.Scripts.AI.Brain
 
 		private Transform _bulletPoolTransform;
 
-		private bool _seeEnemy;
-
 		private List<Transform> _escapePoints;
 
 		public Transform BaseTransform { get; private set; }
-		
+
 		public HealthController HealthController => _healthController;
 
 		public Transform BulletPoolContainer
@@ -55,7 +56,11 @@ namespace Code.Scripts.AI.Brain
 
 		public Vector3 EnemyPosition => Enemy.transform.position;
 
-		public int CurrentHealth => _healthController.CurrentHealth;
+		public int CurrentHealth
+		{
+			get => _healthController.CurrentHealth;
+		}
+
 
 		public int EscapeThresholdHealth => _escapeThresholdHealth;
 		public List<Transform> EscapePoints => _escapePoints;
@@ -75,8 +80,6 @@ namespace Code.Scripts.AI.Brain
 				{
 					Enemy = tank.gameObject;
 				}
-
-				_seeEnemy = true;
 			}
 		}
 
@@ -84,7 +87,6 @@ namespace Code.Scripts.AI.Brain
 		{
 			if (other.TryGetComponent<Tank>(out var tank) && tank.Team != Team)
 			{
-				_seeEnemy = false;
 				Enemy = null;
 			}
 		}
@@ -105,6 +107,17 @@ namespace Code.Scripts.AI.Brain
 			StateFactory = new(this);
 			StateMachine ??= new();
 			StateMachine.SetState(StateFactory.GetState(StateType.Movement));
+			_healthController.OnDestroyed += Tank_OnDestroyed;
+		}
+
+		private void Tank_OnDestroyed()
+		{
+			OnDestroyed?.Invoke(this);
+			Instantiate(_tankSkeleton, transform.position, transform.rotation);
+			var screwPosition = transform.position + _screwSpawnOffset;
+			var screw = Instantiate(_screw, screwPosition, Quaternion.identity);
+			screw.Type = Team == Team.Red ? ResourceType.AllyWreck : ResourceType.EnemyWreck;
+			Destroy(gameObject);
 		}
 
 		public void MoveToPosition(Vector3 position)
@@ -119,12 +132,12 @@ namespace Code.Scripts.AI.Brain
 
 		public bool CanSeeEnemy()
 		{
-			return _seeEnemy;
+			return Enemy;
 		}
 
 		public bool CanShotEnemy()
 		{
-			if (Enemy is null)
+			if (Enemy is null || !Enemy)
 			{
 				return false;
 			}

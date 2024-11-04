@@ -387,6 +387,7 @@ MonoBehaviour:
   playerHUD: {fileID: 5072345677244077006}
   abilityController: {fileID: 2538967147766335947}
   soundController: {fileID: 8392834682883137423}
+  resourceBag: {fileID: 6374785581637972997}
 --- !u!114 &7908516366000040637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1612,7 +1613,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -2794,7 +2795,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -3717,6 +3718,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_RoadDust_BR
       objectReference: {fileID: 0}
+    - target: {fileID: 6843788230437628360, guid: 04e16c9e21482bd4fa252e6666008a8a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8620462294715425268, guid: 04e16c9e21482bd4fa252e6666008a8a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.5
@@ -3799,6 +3804,10 @@ PrefabInstance:
     - target: {fileID: 5014902205666265278, guid: 04e16c9e21482bd4fa252e6666008a8a, type: 3}
       propertyPath: m_Name
       value: P_RoadDust_BL
+      objectReference: {fileID: 0}
+    - target: {fileID: 6843788230437628360, guid: 04e16c9e21482bd4fa252e6666008a8a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8620462294715425268, guid: 04e16c9e21482bd4fa252e6666008a8a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3891,6 +3900,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_RoadDust_FL
       objectReference: {fileID: 0}
+    - target: {fileID: 6843788230437628360, guid: 04e16c9e21482bd4fa252e6666008a8a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8620462294715425268, guid: 04e16c9e21482bd4fa252e6666008a8a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.5
@@ -3981,6 +3994,10 @@ PrefabInstance:
     - target: {fileID: 5014902205666265278, guid: 04e16c9e21482bd4fa252e6666008a8a, type: 3}
       propertyPath: m_Name
       value: P_RoadDust_FR
+      objectReference: {fileID: 0}
+    - target: {fileID: 6843788230437628360, guid: 04e16c9e21482bd4fa252e6666008a8a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8620462294715425268, guid: 04e16c9e21482bd4fa252e6666008a8a, type: 3}
       propertyPath: m_LocalPosition.x

@@ -325,7 +325,8 @@ MonoBehaviour:
   _rigidbody: {fileID: 6756285029826551351}
   _disablingDelaySeconds: 0.1
   _eventTriggerForMultipleSystems: {fileID: 5156016134982938984}
-  _damage: 10
+  _damage: 40
+  _lifeTimeSeconds: 25
 --- !u!54 &6756285029826551351
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -54,7 +54,6 @@ namespace Code.Scripts.TankFactorySpace
 				{
 					SpawnTank();
 				}
-
 				yield return waitForSeconds;
 			}
 		}
