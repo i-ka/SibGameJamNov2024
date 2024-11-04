@@ -1479,6 +1479,7 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 8285670914004802762, guid: f9c812f95d22f014c902b4c63a5f538b, type: 3}
   _bulletSpeed: 600
   _reloadingTime: 2
+  _damage: 0
   _turretTransform: {fileID: 3635875282758055212}
 --- !u!114 &9069495634710731418
 MonoBehaviour:
@@ -1501,7 +1502,7 @@ MonoBehaviour:
   _healthController: {fileID: 2460517178953657371}
   _gun: {fileID: 6664690654488044397}
   _shotDistance: 40
-  _escapeThresholdHealth: 130
+  _escapeThresholdHealth: 80
   _healingMax: 190
   _escapeEscapeZoneThreshold: 100
 --- !u!65 &3979434968062565199

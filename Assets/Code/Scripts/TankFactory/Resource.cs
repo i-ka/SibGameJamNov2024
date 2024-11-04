@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using SibGameJam.TankFactory;
 using UnityEngine;
+using SibGameJam.TankFactorySpace;
 
-namespace Code.Scripts.TankFactory
+namespace Code.Scripts.TankFactorySpace
 {
 	public class Resource : MonoBehaviour
 	{

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class MainMenu : MonoBehaviour
+public class MenuController : MonoBehaviour
 {
     public void PlayPressed()
     {
@@ -21,10 +21,15 @@ public void TitlesPressed()
         SceneManager.LoadScene("Titles");
     }
 
-
     public void ExitPressed()
 
     {
         Application.Quit();
+    }
+
+    public void HomePressed()
+
+    {
+        SceneManager.LoadScene("StartScreen");
     }
 }

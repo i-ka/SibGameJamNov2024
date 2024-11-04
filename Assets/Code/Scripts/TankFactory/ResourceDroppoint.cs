@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 
 
-namespace SibGameJam.TankFactory
+namespace SibGameJam.TankFactorySpace
 {
     public class ResourceDroppoint : MonoBehaviour
     {

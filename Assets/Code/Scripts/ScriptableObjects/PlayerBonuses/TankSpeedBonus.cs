@@ -1,4 +1,6 @@
 using System.Linq;
+using Code.Scripts.AI.Data;
+using Code.Scripts.GameServices;
 using FS.Gameplay.PlayerVehicle;
 using UnityEngine;
 using VContainer;
@@ -9,11 +11,16 @@ namespace SibGameJam.ScriptableObjects.PlayerBonuses
     public class TanksSpeedBonus : PlayerBonus
     {
         [field: SerializeField]
-        public int Speed { get; private set; }
+        public float SpeedMultiplier { get; private set; }
+        [field: SerializeField]
+        public Team Team { get; private set; }
 
         public override void Apply(IObjectResolver objectResolver)
-        { 
-            Debug.Log($"TanksSpeedBonus apply with {Speed} kmph");
+        {
+            var registeredFabric = objectResolver.Resolve<FactoryRegistry>();
+            var factory = registeredFabric.GetFabric(Team);
+            
+            factory.UpgradeSpeed(SpeedMultiplier);
         }
     }
 }

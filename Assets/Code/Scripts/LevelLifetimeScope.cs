@@ -1,3 +1,4 @@
+using Code.Scripts.GameServices;
 using Code.Scripts.Ui;
 using FS.Gameplay.PlayerVehicle;
 using SibGameJam.GameServices;
@@ -14,17 +15,22 @@ namespace SibGameJam
         [SerializeField]
         private PlayerLevelingConfiguration _levelingConfigurationPlayer;
         [SerializeField]
-        private PlayerLevelingConfiguration _levelingConfigurationEnemy;
-        [SerializeField]
         private FactoryUpgradeSettings _factoryUpgradeSettings;
+
+        [SerializeField]
+        private EnemyLevelingConfiguration _levelingConfigurationEnemy;
 
         protected override void Configure(IContainerBuilder builder)
         {
             builder.RegisterInstance(_levelingConfigurationPlayer);
             builder.RegisterInstance(_factoryUpgradeSettings);
 
+            builder.RegisterInstance(_levelingConfigurationEnemy);
+            builder.RegisterEntryPoint<EnemyResearchManager>();
+
             builder.Register<ResearchManager>(Lifetime.Singleton);
             builder.Register<TankManager>(Lifetime.Singleton);
+            builder.Register<FactoryRegistry>(Lifetime.Singleton);
 
             RegisterComponentFromScene<LevelingUi>(builder);
             builder.RegisterEntryPoint<LevelingUiController>();
@@ -38,6 +44,8 @@ namespace SibGameJam
             
             RegisterComponentFromScene<PlayerResourcesUi>(builder);
             builder.RegisterEntryPoint<PlayerResourceUiController>();
+
+            builder.RegisterEntryPoint<GameFlowService>();
         }
 
         private void RegisterComponentFromScene<TComponentType>(IContainerBuilder builder) where TComponentType : MonoBehaviour

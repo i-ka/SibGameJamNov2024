@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using SibGameJam.ScriptableObjects.PlayerBonuses;
-using SibGameJam.TankFactory;
+using SibGameJam.TankFactorySpace;
 using UnityEngine;
 
 namespace SibGameJam.ScriptableObjects

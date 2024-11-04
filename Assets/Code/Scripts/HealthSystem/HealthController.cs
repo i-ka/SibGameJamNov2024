@@ -27,7 +27,7 @@ namespace Code.Scripts.HealthSystem
         [SerializeField] private int _regenerateHealthOnStartDelay = 3;
 
         // private
-        private int _currentHealth;
+        [SerializeField] private int _currentHealth;
         private bool _isDead = false;
         private int _lastDamageValue;
         private int _lastRepairValue;
@@ -39,8 +39,9 @@ namespace Code.Scripts.HealthSystem
             OnObjectRepaired.Invoke(0, _currentHealth, _maxHealth);
         }
 
-        public void Init()
+        public void Init(int maxHealth)
         {
+            if(maxHealth != 0) _maxHealth = maxHealth;
             _currentHealth = _maxHealth;
             OnObjectRepaired.Invoke(0, _currentHealth, _maxHealth);
         }

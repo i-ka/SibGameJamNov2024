@@ -1,4 +1,4 @@
-namespace SibGameJam.TankFactory
+namespace SibGameJam.TankFactorySpace
 {
     public enum ResourceType
     {
