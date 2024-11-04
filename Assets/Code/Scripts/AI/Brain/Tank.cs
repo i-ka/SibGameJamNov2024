@@ -75,7 +75,7 @@ namespace Code.Scripts.AI.Brain
 
 		private void OnTriggerEnter(Collider other)
 		{
-			if ((other.TryGetComponent<TankFactory.TankFactory>(out var allyFactory) && allyFactory.Team == Team) || other.TryGetComponent<Tank>(out var allyTank) && allyTank.Team != Team)
+			if ((other.TryGetComponent<Tower>(out var allyTower) && allyTower.Team == Team) || other.TryGetComponent<Tank>(out var allyTank) && allyTank.Team != Team)
 			{
 				return;
 			}
@@ -86,9 +86,9 @@ namespace Code.Scripts.AI.Brain
 				return;
 			}
 
-			if (other.TryGetComponent<TankFactory.TankFactory>(out var factory) && factory.Team != Team)
+			if (other.TryGetComponent<Tower>(out var tower) && tower.Team != Team)
 			{
-				Enemy ??= factory.gameObject;
+				Enemy ??= tower.gameObject;
 				return;
 			}
 
