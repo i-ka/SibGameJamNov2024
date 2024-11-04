@@ -105,7 +105,7 @@ namespace Code.Scripts.AI.Brain
 				Enemy = null;
 			}
 
-			if (other.TryGetComponent<Tower>(out var tower) && other.gameObject == Enemy)
+			if (other.TryGetComponent<Tower>(out var tower) && tower.Team != Team && other.gameObject == Enemy)
 			{
 				Enemy = null;
 			}
