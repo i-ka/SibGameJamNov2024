@@ -75,26 +75,22 @@ namespace Code.Scripts.AI.Brain
 
 		private void OnTriggerEnter(Collider other)
 		{
-			if ((other.TryGetComponent<Tower>(out var allyTower) && allyTower.Team == Team) || other.TryGetComponent<Tank>(out var allyTank) && allyTank.Team == Team)
-			{
-				return;
-			}
-
 			if (other.TryGetComponent<Tank>(out var tank) && tank.Team != Team)
 			{
-				Enemy ??= tank.gameObject;
+				if (Enemy == null)
+				{
+					Enemy = tank.gameObject;
+				}
+
 				return;
 			}
 
 			if (other.TryGetComponent<Tower>(out var tower) && tower.Team != Team)
 			{
-				Enemy ??= tower.gameObject;
-				return;
-			}
-
-			if (other.TryGetComponent<HealthController>(out var healthController))
-			{
-				Enemy ??= healthController.gameObject;
+				if (Enemy == null)
+				{
+					Enemy = tower.gameObject;
+				}
 			}
 		}
 
@@ -106,11 +102,6 @@ namespace Code.Scripts.AI.Brain
 			}
 
 			if (other.TryGetComponent<Tower>(out var tower) && tower.Team != Team && other.gameObject == Enemy)
-			{
-				Enemy = null;
-			}
-
-			if (other.TryGetComponent<HealthController>(out var healthController) && other.gameObject == Enemy)
 			{
 				Enemy = null;
 			}
