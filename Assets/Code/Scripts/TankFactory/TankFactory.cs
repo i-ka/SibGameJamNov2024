@@ -89,7 +89,7 @@ namespace Code.Scripts.TankFactory
 			var tankToInstantiate = _producedTankPrefabs[_currentProducedTankIndex];
 			var spawnPoint = _spawnPoints[_currentSpawnPointIndex];
 
-			var spawnedTank = _objectResolver.Instantiate(tankToInstantiate, spawnPoint.position, Quaternion.identity);
+			var spawnedTank = _objectResolver.Instantiate(tankToInstantiate, spawnPoint.position, transform.rotation);
 			spawnedTank.Initialize(Team, _enemyBase, _bulletPoolContainer, _escapePoints, _tankStats, _tankColor);
 			_tankManager.RegisterTank(spawnedTank);
 
