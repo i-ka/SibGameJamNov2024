@@ -177,7 +177,7 @@ RectTransform:
   m_GameObject: {fileID: 5535299486476426676}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.79, y: 0.79, z: 0.79}
+  m_LocalScale: {x: 0.9551874, y: 0.9551874, z: 0.9551874}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 949778081113885616}
@@ -234,6 +234,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 949778081113885616}
+  - component: {fileID: 3296715523605462316}
   m_Layer: 0
   m_Name: ScrewCounter
   m_TagString: Untagged
@@ -250,7 +251,7 @@ RectTransform:
   m_GameObject: {fileID: 7356032663719480228}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.67, y: 0.67, z: 0.67}
+  m_LocalScale: {x: 1.6270281, y: 1.6270281, z: 1.6270281}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5342815490589675241}
@@ -265,6 +266,19 @@ RectTransform:
   m_AnchoredPosition: {x: 282.07, y: 164.6}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3296715523605462316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7356032663719480228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f1a545577be48e2b9f71b17ceb71451, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <CurrentResourcesText>k__BackingField: {fileID: 5516196091562698636}
 --- !u!1 &7653658751194944911
 GameObject:
   m_ObjectHideFlags: 0
