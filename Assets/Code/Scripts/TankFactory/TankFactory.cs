@@ -5,7 +5,6 @@ using System.Linq;
 using Code.Scripts.AI.Brain;
 using Code.Scripts.AI.Data;
 using Code.Scripts.GameServices;
-using Code.Scripts.HealthSystem;
 using SibGameJam;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -16,6 +15,7 @@ namespace Code.Scripts.TankFactory
 {
 	public class TankFactory : MonoBehaviour
 	{
+		[SerializeField] private Tower _tower;
 		[SerializeField] private List<Tank> _producedTankPrefabs = new();
 		[SerializeField] private List<Transform> _spawnPoints = new();
 		[SerializeField] private float _productionTime = 5;
@@ -31,8 +31,6 @@ namespace Code.Scripts.TankFactory
 
 		[SerializeField] private Transform _bulletPoolContainer;
 		[SerializeField] private Color _tankColor;
-
-		[field: SerializeField] public HealthController HealthController { get; private set; }
 
 		[Header("Tank start parameters")] [SerializeField]
 		private int _startDamage;
@@ -50,7 +48,7 @@ namespace Code.Scripts.TankFactory
 
 
 		[Inject]
-		public void Construct(IObjectResolver objectResolver, TankManager tankManager, FactoryRegistry factoryRegistry)
+		public void Construct(IObjectResolver objectResolver, TankManager tankManager, TowerRegistry towerRegistry, FactoryRegistry factoryRegistry)
 		{
 			_objectResolver = objectResolver;
 			_tankManager = tankManager;
@@ -62,8 +60,8 @@ namespace Code.Scripts.TankFactory
 				Damage = _startDamage,
 			};
 
-			HealthController.OnDestroyed += OnDestroyed;
 
+			towerRegistry.RegisterFabric(Team, _tower);
 			factoryRegistry.RegisterFabric(Team, this);
 
 			StartCoroutine(SpawnTanks());
