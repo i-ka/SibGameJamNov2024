@@ -93,7 +93,7 @@ namespace Code.Scripts.AI.Brain
 
 		private void OnTriggerExit(Collider other)
 		{
-			if (other.TryGetComponent<Tank>(out var tank) && tank.Team != Team)
+			if (other.TryGetComponent<Tank>(out var tank) && tank.Team != Team && other.gameObject == Enemy)
 			{
 				Enemy = null;
 			}
@@ -159,12 +159,12 @@ namespace Code.Scripts.AI.Brain
 
 		public void RotateTurret(Vector3 targetPoint)
 		{
-			_turretController.RotateTurret(targetPoint);
+			_turretController.Aim(targetPoint);
 		}
 
 		public bool IsAimed(Vector3 targetPoint)
 		{
-			return _turretController.RotateTurret(targetPoint);
+			return _turretController.Aim(targetPoint);
 		}
 
 		public void Shoot()

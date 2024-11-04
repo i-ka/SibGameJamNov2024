@@ -42,14 +42,14 @@ namespace Code.Scripts.AI.Brain.States
 					{
 						tank.StateMachine.SetState(tank.StateFactory.GetState(StateType.Idle));
 					}
-
-					return;
 				}
+				return;
 			}
 
 			if (tank.CanSeeEnemy() && !tank.CanShotEnemy())
 			{
 				tank.MoveToPosition(tank.EnemyPosition);
+				return;
 			}
 
 			if (tank.CanSeeEnemy() && tank.CanShotEnemy())

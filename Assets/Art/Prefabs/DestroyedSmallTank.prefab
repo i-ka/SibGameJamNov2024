@@ -446,6 +446,7 @@ GameObject:
   - component: {fileID: 7145957170870731979}
   - component: {fileID: 9067720757322515550}
   - component: {fileID: 4514569170169242674}
+  - component: {fileID: -3220053724182664563}
   m_Layer: 0
   m_Name: DestroyedSmallTank
   m_TagString: Tank
@@ -584,6 +585,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lifeTimeSeconds: 5
+--- !u!208 &-3220053724182664563
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2664255051838987618}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 2.56, y: 1.143, z: 2.91}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.72700006, z: -0.35200003}
+  m_TimeToStationary: 0.5
 --- !u!1 &3458665928072891457
 GameObject:
   m_ObjectHideFlags: 0

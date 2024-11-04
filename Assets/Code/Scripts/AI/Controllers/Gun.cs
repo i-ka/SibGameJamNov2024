@@ -38,7 +38,7 @@ namespace Code.Scripts.AI.Controllers
 
 			var bullet = _projectilePool.GetFreeElement();
 			bullet.SetDamage(_damage);
-			bullet.transform.SetPositionAndRotation(_bulletSpawnPointTransform.position, _turretTransform.rotation);
+			bullet.transform.SetPositionAndRotation(_bulletSpawnPointTransform.position, Quaternion.LookRotation(_bulletSpawnPointTransform.forward, _bulletSpawnPointTransform.up));
 			bullet.EnemyTeam = team == Team.Red ? Team.Blue : Team.Red;
 			bullet.SetSpeed(_bulletSpeed);
 			_lastShotTime = Time.time;
