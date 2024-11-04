@@ -445,6 +445,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
+      propertyPath: _tower
+      value: 
+      objectReference: {fileID: 881603082}
+    - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
       propertyPath: _redBase
       value: 
       objectReference: {fileID: 24633674}
@@ -462,7 +466,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
       propertyPath: _startDamage
-      value: 10
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
       propertyPath: _startHealth
@@ -7720,6 +7724,10 @@ PrefabInstance:
     - target: {fileID: 6330982947002042615, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
       propertyPath: m_VersionIndex
       value: 2760
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374785581637972997, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
+      propertyPath: _unloadTime
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6603905838441303235, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
       propertyPath: m_Mesh
@@ -27477,7 +27485,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red tower
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4780852695370554622, guid: f797e8838735c6545b52e1151f1aa3d3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -27487,6 +27496,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2980899889575862600, guid: f797e8838735c6545b52e1151f1aa3d3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 881603082}
+    - targetCorrespondingSourceObject: {fileID: 2980899889575862600, guid: f797e8838735c6545b52e1151f1aa3d3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 881603083}
   m_SourcePrefab: {fileID: 100100000, guid: f797e8838735c6545b52e1151f1aa3d3, type: 3}
 --- !u!4 &881603078 stripped
 Transform:
@@ -27518,48 +27530,13 @@ MonoBehaviour:
   _currentHealth: 0
   OnObjectRepaired:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 881603081}
-        m_TargetAssemblyTypeName: SibGameJam.HUD.EnemyHUD, Assembly-CSharp
-        m_MethodName: SetHealth
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnObjectDamaged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 881603081}
-        m_TargetAssemblyTypeName: SibGameJam.HUD.EnemyHUD, Assembly-CSharp
-        m_MethodName: SetHealth
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnObjectDestroyed:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &881603081 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7766223992380139425, guid: f797e8838735c6545b52e1151f1aa3d3, type: 3}
-  m_PrefabInstance: {fileID: 881603077}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b37829e16a802dc4980ee92aa84c6a3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &881603082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27574,6 +27551,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Team>k__BackingField: 2
   <HealthController>k__BackingField: {fileID: 881603080}
+--- !u!136 &881603083
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881603079}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.2749695
+  m_Height: 7.890764
+  m_Direction: 1
+  m_Center: {x: -0.062450647, y: 3.26474, z: -0.055912018}
 --- !u!1001 &887344126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39890,34 +39890,10 @@ MonoBehaviour:
   _currentHealth: 0
   OnObjectRepaired:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7165436318472927105}
-        m_TargetAssemblyTypeName: SibGameJam.HUD.EnemyHUD, Assembly-CSharp
-        m_MethodName: SetHealth
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnObjectDamaged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7165436318472927105}
-        m_TargetAssemblyTypeName: SibGameJam.HUD.EnemyHUD, Assembly-CSharp
-        m_MethodName: SetHealth
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnObjectDestroyed:
     m_PersistentCalls:
       m_Calls: []
@@ -39935,6 +39911,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Team>k__BackingField: 1
   <HealthController>k__BackingField: {fileID: 1347176389}
+--- !u!136 &1347176392
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347176387}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.4770813
+  m_Height: 8.499689
+  m_Direction: 1
+  m_Center: {x: -0.0362854, y: 3.2400656, z: -0.17999268}
 --- !u!1 &1348628228
 GameObject:
   m_ObjectHideFlags: 0
@@ -43207,6 +43206,10 @@ PrefabInstance:
       value: 4.928
       objectReference: {fileID: 0}
     - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
+      propertyPath: _tower
+      value: 
+      objectReference: {fileID: 1347176391}
+    - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
       propertyPath: _redBase
       value: 
       objectReference: {fileID: 24633674}
@@ -43224,7 +43227,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
       propertyPath: _startDamage
-      value: 10
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
       propertyPath: _startHealth
@@ -64966,7 +64969,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blue tower
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4780852695370554622, guid: 92c48cc61f7660649b366bd3998ad3ff, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -64976,18 +64980,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2980899889575862600, guid: 92c48cc61f7660649b366bd3998ad3ff, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1347176391}
+    - targetCorrespondingSourceObject: {fileID: 2980899889575862600, guid: 92c48cc61f7660649b366bd3998ad3ff, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1347176392}
   m_SourcePrefab: {fileID: 100100000, guid: 92c48cc61f7660649b366bd3998ad3ff, type: 3}
---- !u!114 &7165436318472927105 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4204985353695467077, guid: 92c48cc61f7660649b366bd3998ad3ff, type: 3}
-  m_PrefabInstance: {fileID: 7165436318472927104}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b37829e16a802dc4980ee92aa84c6a3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!33 &7205854739414468209
 MeshFilter:
   m_ObjectHideFlags: 0
