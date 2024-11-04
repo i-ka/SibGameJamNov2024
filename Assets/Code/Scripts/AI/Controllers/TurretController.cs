@@ -53,11 +53,6 @@ namespace Code.Scripts.AI.Controllers
 
 			var directionToTarget = (targetPosition - _gun.position).normalized;
 			var angleVertical = Mathf.Abs(Vector3.Angle(_gun.forward, directionToTarget));
-			
-			Debug.DrawRay(_gun.position, directionToTarget * 100.0F, Color.magenta);
-			Debug.DrawRay(_gun.position, _gun.forward * 10.0F, Color.green);
-			
-			Debug.LogError($"Angle Vertical: {angleVertical}, {Mathf.Abs(angleVertical) < 2}");
 
 			return Mathf.Abs(angleVertical) < 2;
 		}
