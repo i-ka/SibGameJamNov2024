@@ -27485,7 +27485,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red tower
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4780852695370554622, guid: f797e8838735c6545b52e1151f1aa3d3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -27495,6 +27496,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2980899889575862600, guid: f797e8838735c6545b52e1151f1aa3d3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 881603082}
+    - targetCorrespondingSourceObject: {fileID: 2980899889575862600, guid: f797e8838735c6545b52e1151f1aa3d3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 881603083}
   m_SourcePrefab: {fileID: 100100000, guid: f797e8838735c6545b52e1151f1aa3d3, type: 3}
 --- !u!4 &881603078 stripped
 Transform:
@@ -27547,6 +27551,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Team>k__BackingField: 2
   <HealthController>k__BackingField: {fileID: 881603080}
+--- !u!136 &881603083
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881603079}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.2749695
+  m_Height: 7.890764
+  m_Direction: 1
+  m_Center: {x: -0.062450647, y: 3.26474, z: -0.055912018}
 --- !u!1001 &887344126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39884,6 +39911,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Team>k__BackingField: 1
   <HealthController>k__BackingField: {fileID: 1347176389}
+--- !u!136 &1347176392
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347176387}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.4770813
+  m_Height: 8.499689
+  m_Direction: 1
+  m_Center: {x: -0.0362854, y: 3.2400656, z: -0.17999268}
 --- !u!1 &1348628228
 GameObject:
   m_ObjectHideFlags: 0
@@ -64919,7 +64969,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blue tower
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4780852695370554622, guid: 92c48cc61f7660649b366bd3998ad3ff, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -64929,6 +64980,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2980899889575862600, guid: 92c48cc61f7660649b366bd3998ad3ff, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1347176391}
+    - targetCorrespondingSourceObject: {fileID: 2980899889575862600, guid: 92c48cc61f7660649b366bd3998ad3ff, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1347176392}
   m_SourcePrefab: {fileID: 100100000, guid: 92c48cc61f7660649b366bd3998ad3ff, type: 3}
 --- !u!33 &7205854739414468209
 MeshFilter:
