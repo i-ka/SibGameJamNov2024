@@ -44,6 +44,8 @@ namespace SibGameJam
             
             RegisterComponentFromScene<PlayerResourcesUi>(builder);
             builder.RegisterEntryPoint<PlayerResourceUiController>();
+
+            builder.RegisterEntryPoint<GameFlowService>();
         }
 
         private void RegisterComponentFromScene<TComponentType>(IContainerBuilder builder) where TComponentType : MonoBehaviour
