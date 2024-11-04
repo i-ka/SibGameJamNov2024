@@ -136,6 +136,7 @@ namespace FS.Gameplay.PlayerVehicle
 
             if (!enableInput) return;
             MovementUpdate();
+            AutoDestroyUpdate();
         }
 
         private void UIUpdate()
@@ -148,6 +149,16 @@ namespace FS.Gameplay.PlayerVehicle
         {
             movementController.UpdateController();
             movementController.SetInput(inputController.GetDriveAxis());
+        }
+
+        private void AutoDestroyUpdate()
+        {
+            if (inputController.GetAutoDestroyButton())
+            {
+                resourceBag.ForcedUnload();
+                movementController.TeleportPlayer(movementController.teleportPointAfterIncline);
+            }
+            
         }
 
         private void CameraUpdate()

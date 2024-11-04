@@ -78,4 +78,17 @@ public class PlayerResourceBag : MonoBehaviour
         _unloadTimer = 0;
     }
 
+
+    // use when autodestroy
+    public void ForcedUnload()
+    {
+        foreach (var resouceType in Resources.Resources.Keys.ToArray())
+        {
+            var count = Resources.Resources[resouceType];
+            Resources.RemoveResource(resouceType, count);
+
+            Debug.Log($"Transfered resource {count} {resouceType}");
+        }
+    }
+
 }
