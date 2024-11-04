@@ -13,6 +13,7 @@ namespace Code.Scripts.AI.Controllers
 		[SerializeField] private int _damage;
 		[SerializeField] private Transform _turretTransform;
 		[SerializeField] private Vector2 _gunSpread;
+		[SerializeField] private AudioSource _shotSound;
 
 		private PoolMono<Projectile> _projectilePool;
 		private Transform _poolContainer;
@@ -37,6 +38,8 @@ namespace Code.Scripts.AI.Controllers
 				return;
 			}
 
+			_shotSound.pitch = Random.Range(0.9f, 1.1f);
+			_shotSound.PlayOneShot(_shotSound.clip);
             float xSpread = Random.Range(-_gunSpread.x, _gunSpread.x);
             float ySpread = Random.Range(-_gunSpread.y, _gunSpread.y);
 
