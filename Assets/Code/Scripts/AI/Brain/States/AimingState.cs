@@ -20,13 +20,13 @@ namespace Code.Scripts.AI.Brain.States
 				return;
 			}
 
-			if (tank.IsAimed(tank.EnemyPosition))
+			if (tank.IsAimed(tank.Enemy.transform.position))
 			{
 				tank.StateMachine.SetState(tank.StateFactory.GetState(StateType.Shooting));
 				return;
 			}
 
-			tank.RotateTurret(tank.EnemyPosition);
+			tank.RotateTurret(tank.Enemy.transform.position);
 		}
 
 		public override void Exit()

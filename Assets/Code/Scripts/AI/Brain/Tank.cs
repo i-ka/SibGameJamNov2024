@@ -56,8 +56,7 @@ namespace Code.Scripts.AI.Brain
 		public StateFactory StateFactory { get; private set; }
 
 		public GameObject Enemy { get; private set; }
-
-		public Vector3 EnemyPosition => Enemy.transform.position;
+		
 
 		public int CurrentHealth => _healthController.CurrentHealth;
 
@@ -99,6 +98,7 @@ namespace Code.Scripts.AI.Brain
 			if (other.TryGetComponent<Tank>(out var tank) && tank.Team != Team && other.gameObject == Enemy)
 			{
 				Enemy = null;
+				return;
 			}
 
 			if (other.TryGetComponent<Tower>(out var tower) && tower.Team != Team && other.gameObject == Enemy)
@@ -176,8 +176,8 @@ namespace Code.Scripts.AI.Brain
 				return false;
 			}
 
-			var isNearEnough = Vector3.Distance(transform.position, EnemyPosition) <= _shotDistance;
-			var isAimed = IsAimed(EnemyPosition);
+			var isNearEnough = Vector3.Distance(transform.position, Enemy.transform.position) <= _shotDistance;
+			var isAimed = IsAimed(Enemy.transform.position);
 			return isNearEnough && isAimed;
 		}
 
