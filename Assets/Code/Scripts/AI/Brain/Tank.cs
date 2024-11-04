@@ -5,9 +5,11 @@ using Code.Scripts.AI.Data;
 using Code.Scripts.HealthSystem;
 using Code.Scripts.TankFactory;
 using Code.Scripts.TankFactorySpace;
+using FS.Gameplay.PlayerVehicle;
 using SibGameJam;
 using SibGameJam.TankFactorySpace;
 using UnityEngine;
+using MovementController = Code.Scripts.AI.Controllers.MovementController;
 using Random = UnityEngine.Random;
 using Vector3 = UnityEngine.Vector3;
 
@@ -73,26 +75,42 @@ namespace Code.Scripts.AI.Brain
 
 		private void OnTriggerEnter(Collider other)
 		{
-			if (other.TryGetComponent<Tank>(out var tank) && tank.Team != Team)
+			if ((other.TryGetComponent<Tower>(out var allyTower) && allyTower.Team == Team) || other.TryGetComponent<Tank>(out var allyTank) && allyTank.Team != Team)
 			{
-				if (Enemy == null)
-				{
-					Enemy = tank.gameObject;
-				}
-
 				return;
 			}
 
-			if (other.TryGetComponent<TankFactory.TankFactory>(out var factory) && factory.Team != Team)
+			if (other.TryGetComponent<Tank>(out var tank) && tank.Team != Team)
 			{
-				Debug.Log("Detected enemy factory");
-				Enemy ??= factory.gameObject;
+				Enemy ??= tank.gameObject;
+				return;
+			}
+
+			if (other.TryGetComponent<Tower>(out var tower) && tower.Team != Team)
+			{
+				Enemy ??= tower.gameObject;
+				return;
+			}
+
+			if (other.TryGetComponent<HealthController>(out var healthController))
+			{
+				Enemy ??= healthController.gameObject;
 			}
 		}
 
 		private void OnTriggerExit(Collider other)
 		{
 			if (other.TryGetComponent<Tank>(out var tank) && tank.Team != Team && other.gameObject == Enemy)
+			{
+				Enemy = null;
+			}
+
+			if (other.TryGetComponent<TankFactory.TankFactory>(out var factory) && other.gameObject == Enemy)
+			{
+				Enemy = null;
+			}
+
+			if (other.TryGetComponent<VehicleController>(out var player) && other.gameObject == Enemy)
 			{
 				Enemy = null;
 			}

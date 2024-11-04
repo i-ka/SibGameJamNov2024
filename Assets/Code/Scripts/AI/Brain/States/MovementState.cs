@@ -1,4 +1,3 @@
-using System.Linq;
 using Code.Scripts.AI.Data;
 using UnityEngine;
 using UnityEngine.AI;
@@ -17,6 +16,36 @@ namespace Code.Scripts.AI.Brain.States
 
 		public override void Execute()
 		{
+			if (tank.CurrentHealth < tank.EscapeEscapeZoneThreshold)
+			{
+				var distanceToNearestPoint = 0.0F;
+				Transform farthestPoint = null;
+				foreach (var point in tank.EscapePoints)
+				{
+					var distance = CalculatePathDistance(tank.transform.position, point.position);
+					if (distance > distanceToNearestPoint)
+					{
+						distanceToNearestPoint = CalculatePathDistance(tank.transform.position, point.position);
+						farthestPoint = point;
+					}
+				}
+
+				if (farthestPoint)
+				{
+					if (NavMesh.SamplePosition(farthestPoint.position, out var point, 1000, NavMesh.AllAreas))
+					{
+						tank.MoveToPosition(point.position);
+					}
+
+					if (Vector3.Distance(tank.transform.position, farthestPoint.position) < 1.6F)
+					{
+						tank.StateMachine.SetState(tank.StateFactory.GetState(StateType.Idle));
+					}
+				}
+
+				return;
+			}
+
 			if (tank.CurrentHealth < tank.EscapeThresholdHealth)
 			{
 				var distanceToNearestPoint = float.MaxValue;
@@ -43,6 +72,7 @@ namespace Code.Scripts.AI.Brain.States
 						tank.StateMachine.SetState(tank.StateFactory.GetState(StateType.Idle));
 					}
 				}
+
 				return;
 			}
 
