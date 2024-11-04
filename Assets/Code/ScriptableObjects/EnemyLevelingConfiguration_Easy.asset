@@ -13,23 +13,23 @@ MonoBehaviour:
   m_Name: EnemyLevelingConfiguration_Easy
   m_EditorClassIdentifier: 
   <Levels>k__BackingField:
-  - points: 5
-    bonus: {fileID: 11400000, guid: 12d9e58bea7a5df468dfe49c72a1be8c, type: 2}
-  - points: 10
-    bonus: {fileID: 11400000, guid: 59a1cf9722abe924bb117d7c6df19c4a, type: 2}
   - points: 20
-    bonus: {fileID: 11400000, guid: 3fdbfa28434128d4893c3c932f1fe6de, type: 2}
-  - points: 30
     bonus: {fileID: 11400000, guid: 12d9e58bea7a5df468dfe49c72a1be8c, type: 2}
   - points: 40
-    bonus: {fileID: 11400000, guid: 12d9e58bea7a5df468dfe49c72a1be8c, type: 2}
-  - points: 50
-    bonus: {fileID: 11400000, guid: 12d9e58bea7a5df468dfe49c72a1be8c, type: 2}
+    bonus: {fileID: 11400000, guid: 59a1cf9722abe924bb117d7c6df19c4a, type: 2}
   - points: 60
-    bonus: {fileID: 11400000, guid: 12d9e58bea7a5df468dfe49c72a1be8c, type: 2}
-  - points: 70
-    bonus: {fileID: 11400000, guid: 12d9e58bea7a5df468dfe49c72a1be8c, type: 2}
+    bonus: {fileID: 11400000, guid: 3fdbfa28434128d4893c3c932f1fe6de, type: 2}
   - points: 80
     bonus: {fileID: 11400000, guid: 12d9e58bea7a5df468dfe49c72a1be8c, type: 2}
-  - points: 90
+  - points: 100
+    bonus: {fileID: 11400000, guid: 3fdbfa28434128d4893c3c932f1fe6de, type: 2}
+  - points: 120
+    bonus: {fileID: 11400000, guid: 12d9e58bea7a5df468dfe49c72a1be8c, type: 2}
+  - points: 140
+    bonus: {fileID: 11400000, guid: 3fdbfa28434128d4893c3c932f1fe6de, type: 2}
+  - points: 160
+    bonus: {fileID: 11400000, guid: 12d9e58bea7a5df468dfe49c72a1be8c, type: 2}
+  - points: 180
+    bonus: {fileID: 11400000, guid: 59a1cf9722abe924bb117d7c6df19c4a, type: 2}
+  - points: 200
     bonus: {fileID: 11400000, guid: 12d9e58bea7a5df468dfe49c72a1be8c, type: 2}
