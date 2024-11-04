@@ -75,7 +75,7 @@ namespace Code.Scripts.AI.Brain
 
 		private void OnTriggerEnter(Collider other)
 		{
-			if ((other.TryGetComponent<Tower>(out var allyTower) && allyTower.Team == Team) || other.TryGetComponent<Tank>(out var allyTank) && allyTank.Team != Team)
+			if ((other.TryGetComponent<Tower>(out var allyTower) && allyTower.Team == Team) || other.TryGetComponent<Tank>(out var allyTank) && allyTank.Team == Team)
 			{
 				return;
 			}

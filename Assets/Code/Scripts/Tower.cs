@@ -5,6 +5,6 @@ namespace Code.Scripts
 {
 	public class Tower : MonoBehaviour
 	{
-		[field: SerializeField] public Team Team { get; }
+		[field: SerializeField] public Team Team { get; set; }
 	}
 }
