@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using Code.Scripts.HealthSystem;
 
 namespace SibGameJam.HUD
 {
@@ -36,7 +37,7 @@ namespace SibGameJam.HUD
 
         public Vector3 TankPostion()
         {
-            return GetComponentInParent<Rigidbody>().position;
+            return GetComponentInParent<HealthController>().transform.position;
         }
 
         private void LateUpdate()
