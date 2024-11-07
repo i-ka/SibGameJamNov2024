@@ -5,7 +5,7 @@ using Code.Scripts.AI.Data;
 using Code.Scripts.HealthSystem;
 using Code.Scripts.TankFactory;
 using Code.Scripts.TankFactorySpace;
-using FS.Gameplay.PlayerVehicle;
+using Code.Gameplay.PlayerVehicle;
 using SibGameJam;
 using SibGameJam.TankFactorySpace;
 using UnityEngine;

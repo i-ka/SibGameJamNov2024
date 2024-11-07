@@ -1,5 +1,5 @@
 using System.Linq;
-using FS.Gameplay.PlayerVehicle;
+using Code.Gameplay.PlayerVehicle;
 using SibGameJam.TankFactorySpace;
 using VContainer.Unity;
 

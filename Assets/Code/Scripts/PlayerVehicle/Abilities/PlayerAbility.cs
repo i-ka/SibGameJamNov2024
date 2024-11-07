@@ -2,7 +2,7 @@ using System;
 using SibGameJam.ScriptableObjects;
 using UnityEngine;
 
-namespace FS.Gameplay.PlayerVehicle
+namespace Code.Gameplay.PlayerVehicle
 {
     public abstract class PlayerAbility: MonoBehaviour
     {

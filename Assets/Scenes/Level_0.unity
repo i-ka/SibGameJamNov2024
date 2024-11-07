@@ -7560,7 +7560,7 @@ PrefabInstance:
       objectReference: {fileID: 1616492675}
     - target: {fileID: 348988047408049131, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
       propertyPath: m_VersionIndex
-      value: 3503
+      value: 3554
       objectReference: {fileID: 0}
     - target: {fileID: 1164297254013074489, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
       propertyPath: m_Name
@@ -7570,13 +7570,17 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1616492675}
+    - target: {fileID: 2513881732737807052, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
+      propertyPath: controllerConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: 36b6cff3eb295df42954864672f57844, type: 2}
     - target: {fileID: 2955080064336247983, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 307094001}
     - target: {fileID: 2955080064336247983, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
       propertyPath: m_VersionIndex
-      value: 3503
+      value: 3554
       objectReference: {fileID: 0}
     - target: {fileID: 3885630463431038834, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
       propertyPath: m_Mesh
@@ -7616,7 +7620,7 @@ PrefabInstance:
       objectReference: {fileID: 704797659}
     - target: {fileID: 5174975056499414105, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
       propertyPath: m_VersionIndex
-      value: 1773
+      value: 1824
       objectReference: {fileID: 0}
     - target: {fileID: 5294642944874144952, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
       propertyPath: m_Mesh
@@ -7628,7 +7632,7 @@ PrefabInstance:
       objectReference: {fileID: 189023208}
     - target: {fileID: 5482034769842914986, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
       propertyPath: m_VersionIndex
-      value: 3518
+      value: 3569
       objectReference: {fileID: 0}
     - target: {fileID: 6330982947002042615, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
       propertyPath: m_Mesh

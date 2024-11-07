@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-namespace FS.Gameplay.PlayerVehicle
+namespace Code.Gameplay.PlayerVehicle
 {
     public class CameraController : MonoBehaviour
     {
