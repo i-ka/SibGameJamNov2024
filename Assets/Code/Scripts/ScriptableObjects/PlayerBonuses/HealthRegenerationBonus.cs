@@ -1,4 +1,4 @@
-using FS.Gameplay.PlayerVehicle;
+using Code.Gameplay.PlayerVehicle;
 using UnityEngine;
 using VContainer;
 

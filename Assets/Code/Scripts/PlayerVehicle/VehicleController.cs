@@ -8,11 +8,13 @@ using SibGameJam.HUD;
 using UnityEditor;
 #endif
 
-namespace FS.Gameplay.PlayerVehicle
+namespace Code.Gameplay.PlayerVehicle
 {
     public class VehicleController : MonoBehaviour
     {
         #region Components
+        [Header("Configs")]
+        [SerializeField] private RobotControllerConfig controllerConfig;
 
         [Header("Custom Components")]
         [SerializeField] private MovementController movementController;
@@ -55,7 +57,7 @@ namespace FS.Gameplay.PlayerVehicle
 
             if (CheckComponents())
             {
-                movementController.Init();
+                movementController.Init(controllerConfig);
                 cameraController.Init();
                 inputController.Init();
                 healthController.Init(0);

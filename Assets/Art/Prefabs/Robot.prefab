@@ -687,7 +687,7 @@ Transform:
   m_GameObject: {fileID: 1164297254013074489}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -28.378979, y: 0.50000024, z: -75.492004}
+  m_LocalPosition: {x: -28.37898, y: 0.5000002, z: -75.492}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -710,6 +710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dee956e3585259843b49526da286722f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controllerConfig: {fileID: 11400000, guid: 36b6cff3eb295df42954864672f57844, type: 2}
   movementController: {fileID: 6284916059578459147}
   cameraController: {fileID: 2008937771702677924}
   inputController: {fileID: 603242927375112791}
@@ -889,6 +890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textSpeedValue: {fileID: 8266304230383940780}
+  healthSlider: {fileID: 0}
   textHealthValue: {fileID: 5508460031107673659}
   healthBar: {fileID: 7881863179391911887}
   verticalDistance: 4
@@ -3922,28 +3924,8 @@ MonoBehaviour:
   com: {fileID: 1530864387586065129}
   teleportPointAfterIncline: {fileID: 2428124462896534188}
   wheelViewController: {fileID: 6819825114742135362}
-  driveAxis: {x: 0, y: 0}
-  wheels: []
-  velocityAngle: 0
-  currentSpeed: 0
-  moveDirection: 0
-  maxSteerAngle: 20
-  steeringSpeed: 55
-  targetSteerAngle: 0
-  currentSteerAngle: 0
-  maxForwardSpeedInKmpH: 20
-  maxBackSpeedInKmpH: 10
-  maxWheelRPM: 10000
-  maxMotorTorque: 2000
   gasAccelerationRate: 1.2
-  currentMotorTorque: 0
-  currentGasAngle: 0
-  brakingForce: 2500
-  currentBrake: 0
-  currentInclineAngle: 0
   inclineAngleToTeleport: 85
-  isPreparingToTeleport: 0
-  isInclined: 0
 --- !u!1 &7504465135975254125
 GameObject:
   m_ObjectHideFlags: 0

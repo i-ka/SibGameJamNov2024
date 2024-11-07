@@ -1,7 +1,7 @@
 using System.Linq;
 using Code.Scripts.AI.Data;
 using Code.Scripts.GameServices;
-using FS.Gameplay.PlayerVehicle;
+using Code.Gameplay.PlayerVehicle;
 using UnityEngine;
 using VContainer;
 

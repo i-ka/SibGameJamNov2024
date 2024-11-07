@@ -1,7 +1,7 @@
 using Code.Scripts;
 using Code.Scripts.GameServices;
 using Code.Scripts.Ui;
-using FS.Gameplay.PlayerVehicle;
+using Code.Gameplay.PlayerVehicle;
 using SibGameJam.GameServices;
 using SibGameJam.ScriptableObjects;
 using SibGameJam.Ui;

@@ -6,7 +6,7 @@ using System.Collections;
 using UnityEditor;
 #endif
 
-namespace FS.Gameplay.PlayerVehicle
+namespace Code.Gameplay.PlayerVehicle
 {
     public class MovementController : MonoBehaviour
     {
@@ -25,46 +25,45 @@ namespace FS.Gameplay.PlayerVehicle
         #region Variables
 
         [Header("Input")]
-        [SerializeField] private Vector2 driveAxis;
+        private Vector2 driveAxis;
 
         [Header("Main")]
-        [SerializeField] private WheelCollider[] wheels;
+        private WheelCollider[] wheels;
 
-        [Header("Stats")]
-        [SerializeField] private float velocityAngle;
-        [SerializeField] private float currentSpeed;
-        [SerializeField] private int moveDirection;
+        private float velocityAngle;
+        private float currentSpeed;
+        private int moveDirection;
 
         [Header("Steering")]
         // customizable
-        [SerializeField] private float maxSteerAngle;
-        [SerializeField] private float steeringSpeed;
+        private float maxSteerAngle;
+        private float steeringSpeed;
         // auto
-        [SerializeField] private float targetSteerAngle;
-        [SerializeField] private float currentSteerAngle;
+        private float targetSteerAngle;
+        private float currentSteerAngle;
 
         [Header("Acceleration")]
         // customizable
-        [SerializeField] private float maxForwardSpeedInKmpH;
-        [SerializeField] private float maxBackSpeedInKmpH;
-        [SerializeField] private float maxWheelRPM;
-        [SerializeField] private float maxMotorTorque;
+        private float maxForwardSpeed;
+        private float maxBackSpeed;
+        private const float maxWheelRPM = 9000;
+        private float maxMotorTorque;
         [SerializeField] private float gasAccelerationRate;
         // auto
-        [SerializeField] private float currentMotorTorque;
-        [SerializeField] private float currentGasAngle;
+        private float currentMotorTorque;
+        private float currentGasAngle;
 
         [Header("Brakes")]
-        [SerializeField] private float brakingForce;
-        [SerializeField] private float currentBrake;
+        private float maxBrakingForce;
+        private float currentBrake;
 
         [Header("Other")]
-        [SerializeField] private float currentInclineAngle;
+        private float currentInclineAngle;
         [SerializeField] private float inclineAngleToTeleport;
 
 
-        [SerializeField] private bool isPreparingToTeleport = false;
-        [SerializeField] bool isInclined = false;
+        private bool isPreparingToTeleport = false;
+        bool isInclined = false;
 
         private IEnumerator lastRoutine = null;
 
@@ -75,14 +74,13 @@ namespace FS.Gameplay.PlayerVehicle
         public Transform GetPosition => rb.transform;
         public int GetMoveDirection => moveDirection;
         public float GetSpeedInKmpH => currentSpeed * 3.6f;
-
-        public float MaxForwardSpeedInKmpH => maxForwardSpeedInKmpH;
+        public float MaxForwardSpeedInKmpH => maxForwardSpeed;
 
         #endregion
 
         #region Initialize
 
-        public void Init()
+        public void Init(RobotControllerConfig config)
         {
             if (CheckComponents())
             {
@@ -101,7 +99,7 @@ namespace FS.Gameplay.PlayerVehicle
             if (com) rb.centerOfMass = com.localPosition;
             wheelViewController.Init();
             SetWheels(wheelViewController.WheelsColliders);
-
+            SetParametersFromConfig(config);
         }
 
         private bool CheckComponents()
@@ -125,6 +123,17 @@ namespace FS.Gameplay.PlayerVehicle
             this.wheels = wheels;
         }
 
+        private void SetParametersFromConfig(RobotControllerConfig config)
+        {
+            maxSteerAngle = config.MaxSteerAngle;
+            steeringSpeed = config.SteeringSpeed;
+            maxForwardSpeed = config.MaxForwardSpeed;
+            maxBackSpeed = config.MaxBackSpeed;
+            maxMotorTorque = config.MaxMotorTorque;
+            gasAccelerationRate = config.GasAccelerationRate;
+            maxBrakingForce = config.MaxBrakingForce;
+        }
+
         #endregion
 
         #region Update Methods
@@ -146,13 +155,13 @@ namespace FS.Gameplay.PlayerVehicle
             currentSpeed = rb.velocity.magnitude;
             moveDirection = currentSpeed < 0.1f ? 0 : (velocityAngle < 90 && velocityAngle > -90 ? 1 : -1);
 
-            if (rb.velocity.magnitude > maxForwardSpeedInKmpH && moveDirection == 1)
+            if (rb.velocity.magnitude > maxForwardSpeed && moveDirection == 1)
             {
-                rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxForwardSpeedInKmpH);
+                rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxForwardSpeed);
             }
-            else if (rb.velocity.magnitude > maxBackSpeedInKmpH && moveDirection <= 0)
+            else if (rb.velocity.magnitude > maxBackSpeed && moveDirection <= 0)
             {
-                rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxBackSpeedInKmpH);
+                rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxBackSpeed);
             }
         }
 
@@ -246,7 +255,7 @@ namespace FS.Gameplay.PlayerVehicle
             if (Mathf.Sign(moveDirection) != Mathf.Sign(currentGasAngle) && moveDirection != 0)
             {
                 currentMotorTorque = 0;
-                currentBrake = Mathf.Abs(currentGasAngle * brakingForce);
+                currentBrake = Mathf.Abs(currentGasAngle * maxBrakingForce);
             }
 
             if (moveDirection == 0 && Mathf.Approximately(0, currentSpeed))
@@ -265,6 +274,7 @@ namespace FS.Gameplay.PlayerVehicle
                 if (Mathf.Abs(wheels[i].rpm) <= maxWheelRPM)
                 {
                     wheels[i].motorTorque = torque;
+                    
                 }
                 else
                 {
@@ -298,7 +308,7 @@ namespace FS.Gameplay.PlayerVehicle
 
         public void UpgradeMaxForwardSpeed(float speedToAdd)
         {
-            maxForwardSpeedInKmpH += speedToAdd;
+            maxForwardSpeed += speedToAdd;
         }
 
         #endregion

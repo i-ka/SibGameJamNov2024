@@ -7,7 +7,7 @@ using SibGameJam;
 using Unity.VisualScripting;
 using UnityEngine;
 
-namespace FS.Gameplay.PlayerVehicle
+namespace Code.Gameplay.PlayerVehicle
 {
     public class RepairAbility : PlayerAbility
     {
