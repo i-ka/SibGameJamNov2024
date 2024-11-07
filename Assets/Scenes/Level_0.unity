@@ -486,7 +486,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
       propertyPath: _tankColor.g
-      value: 0.020209692
+      value: 0.12156863
       objectReference: {fileID: 0}
     - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
       propertyPath: _tankColor.r
@@ -546,7 +546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7452193834545528606, guid: 693b15044dc1767418f66b035202462d, type: 3}
       propertyPath: _maxHealth
-      value: 2000
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 7685262023743600158, guid: 693b15044dc1767418f66b035202462d, type: 3}
       propertyPath: m_Enabled
@@ -7666,6 +7666,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 307094001}
+    - target: {fileID: 7908516366000040637, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
+      propertyPath: _maxHealth
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 8228385947671180976, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -42865,7 +42869,7 @@ PrefabInstance:
       objectReference: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 893291838411423771, guid: 693b15044dc1767418f66b035202462d, type: 3}
       propertyPath: _maxHealth
-      value: 2000
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 1933565215596978431, guid: 693b15044dc1767418f66b035202462d, type: 3}
       propertyPath: m_Enabled
@@ -42957,7 +42961,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
       propertyPath: _tankColor.g
-      value: 0.41259122
+      value: 0.63529414
       objectReference: {fileID: 0}
     - target: {fileID: 3739527608868397436, guid: 693b15044dc1767418f66b035202462d, type: 3}
       propertyPath: _tankColor.r
