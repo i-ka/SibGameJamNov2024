@@ -15,15 +15,15 @@ MonoBehaviour:
   <Levels>k__BackingField:
   - points: 3
     bonus: {fileID: 11400000, guid: 45f35b8a46fa24c9d8da0d26740aeadd, type: 2}
-  - points: 6
+  - points: 7
     bonus: {fileID: 11400000, guid: 482954faead4a444a95803b0a8227029, type: 2}
-  - points: 13
+  - points: 15
     bonus: {fileID: 11400000, guid: 21c402a892025fb41aab4dfaf6e00010, type: 2}
-  - points: 23
+  - points: 25
     bonus: {fileID: 11400000, guid: 50457c67c1cbe5741bd73c24f2bb70d9, type: 2}
-  - points: 35
+  - points: 37
     bonus: {fileID: 11400000, guid: 003df266ab905014bad1efe566c1b766, type: 2}
-  - points: 50
+  - points: 52
     bonus: {fileID: 11400000, guid: f2aad3fce1297934fa19e821621e98a7, type: 2}
   - points: 300
     bonus: {fileID: 11400000, guid: f2aad3fce1297934fa19e821621e98a7, type: 2}
