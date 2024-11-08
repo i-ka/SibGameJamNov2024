@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.ProBuilder.Shapes;
+
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -80,7 +82,7 @@ namespace Code.Gameplay.PlayerVehicle
 
         #region Initialize
 
-        public void Init(RobotControllerConfig config)
+        public void Init(RobotControllerConfig controllerConfig, RobotWheelsConfig wheelConfig)
         {
             if (CheckComponents())
             {
@@ -99,7 +101,7 @@ namespace Code.Gameplay.PlayerVehicle
             if (com) rb.centerOfMass = com.localPosition;
             wheelViewController.Init();
             SetWheels(wheelViewController.WheelsColliders);
-            SetParametersFromConfig(config);
+            SetParametersFromConfig(controllerConfig, wheelConfig);
         }
 
         private bool CheckComponents()
@@ -123,7 +125,7 @@ namespace Code.Gameplay.PlayerVehicle
             this.wheels = wheels;
         }
 
-        private void SetParametersFromConfig(RobotControllerConfig config)
+        private void SetParametersFromConfig(RobotControllerConfig config, RobotWheelsConfig wheelConfig)
         {
             maxSteerAngle = config.MaxSteerAngle;
             steeringSpeed = config.SteeringSpeed;
@@ -132,6 +134,40 @@ namespace Code.Gameplay.PlayerVehicle
             maxMotorTorque = config.MaxMotorTorque;
             gasAccelerationRate = config.GasAccelerationRate;
             maxBrakingForce = config.MaxBrakingForce;
+
+            for (int i = 0; i < wheels.Length; ++i)
+            {
+                // main
+                wheels[i].mass = wheelConfig.WheelMass;
+                wheels[i].wheelDampingRate = wheelConfig.WheelDampingRate;
+                wheels[i].suspensionDistance = wheelConfig.SuspensionDistance;
+                wheels[i].forceAppPointDistance = wheelConfig.ForceAppPointDistance;
+
+                // spring
+                JointSpring spring = wheels[i].suspensionSpring;
+                spring.spring = wheelConfig.Spring;
+                spring.damper = wheelConfig.Damper;
+                spring.targetPosition = wheelConfig.TargetPosition;
+                wheels[i].suspensionSpring = spring;
+
+                // fwd friction
+                WheelFrictionCurve f_friction = wheels[i].forwardFriction;
+                f_friction.extremumSlip = wheelConfig.ExtremumSlip_F;
+                f_friction.extremumValue = wheelConfig.ExtremumValue_F;
+                f_friction.asymptoteSlip = wheelConfig.AsymptoteSlip_F;
+                f_friction.asymptoteValue = wheelConfig.AsymptoteValue_F;
+                f_friction.stiffness = wheelConfig.Stiffness_F;
+                wheels[i].forwardFriction = f_friction;
+
+                // sdw friction
+                WheelFrictionCurve s_friction = wheels[i].sidewaysFriction;
+                s_friction.extremumSlip = wheelConfig.ExtremumSlip_S;
+                s_friction.extremumValue = wheelConfig.ExtremumValue_S;
+                s_friction.asymptoteSlip = wheelConfig.AsymptoteSlip_S;
+                s_friction.asymptoteValue = wheelConfig.AsymptoteValue_S;
+                s_friction.stiffness = wheelConfig.Stiffness_S;
+                wheels[i].sidewaysFriction = s_friction;
+            }
         }
 
         #endregion
@@ -274,7 +310,7 @@ namespace Code.Gameplay.PlayerVehicle
                 if (Mathf.Abs(wheels[i].rpm) <= maxWheelRPM)
                 {
                     wheels[i].motorTorque = torque;
-                    
+
                 }
                 else
                 {

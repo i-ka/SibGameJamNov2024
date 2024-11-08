@@ -15,6 +15,7 @@ namespace Code.Gameplay.PlayerVehicle
         #region Components
         [Header("Configs")]
         [SerializeField] private RobotControllerConfig controllerConfig;
+        [SerializeField] private RobotWheelsConfig wheelsConfig;
 
         [Header("Custom Components")]
         [SerializeField] private MovementController movementController;
@@ -57,7 +58,7 @@ namespace Code.Gameplay.PlayerVehicle
 
             if (CheckComponents())
             {
-                movementController.Init(controllerConfig);
+                movementController.Init(controllerConfig, wheelsConfig);
                 cameraController.Init();
                 inputController.Init();
                 healthController.Init(0);
