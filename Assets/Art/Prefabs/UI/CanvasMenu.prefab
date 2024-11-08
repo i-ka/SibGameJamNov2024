@@ -292,7 +292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5395303852043652804, guid: bd8ae6c733e5ace4da15c8628d10f8f8, type: 3}
       propertyPath: m_Name
-      value: MainMenu
+      value: MainMenuButtonsController
       objectReference: {fileID: 0}
     - target: {fileID: 5686277244553782466, guid: bd8ae6c733e5ace4da15c8628d10f8f8, type: 3}
       propertyPath: m_SortingLayer

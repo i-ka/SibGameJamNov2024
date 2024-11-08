@@ -1163,7 +1163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tankSkeleton: {fileID: 2664255051838987618, guid: 92ce63c1a1287424898c3213c4bedf26, type: 3}
   _screw: {fileID: 4309615600595102049, guid: 9081692f7c3d5b545b36573c47354f2f, type: 3}
-  _screwsCount: 3
+  _screwsCount: 1
   _screwSpawnOffset: 4
   _team: 1
   _movementController: {fileID: 4663826266883513657}
