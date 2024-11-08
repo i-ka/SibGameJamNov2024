@@ -29,3 +29,7 @@ MonoBehaviour:
     UpgradeVariants:
     - {fileID: 11400000, guid: 7b62849ef14621d41a264e4c9a567071, type: 2}
     - {fileID: 11400000, guid: edb69110503a0c142a0f854b17784cc3, type: 2}
+  - PointCost: 20
+    UpgradeVariants:
+    - {fileID: 11400000, guid: 7b62849ef14621d41a264e4c9a567071, type: 2}
+    - {fileID: 11400000, guid: edb69110503a0c142a0f854b17784cc3, type: 2}
