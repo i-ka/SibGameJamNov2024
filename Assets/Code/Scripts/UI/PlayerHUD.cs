@@ -1,4 +1,5 @@
 using System.Collections;
+using Code.Scripts.Ui;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,9 +13,8 @@ namespace SibGameJam.HUD
         [SerializeField] private TextMeshProUGUI textSpeedValue;
         [Space]
         [Header("Tank Health")]
-        [SerializeField] private Slider healthSlider;
         [SerializeField] private TextMeshProUGUI textHealthValue;
-        [SerializeField] private Image healthBar;
+        [SerializeField] private ValueBar healthBar;
         [Space]
         [Header("Tank Health Amount")]
         [SerializeField] private float verticalDistance;
@@ -43,10 +43,9 @@ namespace SibGameJam.HUD
 
         public void SetHealth(int lastDamage, int currentHealth, int maxHealth)
         {
-            healthSlider.maxValue = maxHealth;
-            healthSlider.value = currentHealth;
             // textHealthValue.text = $"{currentHealth} / {maxHealth}";
-            // healthBar.fillAmount = (float)currentHealth / (float)maxHealth;
+            healthBar.MaxValue = maxHealth;
+            healthBar.Value = currentHealth;
         }
 
         public void DeactivateHud()
