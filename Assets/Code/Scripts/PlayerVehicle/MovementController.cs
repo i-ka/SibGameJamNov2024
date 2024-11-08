@@ -317,6 +317,12 @@ namespace Code.Gameplay.PlayerVehicle
                     wheels[i].motorTorque = 0;
                     wheels[i].rotationSpeed = maxWheelRPM;
                 }
+
+                if (!wheels[i].isGrounded)
+                {
+                    wheels[i].motorTorque = 0;
+                }
+                    
                 wheels[i].brakeTorque = brake;
             }
         }
