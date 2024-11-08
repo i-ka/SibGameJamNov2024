@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 101390715}
-  m_IndirectSpecularColor: {r: 0.37336826, g: 0.6107016, b: 0.8628783, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6134,7 +6134,7 @@ PrefabInstance:
       objectReference: {fileID: 1616492675}
     - target: {fileID: 348988047408049131, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
       propertyPath: m_VersionIndex
-      value: 3554
+      value: 3560
       objectReference: {fileID: 0}
     - target: {fileID: 1164297254013074489, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
       propertyPath: m_Name
@@ -6145,6 +6145,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1616492675}
     - target: {fileID: 2513881732737807052, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
+      propertyPath: wheelsConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: 7fe15f1e1749b6b4b923655ec8310bd1, type: 2}
+    - target: {fileID: 2513881732737807052, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
       propertyPath: controllerConfig
       value: 
       objectReference: {fileID: 11400000, guid: 36b6cff3eb295df42954864672f57844, type: 2}
@@ -6154,7 +6158,7 @@ PrefabInstance:
       objectReference: {fileID: 307094001}
     - target: {fileID: 2955080064336247983, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
       propertyPath: m_VersionIndex
-      value: 3554
+      value: 3560
       objectReference: {fileID: 0}
     - target: {fileID: 3885630463431038834, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
       propertyPath: m_Mesh
@@ -6194,7 +6198,7 @@ PrefabInstance:
       objectReference: {fileID: 704797659}
     - target: {fileID: 5174975056499414105, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
       propertyPath: m_VersionIndex
-      value: 1824
+      value: 1830
       objectReference: {fileID: 0}
     - target: {fileID: 5294642944874144952, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
       propertyPath: m_Mesh
@@ -6206,7 +6210,7 @@ PrefabInstance:
       objectReference: {fileID: 189023208}
     - target: {fileID: 5482034769842914986, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
       propertyPath: m_VersionIndex
-      value: 3569
+      value: 3575
       objectReference: {fileID: 0}
     - target: {fileID: 6330982947002042615, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
       propertyPath: m_Mesh

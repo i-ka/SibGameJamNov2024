@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Code.Gameplay.PlayerVehicle
 {
-    [CreateAssetMenu(fileName = "NewRobotControllerConfig" , menuName = "RobotMovementConfig")]
+    [CreateAssetMenu(fileName = "NewRobotControllerConfig" , menuName = "RobotMovementConfig/Controller")]
 
     public class RobotControllerConfig : ScriptableObject
     {
