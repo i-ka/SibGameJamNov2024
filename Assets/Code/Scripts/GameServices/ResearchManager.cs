@@ -18,7 +18,7 @@ namespace SibGameJam
         private readonly IObjectResolver _objectResolver;
         private float _currentPoints;
 
-        public event Action<int, PlayerBonus> OnLevelUp;
+        public event Action<int, PlayerBonus[]> OnLevelUp;
         public event Action<float, float> OnPointsAdded;
 
         public ResearchManager(PlayerLevelingConfiguration levelingConfiguration, IObjectResolver objectResolver)
@@ -51,8 +51,7 @@ namespace SibGameJam
                 {
                     if (i > CurrentLevel)
                     {
-                        currentLevel.bonus.Apply(_objectResolver);
-                        OnLevelUp?.Invoke(i, currentLevel.bonus);
+                        OnLevelUp?.Invoke(i, currentLevel.bonuses);
                     }
 
                     CurrentLevel = i;

@@ -38,8 +38,8 @@ namespace SibGameJam
 
 			RegisterComponentFromScene<VehicleController>(builder);
 
-			RegisterComponentFromScene<FactoryUpgradeUi>(builder);
-			builder.RegisterEntryPoint<FactoryUpgradeUiController>();
+			RegisterComponentFromScene<UpgradeUi>(builder);
+			builder.RegisterEntryPoint<UpgradeUiController>();
 
 			RegisterComponentFromScene<PlayerResourcesUi>(builder);
 			builder.RegisterEntryPoint<PlayerResourceUiController>();

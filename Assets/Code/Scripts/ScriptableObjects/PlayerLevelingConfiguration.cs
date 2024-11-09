@@ -16,6 +16,6 @@ namespace SibGameJam.ScriptableObjects
     public class LevelData
     {
         public int points;
-        public PlayerBonus bonus;
+        public PlayerBonus[] bonuses;
     }
 }
