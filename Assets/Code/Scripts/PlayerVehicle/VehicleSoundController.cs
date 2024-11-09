@@ -44,7 +44,6 @@ namespace Code.Gameplay.PlayerVehicle
         {
             _researchManager = researchManager;
             _researchManager.OnLevelUp += PlayLevelUpSound;
-            Debug.LogAssertion("Constructed!");
         }
 
 

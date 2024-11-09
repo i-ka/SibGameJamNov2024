@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 101390715}
-  m_IndirectSpecularColor: {r: 0.37336826, g: 0.6107016, b: 0.8628783, a: 1}
+  m_IndirectSpecularColor: {r: 0.3733672, g: 0.6107016, b: 0.86287946, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -37772,7 +37772,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: f4b187adf8eac084a8cf7b276335d053, type: 2}
     - target: {fileID: 1334426733097201178, guid: cb46bcddd8c3c824ca95ada2a8d619f8, type: 3}
       propertyPath: autoInjectGameObjects.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1334426733097201178, guid: cb46bcddd8c3c824ca95ada2a8d619f8, type: 3}
       propertyPath: autoInjectGameObjects.Array.data[0]
@@ -37782,6 +37782,10 @@ PrefabInstance:
       propertyPath: autoInjectGameObjects.Array.data[1]
       value: 
       objectReference: {fileID: 980243535}
+    - target: {fileID: 1334426733097201178, guid: cb46bcddd8c3c824ca95ada2a8d619f8, type: 3}
+      propertyPath: autoInjectGameObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 1721624670}
     - target: {fileID: 8623695153424503307, guid: cb46bcddd8c3c824ca95ada2a8d619f8, type: 3}
       propertyPath: m_Name
       value: LevelLifetimeScope
@@ -38208,6 +38212,11 @@ Transform:
   - {fileID: 2086258334}
   m_Father: {fileID: 1233764037}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1721624670 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1164297254013074489, guid: 47bba724a51f7df419cde596d2e8eb62, type: 3}
+  m_PrefabInstance: {fileID: 207345912}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1724107015
 PrefabInstance:
   m_ObjectHideFlags: 0
