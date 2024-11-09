@@ -43,13 +43,12 @@ namespace SibGameJam
             RegisterComponentFromScene<UpgradeUi>(builder);
 			builder.RegisterEntryPoint<UpgradeUiController>();
 
+			builder.RegisterEntryPoint<GameFlowService>().AsSelf();
 			builder.RegisterComponentInHierarchy<GameOverUi>();
 			builder.RegisterEntryPoint<GameOverUiController>();
 
 			RegisterComponentFromScene<PlayerResourcesUi>(builder);
 			builder.RegisterEntryPoint<PlayerResourceUiController>();
-
-			builder.RegisterEntryPoint<GameFlowService>();
 		}
 
 		private void RegisterComponentFromScene<TComponentType>(IContainerBuilder builder) where TComponentType : MonoBehaviour

@@ -17,6 +17,7 @@ namespace Code.Scripts.UI.MenuNavigation
         
         public void Initialize()
         {
+            ui.SetVisible(false);
             gameFlowService.OnGameOver += OnGameOver;
             ui.ToMainMenuButton.onClick.AddListener(OpenMainMenu);
             ui.RestartButton.onClick.AddListener(Restart);
