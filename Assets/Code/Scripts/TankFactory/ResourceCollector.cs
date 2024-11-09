@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Code.Gameplay.PlayerVehicle;
 using Code.Scripts.TankFactorySpace;
 using UnityEngine;
 
@@ -20,7 +21,7 @@ namespace SibGameJam.TankFactorySpace
         [SerializeField] private Transform _collectorPosition;
         [SerializeField] private LayerMask _resourcesMask;
         [SerializeField] private PlayerResourceBag _resourceBag;
-        [SerializeField] private AudioSource _collectSound;
+        [SerializeField] private VehicleSoundController _soundController;
 
         private float _collectionTimer = 0;
         private Resource _currentResource;
@@ -73,8 +74,7 @@ namespace SibGameJam.TankFactorySpace
                 {
                     _currentResource.Collect();
                     OnResourceCollected?.Invoke(this);
-                    _collectSound.pitch = UnityEngine.Random.Range(0.98f, 1.02f);
-                    _collectSound.PlayOneShot(_collectSound.clip);
+                    _soundController.PlayResourceCollectedSound();
                 };
                 _currentResource = null;
                 _collectionTimer = 0;

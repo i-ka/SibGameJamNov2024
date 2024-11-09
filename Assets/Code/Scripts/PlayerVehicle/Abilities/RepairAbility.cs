@@ -20,6 +20,8 @@ namespace Code.Gameplay.PlayerVehicle
         [SerializeField] private int _maxCharges = 2;
 
         [SerializeField] private bool _applyInProgress = false;
+
+        [SerializeField] private VehicleSoundController _soundController;
         
         
         private int _currentCharges;
@@ -81,6 +83,7 @@ namespace Code.Gameplay.PlayerVehicle
             _currentCharges--;
             target.HealthController.RestoreHealth();
             EmitFinished();
+            _soundController.PlayTankRepairSound();
             Debug.Log("Repair ability applied");
             _applyInProgress = false;
             _useProgress = 0;

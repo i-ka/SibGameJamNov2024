@@ -24,7 +24,7 @@ namespace Code.Gameplay.PlayerVehicle
         [SerializeField] private HealthController healthController;
         [SerializeField] private PlayerHUD playerHUD;
         [SerializeField] private PlayerAbilityController abilityController;
-        [SerializeField] private SoundController soundController;
+        [SerializeField] private VehicleSoundController soundController;
         [SerializeField] private PlayerResourceBag resourceBag;
         #endregion
 
@@ -87,7 +87,7 @@ namespace Code.Gameplay.PlayerVehicle
             inputController ??= GetComponentInChildren<InputController>();
             healthController ??= GetComponent<HealthController>();
             playerHUD ??= GetComponentInChildren<PlayerHUD>();
-            soundController ??= GetComponentInChildren<SoundController>();
+            soundController ??= GetComponentInChildren<VehicleSoundController>();
         }
 
         private bool CheckComponents()
