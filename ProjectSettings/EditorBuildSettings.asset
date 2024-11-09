@@ -17,10 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UI/LoseWindow.unity
     guid: 17d902d0ce170ea488b251309c273e0b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/UI/SettingsScreen.unity
     guid: 5cfd4b43af15706458b231f466e5a24b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/UI/SettingsWindow.unity
     guid: c8cdba04b4a6896499217c885792d6c9
   - enabled: 1
