@@ -1,9 +1,10 @@
 using Code.Scripts.GameServices;
 using UnityEngine.SceneManagement;
+using VContainer.Unity;
 
 namespace Code.Scripts.UI.MenuNavigation
 {
-    public class GameOverUiController
+    public class GameOverUiController: IInitializable
     {
         private readonly GameOverUi ui;
         private readonly GameFlowService gameFlowService;
@@ -12,9 +13,11 @@ namespace Code.Scripts.UI.MenuNavigation
         {
             this.ui = ui;
             this.gameFlowService = gameFlowService;
-            
+        }
+        
+        public void Initialize()
+        {
             gameFlowService.OnGameOver += OnGameOver;
-
             ui.ToMainMenuButton.onClick.AddListener(OpenMainMenu);
             ui.RestartButton.onClick.AddListener(Restart);
         }
@@ -34,6 +37,5 @@ namespace Code.Scripts.UI.MenuNavigation
         {
             SceneManager.LoadScene("Scenes/Level_0");
         }
-        
     }
 }
