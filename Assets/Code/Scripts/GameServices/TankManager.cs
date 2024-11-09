@@ -21,7 +21,7 @@ namespace SibGameJam
 
         public void OnTankDestroyed(ITank tank)
         {
-            if (tank.Team == Team.Red)
+            if (tank.Team == Team.Blue)
                 researchManager.AddResearchPoints(1);
             tanks.Remove(tank);
             tank.OnDestroyed -= OnTankDestroyed;
