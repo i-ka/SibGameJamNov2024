@@ -2478,6 +2478,7 @@ MonoBehaviour:
   <RootObject>k__BackingField: {fileID: 8873579940375763272}
   buttonsParent: {fileID: 5272546964299035527}
   buttonPrefab: {fileID: 7436260113794303609, guid: 137fb45528ed2a449bda0b6187f8ed06, type: 3}
+  upgradeCaption: {fileID: 379921049785303843}
 --- !u!1 &8968067276507384951
 GameObject:
   m_ObjectHideFlags: 0

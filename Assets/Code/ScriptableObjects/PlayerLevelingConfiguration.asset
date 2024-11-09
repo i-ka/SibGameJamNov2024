@@ -14,22 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Levels>k__BackingField:
   - points: 3
-    bonus: {fileID: 11400000, guid: 45f35b8a46fa24c9d8da0d26740aeadd, type: 2}
+    bonuses:
+    - {fileID: 11400000, guid: 003df266ab905014bad1efe566c1b766, type: 2}
+    - {fileID: 11400000, guid: 482954faead4a444a95803b0a8227029, type: 2}
   - points: 7
-    bonus: {fileID: 11400000, guid: 482954faead4a444a95803b0a8227029, type: 2}
+    bonuses:
+    - {fileID: 11400000, guid: 45f35b8a46fa24c9d8da0d26740aeadd, type: 2}
+    - {fileID: 11400000, guid: f2aad3fce1297934fa19e821621e98a7, type: 2}
   - points: 15
-    bonus: {fileID: 11400000, guid: 21c402a892025fb41aab4dfaf6e00010, type: 2}
+    bonuses:
+    - {fileID: 11400000, guid: fbc472e4675767b4e9b11a95e0d9b654, type: 2}
+    - {fileID: 11400000, guid: 50457c67c1cbe5741bd73c24f2bb70d9, type: 2}
   - points: 25
-    bonus: {fileID: 11400000, guid: 50457c67c1cbe5741bd73c24f2bb70d9, type: 2}
+    bonuses:
+    - {fileID: 11400000, guid: 21c402a892025fb41aab4dfaf6e00010, type: 2}
+    - {fileID: 11400000, guid: 003df266ab905014bad1efe566c1b766, type: 2}
   - points: 37
-    bonus: {fileID: 11400000, guid: 003df266ab905014bad1efe566c1b766, type: 2}
-  - points: 52
-    bonus: {fileID: 11400000, guid: f2aad3fce1297934fa19e821621e98a7, type: 2}
-  - points: 300
-    bonus: {fileID: 11400000, guid: f2aad3fce1297934fa19e821621e98a7, type: 2}
-  - points: 120
-    bonus: {fileID: 11400000, guid: 7e3156eb2315cdb449a40f19cd3252a7, type: 2}
-  - points: 150
-    bonus: {fileID: 11400000, guid: 3659c7b7ef7c9424db0ebfee25bd5750, type: 2}
-  - points: 170
-    bonus: {fileID: 11400000, guid: fbc472e4675767b4e9b11a95e0d9b654, type: 2}
+    bonuses:
+    - {fileID: 11400000, guid: 003df266ab905014bad1efe566c1b766, type: 2}
+    - {fileID: 11400000, guid: 482954faead4a444a95803b0a8227029, type: 2}
