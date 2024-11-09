@@ -188,6 +188,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RepairTerminal
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 30ec18f11d2c1c142a068c34d347d741, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4865064391339405807, guid: 30ec18f11d2c1c142a068c34d347d741, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.9967315

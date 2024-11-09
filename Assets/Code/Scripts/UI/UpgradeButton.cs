@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace Code.Scripts.Ui
 {
-    public class FactoryUpgradeButton : MonoBehaviour
+    public class UpgradeButton : MonoBehaviour
     {
         [field: SerializeField] public Button Button { get; private set; }
         [field: SerializeField] public TextMeshProUGUI UpgradeNameText { get; private set; }
