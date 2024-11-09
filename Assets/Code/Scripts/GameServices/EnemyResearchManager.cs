@@ -13,7 +13,7 @@ namespace SibGameJam
         public int CurrentLevel { get; private set; }
         public float NextLevelLevelPoints { get; private set; }
         public float PointsInCurrentLevel { get; private set; }
-        public float ResearchSpeedMultiplier { get; private set; } = 1;
+        public float ResearchSpeedMultiplier { get; private set; } = 0.001f;
 
         private readonly EnemyLevelingConfiguration _playerLevelingConfiguration;
         private readonly IObjectResolver _objectResolver;

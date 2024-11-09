@@ -9,6 +9,13 @@ namespace SibGameJam.ScriptableObjects
     public class EnemyLevelingConfiguration : ScriptableObject
     {
         [field: SerializeField]
-        public List<LevelData> Levels { get; private set; }
+        public List<EnemyLevelData> Levels { get; private set; }
+    }
+
+    [Serializable]
+    public class EnemyLevelData
+    {
+        public int points;
+        public PlayerBonus bonus;
     }
 }
