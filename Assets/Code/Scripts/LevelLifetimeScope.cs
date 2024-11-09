@@ -37,8 +37,9 @@ namespace SibGameJam
 			builder.Register<FactoryUpgradeManager>(Lifetime.Singleton);
 
 			RegisterComponentFromScene<VehicleController>(builder);
+            RegisterComponentFromScene<VehicleSoundController>(builder);
 
-			RegisterComponentFromScene<UpgradeUi>(builder);
+            RegisterComponentFromScene<UpgradeUi>(builder);
 			builder.RegisterEntryPoint<UpgradeUiController>();
 
 			RegisterComponentFromScene<PlayerResourcesUi>(builder);

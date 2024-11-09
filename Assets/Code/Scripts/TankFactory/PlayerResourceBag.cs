@@ -1,4 +1,5 @@
 using System.Linq;
+using Code.Gameplay.PlayerVehicle;
 using SibGameJam.TankFactorySpace;
 using UnityEngine;
 
@@ -19,6 +20,8 @@ public class PlayerResourceBag : MonoBehaviour
 
     [SerializeField]
     private int _capacity = 5;
+    [SerializeField] 
+    private VehicleSoundController _soundController;
 
     /// <summary>
     /// Start resource unload
@@ -70,6 +73,7 @@ public class PlayerResourceBag : MonoBehaviour
             var count = Resources.Resources[resouceType];
             Resources.RemoveResource(resouceType, count);
             _unloadTarget.AddResource(resouceType, count);
+            _soundController.PlayUnloadBagSound();
 
             Debug.Log($"Transfered resource {count} {resouceType}");
         }
@@ -86,7 +90,6 @@ public class PlayerResourceBag : MonoBehaviour
         {
             var count = Resources.Resources[resouceType];
             Resources.RemoveResource(resouceType, count);
-
             Debug.Log($"Transfered resource {count} {resouceType}");
         }
     }
