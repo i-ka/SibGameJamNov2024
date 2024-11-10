@@ -2222,6 +2222,8 @@ MonoBehaviour:
   settingsUI: {fileID: 6524005575721260945}
   controlsUI: {fileID: 1402041495235112521}
   titlesUI: {fileID: 5940690515071990303}
+  winUI: {fileID: 0}
+  loseUI: {fileID: 0}
 --- !u!1 &8129763462847593834
 GameObject:
   m_ObjectHideFlags: 0
@@ -5986,6 +5988,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4571904793187920227, guid: 248cf1fcd39773a4f8dcdaa64d5a3257, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3972922698406933147}
+    - target: {fileID: 4571904793187920227, guid: 248cf1fcd39773a4f8dcdaa64d5a3257, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayPressed
+      objectReference: {fileID: 0}
+    - target: {fileID: 4571904793187920227, guid: 248cf1fcd39773a4f8dcdaa64d5a3257, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: StartScreenButtons, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 4705138946078571072, guid: 248cf1fcd39773a4f8dcdaa64d5a3257, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -6269,6 +6283,18 @@ PrefabInstance:
     - target: {fileID: 8978618421307591282, guid: 248cf1fcd39773a4f8dcdaa64d5a3257, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -169.93933
+      objectReference: {fileID: 0}
+    - target: {fileID: 9053391030209398221, guid: 248cf1fcd39773a4f8dcdaa64d5a3257, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6371039399505446786}
+    - target: {fileID: 9053391030209398221, guid: 248cf1fcd39773a4f8dcdaa64d5a3257, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadMainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 9053391030209398221, guid: 248cf1fcd39773a4f8dcdaa64d5a3257, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: InGameMenu, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
