@@ -11,6 +11,8 @@ namespace Code.Scripts.Ui
         [field: SerializeField] public Button Button { get; private set; }
         [field: SerializeField] public TextMeshProUGUI UpgradeNameText { get; private set; }
         [field: SerializeField] public TextMeshProUGUI UpgradeDescriptionText { get; private set; }
+        
+        [field:SerializeField] public Image BonusIcon { get; private set; }
 
         public event Action<PlayerBonus> BonusClicked;
 
@@ -20,6 +22,10 @@ namespace Code.Scripts.Ui
         {
             UpgradeNameText.text = bonus.BonusName;
             UpgradeDescriptionText.text = bonus.Description;
+            
+            if (BonusIcon != null)
+                BonusIcon.sprite = bonus.Icon;
+            
             _bonus = bonus;
             Button.onClick.AddListener(ButtonClicked);
         }

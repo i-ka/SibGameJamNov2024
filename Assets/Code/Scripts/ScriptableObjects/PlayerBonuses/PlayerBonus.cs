@@ -13,6 +13,9 @@ namespace SibGameJam.ScriptableObjects.PlayerBonuses
         [field: SerializeField]
         [field: TextArea]
         public string Description { get; private set; }
+        
+        [field: SerializeField]
+        public Sprite Icon { get; private set; }
 
         public abstract void Apply(IObjectResolver objectResolver);
     }
