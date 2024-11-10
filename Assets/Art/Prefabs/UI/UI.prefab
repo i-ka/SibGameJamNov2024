@@ -2948,8 +2948,8 @@ MonoBehaviour:
   settingsUI: {fileID: 6524005575721260945}
   controlsUI: {fileID: 1402041495235112521}
   titlesUI: {fileID: 5940690515071990303}
-  winUI: {fileID: 0}
-  loseUI: {fileID: 0}
+  winUI: {fileID: 2143964456255796893}
+  loseUI: {fileID: 4096937541760583678}
 --- !u!1 &8129763462847593834
 GameObject:
   m_ObjectHideFlags: 0
@@ -5467,6 +5467,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 248cf1fcd39773a4f8dcdaa64d5a3257, type: 3}
+--- !u!1 &2143964456255796893 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6697415065617699179, guid: 248cf1fcd39773a4f8dcdaa64d5a3257, type: 3}
+  m_PrefabInstance: {fileID: 4697566487316965366}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2229548376547820200 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6900053094699115870, guid: 248cf1fcd39773a4f8dcdaa64d5a3257, type: 3}
@@ -7038,6 +7043,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &4096937541760583678 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6697415065617699179, guid: 248cf1fcd39773a4f8dcdaa64d5a3257, type: 3}
+  m_PrefabInstance: {fileID: 7217794075312002709}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4941532508831353510 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2357943208682724403, guid: 248cf1fcd39773a4f8dcdaa64d5a3257, type: 3}
