@@ -6,10 +6,10 @@ namespace Code.Scripts.UI.MenuNavigation
 {
     public class GameOverUiController: IInitializable
     {
-        private readonly GameOverUi ui;
+        private readonly InGameMenu ui;
         private readonly GameFlowService gameFlowService;
 
-        public GameOverUiController(GameOverUi ui, GameFlowService gameFlowService)
+        public GameOverUiController(InGameMenu ui, GameFlowService gameFlowService)
         {
             this.ui = ui;
             this.gameFlowService = gameFlowService;
@@ -17,26 +17,15 @@ namespace Code.Scripts.UI.MenuNavigation
         
         public void Initialize()
         {
-            ui.SetVisible(false);
             gameFlowService.OnGameOver += OnGameOver;
-            ui.ToMainMenuButton.onClick.AddListener(OpenMainMenu);
-            ui.RestartButton.onClick.AddListener(Restart);
         }
 
         private void OnGameOver(GameOverReason reason)
         {
-            ui.SetReason(reason);
-            ui.SetVisible(true);
-        }
-
-        private void OpenMainMenu()
-        {
-            SceneManager.LoadScene("Scenes/UI/StartScreen");
-        }
-        
-        private void Restart()
-        {
-            SceneManager.LoadScene("Scenes/Level_0");
+            if (reason is GameOverReason.Win)
+                ui.OpenWinDialog();
+            
+            ui.OpenLoseDialog();
         }
     }
 }
