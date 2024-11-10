@@ -5,7 +5,7 @@ using VContainer.Unity;
 
 namespace Code.Scripts.GameServices
 {
-	public class GameFlowService : IInitializable
+	public class GameFlowService : IStartable
 	{
 		public event Action<GameOverReason> OnGameOver;
 
@@ -18,18 +18,24 @@ namespace Code.Scripts.GameServices
 			this.player = player;
 		}
 
-		public void Initialize()
+		public void Start()
 		{
 			towerRegistry.GetTower(Team.Red).HealthController.OnDestroyed += 
-				() => OnGameOver?.Invoke(GameOverReason.LooseBaseDestroyed);
+				() => GameOver(GameOverReason.LooseBaseDestroyed);
 			
 			towerRegistry.GetTower(Team.Blue).HealthController.OnDestroyed += 
-				() => OnGameOver?.Invoke(GameOverReason.Win);
+				() => GameOver(GameOverReason.Win);
 
 			player.HealthController.OnDestroyed +=
-				() => OnGameOver?.Invoke(GameOverReason.LoosePlayerDied);
+				() => GameOver(GameOverReason.LoosePlayerDied);
 		}
-		
+
+		private void GameOver(GameOverReason reason)
+		{
+			player.SetInputEnabled(false);
+			OnGameOver?.Invoke(reason);
+		}
+
 		
 	}
 }
