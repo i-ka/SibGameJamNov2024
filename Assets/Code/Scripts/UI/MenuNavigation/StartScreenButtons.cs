@@ -14,7 +14,14 @@ public void PlayPressed()
     {
         SceneManager.LoadScene("Level_0");
     }
-
+public void OpenMainMenu()
+    {
+        settingsUI.SetActive(false); 
+        titlesUI.SetActive(false);
+        controlsUI.SetActive(false);
+        mainMenuUI.SetActive(true);
+        isMenuActive = true;
+    }
 public void OpenSettings()
     {
         settingsUI.SetActive(true); 
@@ -33,14 +40,14 @@ public void OpenControls()
         settingsUI.SetActive(false);
         isMenuActive = true;
     }
-public void CloseMenu()
-    {
-        mainMenuUI.SetActive(true);
-        settingsUI.SetActive(false);
-        titlesUI.SetActive(false);
-        controlsUI.SetActive(false);
-        isMenuActive = false;
-    }
+// public void CloseMenu()
+//     {
+//         mainMenuUI.SetActive(true);
+//         settingsUI.SetActive(false);
+//         titlesUI.SetActive(false);
+//         controlsUI.SetActive(false);
+//         isMenuActive = false;
+//     }
 
 public void ExitPressed()
 
