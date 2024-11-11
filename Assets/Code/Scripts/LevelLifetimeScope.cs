@@ -2,6 +2,7 @@ using Code.Scripts;
 using Code.Scripts.GameServices;
 using Code.Scripts.Ui;
 using Code.Gameplay.PlayerVehicle;
+using Code.Scripts.UI.MenuNavigation;
 using SibGameJam.GameServices;
 using SibGameJam.ScriptableObjects;
 using SibGameJam.Ui;
@@ -42,10 +43,14 @@ namespace SibGameJam
             RegisterComponentFromScene<UpgradeUi>(builder);
 			builder.RegisterEntryPoint<UpgradeUiController>();
 
+
+			builder.RegisterComponentInHierarchy<InGameMenu>();
+			builder.RegisterEntryPoint<GameFlowService>().AsSelf();
+			builder.RegisterEntryPoint<GameOverUiController>();
+
 			RegisterComponentFromScene<PlayerResourcesUi>(builder);
 			builder.RegisterEntryPoint<PlayerResourceUiController>();
-
-			builder.RegisterEntryPoint<GameFlowService>();
+			
 		}
 
 		private void RegisterComponentFromScene<TComponentType>(IContainerBuilder builder) where TComponentType : MonoBehaviour

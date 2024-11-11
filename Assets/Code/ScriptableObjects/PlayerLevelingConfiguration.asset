@@ -23,13 +23,17 @@ MonoBehaviour:
     - {fileID: 11400000, guid: f2aad3fce1297934fa19e821621e98a7, type: 2}
   - points: 15
     bonuses:
+    - {fileID: 11400000, guid: 003df266ab905014bad1efe566c1b766, type: 2}
+    - {fileID: 11400000, guid: 482954faead4a444a95803b0a8227029, type: 2}
+  - points: 25
+    bonuses:
     - {fileID: 11400000, guid: fbc472e4675767b4e9b11a95e0d9b654, type: 2}
     - {fileID: 11400000, guid: 50457c67c1cbe5741bd73c24f2bb70d9, type: 2}
-  - points: 25
+  - points: 37
     bonuses:
     - {fileID: 11400000, guid: 21c402a892025fb41aab4dfaf6e00010, type: 2}
     - {fileID: 11400000, guid: 003df266ab905014bad1efe566c1b766, type: 2}
-  - points: 37
+  - points: 52
     bonuses:
     - {fileID: 11400000, guid: 003df266ab905014bad1efe566c1b766, type: 2}
-    - {fileID: 11400000, guid: 482954faead4a444a95803b0a8227029, type: 2}
+    - {fileID: 11400000, guid: 9559e1386c4877b408e6e3385c8c9fe8, type: 2}

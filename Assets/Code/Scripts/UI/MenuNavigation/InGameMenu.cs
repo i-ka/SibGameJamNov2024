@@ -3,10 +3,12 @@ using UnityEngine.SceneManagement;
 
 public class InGameMenu : MonoBehaviour
 {
-    public GameObject menuUI; // ingame menu
-    public GameObject settingsUI; // ingame settings
+    public GameObject menuUI; 
+    public GameObject settingsUI; 
     public GameObject controlsUI;
     public GameObject titlesUI;
+    public GameObject winUI;
+    public GameObject loseUI;
     
 
     private bool isMenuActive = false;
@@ -25,6 +27,18 @@ public class InGameMenu : MonoBehaviour
                 OpenMenu();
             }
         }
+    }
+    public void OpenWinDialog()
+    {
+        winUI.SetActive(true); 
+        isMenuActive = true;
+        
+    }
+    public void OpenLoseDialog()
+    {
+        loseUI.SetActive(true); 
+        isMenuActive = true;
+        
     }
     public void OpenMenu()
     {
@@ -63,6 +77,10 @@ public class InGameMenu : MonoBehaviour
     public void LoadMainMenu()
     {
         SceneManager.LoadScene("StartScreen");
+    }
+    public void StartNewGame()
+    {
+        SceneManager.LoadScene("Level_0");
     }
 
     public void QuitGame()
