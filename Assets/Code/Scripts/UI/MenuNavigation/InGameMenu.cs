@@ -77,11 +77,6 @@ public class InGameMenu : MonoBehaviour
     public void LoadMainMenu()
     {
         SceneManager.LoadScene("StartScreen");
-        Debug.Log("New game pressed");
-    }
-    public void LoadNewGame()
-    {
-        SceneManager.LoadScene("Level_0");
     }
 
     public void QuitGame()
