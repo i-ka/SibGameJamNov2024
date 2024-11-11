@@ -78,6 +78,10 @@ public class InGameMenu : MonoBehaviour
     {
         SceneManager.LoadScene("StartScreen");
     }
+    public void StartNewGame()
+    {
+        SceneManager.LoadScene("Level_0");
+    }
 
     public void QuitGame()
     {
