@@ -138,7 +138,7 @@ MonoBehaviour:
   <Button>k__BackingField: {fileID: 1017181994196731610}
   <UpgradeNameText>k__BackingField: {fileID: 5513637145732760000}
   <UpgradeDescriptionText>k__BackingField: {fileID: 6509200699008035764}
-  <BonusIcon>k__BackingField: {fileID: 0}
+  <BonusIcon>k__BackingField: {fileID: 4006824022445276232}
 --- !u!1 &4646757284716398127
 GameObject:
   m_ObjectHideFlags: 0
