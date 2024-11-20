@@ -15,5 +15,6 @@ MonoBehaviour:
   <BonusName>k__BackingField: "\u0423\u0440\u043E\u043D \u0442\u0430\u043D\u043A\u043E\u0432"
   <Description>k__BackingField: "\u0421\u043E\u044E\u0437\u043D\u044B\u0435 \u0442\u0430\u043D\u043A\u0438
     \u043F\u043E\u043B\u0443\u0447\u0430\u044E\u0442 +10% \u043A \u0443\u0440\u043E\u043D\u0443."
+  <Icon>k__BackingField: {fileID: 21300000, guid: 79d503d0bfb3055438882dbc5d80ed82, type: 3}
   <DamageMultiplier>k__BackingField: 0.1
   <Team>k__BackingField: 2
