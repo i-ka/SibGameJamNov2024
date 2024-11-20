@@ -37,15 +37,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FlameDetailSize: 100
+    - _FlameDetailSize: 80
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Speed: -0.5
+    - _Speed: -0.74
     - _VerticalMaskPosition: 1
     m_Colors:
-    - _Color_1: {r: 1, g: 0.8432582, b: 0.3820755, a: 0}
-    - _Color_2: {r: 1, g: 0.5670936, b: 0, a: 0}
-    - _Color_3: {r: 1, g: 0, b: 0.05324268, a: 0}
+    - _Color_1: {r: 0.5389418, g: 2.0485406, b: 3.087991, a: 0}
+    - _Color_2: {r: 0.1738622, g: 1.9931339, b: 3.3507986, a: 0}
+    - _Color_3: {r: 3.5974495, g: 12.861194, b: 28.24664, a: 0}
     - _FlameTile: {r: 1, g: 0.5, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &7427746471108737192
