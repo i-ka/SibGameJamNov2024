@@ -7738,6 +7738,78 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1716438547}
     m_Modifications:
+    - target: {fileID: 2539316303085221763, guid: 07c5951908ea5864588106cbbd26eb0e, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539316303085221763, guid: 07c5951908ea5864588106cbbd26eb0e, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[1].m_Name
+      value: Lifetime
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539316303085221763, guid: 07c5951908ea5864588106cbbd26eb0e, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[2].m_Name
+      value: Rate
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539316303085221763, guid: 07c5951908ea5864588106cbbd26eb0e, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[0].m_Value
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539316303085221763, guid: 07c5951908ea5864588106cbbd26eb0e, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[1].m_Value
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539316303085221763, guid: 07c5951908ea5864588106cbbd26eb0e, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[2].m_Value
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539316303085221763, guid: 07c5951908ea5864588106cbbd26eb0e, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[1].m_Overridden
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539316303085221763, guid: 07c5951908ea5864588106cbbd26eb0e, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[2].m_Overridden
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539316303085221763, guid: 07c5951908ea5864588106cbbd26eb0e, type: 3}
+      propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[0].m_Value.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539316303085221763, guid: 07c5951908ea5864588106cbbd26eb0e, type: 3}
+      propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.atime1
+      value: 23130
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539316303085221763, guid: 07c5951908ea5864588106cbbd26eb0e, type: 3}
+      propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.key0.a
+      value: 0.6039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539316303085221763, guid: 07c5951908ea5864588106cbbd26eb0e, type: 3}
+      propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.key0.b
+      value: 0.41162336
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539316303085221763, guid: 07c5951908ea5864588106cbbd26eb0e, type: 3}
+      propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.key0.g
+      value: 0.43736967
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539316303085221763, guid: 07c5951908ea5864588106cbbd26eb0e, type: 3}
+      propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.key0.r
+      value: 0.4716981
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539316303085221763, guid: 07c5951908ea5864588106cbbd26eb0e, type: 3}
+      propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.key1.b
+      value: 0.16375935
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539316303085221763, guid: 07c5951908ea5864588106cbbd26eb0e, type: 3}
+      propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.key1.g
+      value: 0.22419012
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539316303085221763, guid: 07c5951908ea5864588106cbbd26eb0e, type: 3}
+      propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.key1.r
+      value: 0.3018868
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539316303085221763, guid: 07c5951908ea5864588106cbbd26eb0e, type: 3}
+      propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.m_ColorSpace
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5955208632176126355, guid: 07c5951908ea5864588106cbbd26eb0e, type: 3}
       propertyPath: m_Name
       value: BuildingTube
@@ -30255,6 +30327,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuildingTube_Big
       objectReference: {fileID: 0}
+    - target: {fileID: 4534672019013126379, guid: 375acca67bbfbb24b83039790ad92300, type: 3}
+      propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.key0.b
+      value: 0.5188679
+      objectReference: {fileID: 0}
+    - target: {fileID: 4534672019013126379, guid: 375acca67bbfbb24b83039790ad92300, type: 3}
+      propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.key0.g
+      value: 0.5188679
+      objectReference: {fileID: 0}
+    - target: {fileID: 4534672019013126379, guid: 375acca67bbfbb24b83039790ad92300, type: 3}
+      propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.key0.r
+      value: 0.5188679
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -35024,6 +35108,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuildingTube_Big
       objectReference: {fileID: 0}
+    - target: {fileID: 2829176270504522251, guid: 375acca67bbfbb24b83039790ad92300, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -37534,6 +37622,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuildingTube_Big (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2829176270504522251, guid: 375acca67bbfbb24b83039790ad92300, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.98
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -40021,6 +40113,14 @@ PrefabInstance:
     - target: {fileID: 1116083082915434791, guid: 375acca67bbfbb24b83039790ad92300, type: 3}
       propertyPath: m_Name
       value: BuildingTube_Big
+      objectReference: {fileID: 0}
+    - target: {fileID: 2829176270504522251, guid: 375acca67bbfbb24b83039790ad92300, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 12.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4534672019013126379, guid: 375acca67bbfbb24b83039790ad92300, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[1].m_Value
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
